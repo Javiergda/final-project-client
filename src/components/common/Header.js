@@ -5,12 +5,8 @@ import deer from '../../icons/deer.png'
 import rabbit from '../../icons/rabbit.png'
 import menu from '../../icons/menu.png'
 
-
-
 export const Header = () => {
     return (
-
-
         <header className="header__main">
             <nav className="nav_small">
                 <ul>
@@ -24,15 +20,15 @@ export const Header = () => {
                         <span>Inicio</span>
                     </li>
                     <li>
-                        <img src={butterfly} height="20px" alt='bird' />
+                        <img src={butterfly} height="20px" alt='butterfly' />
                         <span>Alumno</span>
                     </li>
                     <li>
-                        <img src={deer} height="20px" alt='bird' />
+                        <img src={deer} height="20px" alt='deer' />
                         <span>Profesor</span>
                     </li>
                     <li>
-                        <img src={rabbit} height="20px" alt='bird' />
+                        <img src={rabbit} height="20px" alt='rabbit' />
                         <span>Contacto</span>
                     </li>
                     <li className=''>
@@ -40,7 +36,6 @@ export const Header = () => {
                     </li>
                 </ul>
             </nav>
-
             <nav className='nav_medium'>
                 <ul>
                     <li>
@@ -62,15 +57,7 @@ export const Header = () => {
                         <span >Login</span>
                     </li>
                 </ul>
-
-
-
             </nav>
-
         </header>
-
-
-
-
     )
 }

@@ -1,4 +1,9 @@
-//Colors
+// Colors
 
 $primary: #ff0000;
 $primary2: #435bac;
+
+// color-footer
+
+$background_footer:#292929;
+$footer_text:lighten($background_footer,50%);
