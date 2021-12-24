@@ -1,48 +1,33 @@
 .carousel_main{
+    border: 3px solid;
+    // background-color: #ccc;
+    transition: 3s linear;
 
     .carousel1{
-        border: 3px solid;
-
+    
         height: 300px;
         width: 100%;
         background-image: url("../../images/child1.jpg");
-        /* donde se va a anclar: vertical y horizontal. Siempre se vera. */
-        background-position: center bottom;
-        /* Si se expande o se duplica */
-        background-size: cover;
-        /* La foto queda estatica y no se mueve con el scroll */
-        background-attachment: fixed;
-
+        background-position: center bottom;// anclar img. vertical + horizontal
+        background-size: cover;// si se expande o se duplica
+        background-attachment: scroll; // img estatica o se mueve conscroll - scroll o fixed
     }
+
     .carousel2{
-        border: 3px solid;
 
         height: 300px;
         width: 100%;
         background-image: url("../../images/child2.jpg");
-        /* donde se va a anclar: vertical y horizontal. Siempre se vera. */
         background-position: center bottom;
-        /* Si se expande o se duplica */
         background-size: cover;
-        /* La foto queda estatica y no se mueve con el scroll */
-        background-attachment: fixed;
     }
 
-    .carousel{
-        border: 3px solid;
+    .carousel3{
 
         height: 300px;
         width: 100%;
         background-image: url("../../images/child3.jpg");
-        /* donde se va a anclar: vertical y horizontal. Siempre se vera. */
         background-position: center bottom;
-        /* Si se expande o se duplica */
         background-size: cover;
-        /* La foto queda estatica y no se mueve con el scroll */
-        background-attachment: fixed;
     }
-
-
-
-
 }

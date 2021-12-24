@@ -6,27 +6,17 @@ import img3 from '../../images/child3.jpg'
 export const Carousel = () => {
 
     const [img, setImg] = useState(1);
-    console.log(img);
 
     useEffect(() => {
         const interval = setInterval(() => {
-
-            setImg(img + 1);
-            console.log(img);
-            // img == 3 ? setImg(1) : setImg(img + 1);
-        }, 1000);
+            setImg(previmg => previmg == 3 ? 1 : previmg + 1);
+        }, 3000);
         return () => clearInterval(interval);
     }, []);
 
-
     return (
         <div className='carousel_main'>
-            {img}
-
-
-            {/* <div className={`carousel${img}`} /> */}
-
-
+            <div className={`carousel${img}`} />
         </div>
     )
 }

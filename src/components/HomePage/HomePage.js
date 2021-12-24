@@ -11,7 +11,7 @@ export const HomePage = () => {
     return (
         <div>
             <Header />
-            {/* <Carousel /> */}
+            <Carousel />
             <Cards />
             <h1>Hola mundo</h1>
             <Footer />
