@@ -3,21 +3,31 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    background-color: #dde2c1;
 
     .card{
         display: flex;
         flex-direction: column;
-
-        align-items: center;
-        border: 1px solid rgb(41, 85, 28);
-        border-radius: 5px;
-        width: 300px;
-        height: 300px;
-        margin: 10px;
+        background-color: white;
+        margin: 20px;
+        font-family: 'PatuaOne-Regular';
+        border-radius: 10px;
+        width: 350px;
+        height: 400px;
+        
+        h5{
+            font-family: 'PatuaOne-Regular';
+            margin:20px 0px 0px 20px;
+        }
+        p{
+            padding-right: 5px;
+            margin:20px 0px 0px 20px;
+        }
     }
 
     img{
+        border-radius: 10px 10px 0px 00px;
         width: 100%;
-        height: 160px;
+        height: 200px;
     }
 }

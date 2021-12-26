@@ -9,7 +9,7 @@ const cardValues = [
     {
         img: bambi1,
         title: 'SERVICIOS',
-        description: 'Los mejores servicion de toda la zona'
+        description: 'Los mejores servicios de toda la zona'
     },
     {
         img: bambi2,
