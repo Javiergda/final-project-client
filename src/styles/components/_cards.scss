@@ -1,33 +1,51 @@
-.cards_main{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    background-color: #dde2c1;
 
-    .card{
+.cards_title{
+
+
+        background-color: #dde2c1;
+        h1{
+        padding-top: 15px;
+        text-align: center;           
+        }
+
+
+    
+    .cards_main{
         display: flex;
-        flex-direction: column;
-        background-color: white;
-        margin: 20px;
-        font-family: 'PatuaOne-Regular';
-        border-radius: 10px;
-        width: 350px;
-        height: 400px;
-        
-        h5{
-            font-family: 'PatuaOne-Regular';
-            margin:20px 0px 0px 20px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    
+        .card{
+            display: flex;
+            flex-direction: column;
+            background-color: white;
+            margin: 20px;
+            border-radius: 10px;
+            width: 350px;
+            height: 410px;
+            cursor: pointer;
+            h5{
+                margin:20px 0px 0px 15px;
+                font-size: 1.4rem;
+                padding: 5px;
+            }
+            p,span{
+                padding: 15px;
+                color: gray;
+                margin-left:20px;
+            }
+            span{
+                text-align: right;
+                color: $brown;
+            }
         }
-        p{
-            padding-right: 5px;
-            margin:20px 0px 0px 20px;
+    
+        img{
+            border-radius: 10px 10px 0px 00px;
+            width: 100%;
+            height: 250px;
         }
-    }
-
-    img{
-        border-radius: 10px 10px 0px 00px;
-        width: 100%;
-        height: 200px;
     }
 }
+

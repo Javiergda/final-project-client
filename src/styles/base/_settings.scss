@@ -2,22 +2,18 @@
 
 // Green
 $green: #2b501a; 
-$green-medium:lighten($green,15%);
+$green-medium:lighten($green,1%);
 $green-light:lighten($green,40%);
 $green-shadow:lighten($green,70%);
 
 // Brown
-$brown: rgb(107, 45, 45);
+$brown: #5e4747;
 $brown-medium:lighten($brown,5%);
 $brown-light:lighten($brown,40%);
 $brown-shadow:lighten($brown,70%);
 
 
-
-
-$primary2: #435bac;
-
 // color-footer
 
 $background_footer:#292929;
-$footer_text:lighten($background_footer,50%);
+$footer_text:lighten($background_footer,70%);

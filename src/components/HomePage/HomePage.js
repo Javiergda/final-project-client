@@ -13,7 +13,6 @@ export const HomePage = () => {
             <Header />
             <Carousel />
             <Cards />
-            <h1>Hola mundo</h1>
             <Footer />
         </div>
     )

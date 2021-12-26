@@ -14,6 +14,7 @@ export const Card = ({ values }) => {
             <p>
                 {description}
             </p>
+            <span>+ Info</span>
         </div>
     )
 }

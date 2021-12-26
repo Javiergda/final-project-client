@@ -8,12 +8,18 @@
   src: url('../../fonts/PatuaOne-Regular.ttf') format('truetype');
   font-style: normal;
   font-weight: normal;
+
+  font-family: 'VarelaRound-Regular';
+  src: url('../../fonts/VarelaRound-Regular.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+
 }
 
 *{
     margin: 0px;
     box-sizing: border-box;
-    font-family: "Luxurious-Roman";
+    font-family: "VarelaRound-Regular";
   }
 
 html,body{

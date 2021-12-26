@@ -10,10 +10,12 @@ import tweeter from '../../icons/tweeter.png'
 export const Footer = () => {
     return (
         <footer className='footer__main'>
-            <nav className="footer_menu">
+
+            <nav className='footer_menu'>
+
                 <ul>
                     <li>
-                        <h3><span>Escuela infantil BAMBI</span></h3>
+                        <h3><span>BAMBI</span></h3>
                     </li>
                     <li>
                         <span>Inicio</span>

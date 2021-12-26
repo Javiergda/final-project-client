@@ -8,36 +8,40 @@ import bambi4 from '../../images/bambi4.jpg'
 const cardValues = [
     {
         img: bambi1,
-        title: 'SERVICIOS',
+        title: 'Servicios',
         description: 'Los mejores servicios de toda la zona'
     },
     {
         img: bambi2,
-        title: 'HORARIOS',
+        title: 'Horarios',
         description: 'Los mejores horarios de toda la zona'
     },
     {
         img: bambi3,
-        title: 'PROFESORES',
+        title: 'Profesores',
         description: 'Los mejores profesores del mundo'
     },
     {
         img: bambi4,
-        title: 'CONTACTO',
+        title: 'Contacto',
         description: 'Contacta con nosotros'
     }
 ];
 
 export const Cards = () => {
     return (
-        <div className='cards_main'>
-            {
-                cardValues.map((values, index) => {
-                    return (
-                        <Card key={index} values={values} />
-                    )
-                })
-            }
+        <div div className='cards_title'>
+            <h1>Conócenos</h1>
+            <div className='cards_main'>
+
+                {
+                    cardValues.map((values, index) => {
+                        return (
+                            <Card key={index} values={values} />
+                        )
+                    })
+                }
+            </div>
         </div>
     )
 }

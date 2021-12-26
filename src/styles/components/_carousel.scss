@@ -9,9 +9,9 @@
 
 
     .carousel1{
-        // display: flex;
-        // align-items: center;
-        // justify-content: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
 
         height: 100%;
@@ -23,9 +23,9 @@
     }
 
     .carousel2{
-        // display: flex;
-        // align-items: center;
-        // justify-content: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
         height: 100%;
         width: 100%;
@@ -35,9 +35,9 @@
     }
 
     .carousel3{
-        // display: flex;
-        // align-items: center;
-        // justify-content: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
         height: 100%;
         width: 100%;
@@ -49,8 +49,8 @@
     }
 
     p{
-        // text-align: center;
-        // align-items: center;
+        text-align: center;
+        align-items: center;
 
         // border: 1px dashed;
         text-shadow: 20px;
@@ -64,15 +64,15 @@
        
         h1{
             font-size: 1.7rem;
-            text-shadow: 0 0 3px black;
-            font-family: 'PatuaOne-Regular';
+            text-shadow: 0 0 3px black, 0 0 15px gray;
+            // font-family: 'PatuaOne-Regular';
             margin-bottom: 10px;
 
         }
         h3{
-            font-family: 'PatuaOne-Regular';
+            // font-family: 'PatuaOne-Regular';
             font-size: 1rem;
-            text-shadow: 0 0 3px black;
+            text-shadow: 0 0 3px black, 0 0 15px gray;
 
 
         }
