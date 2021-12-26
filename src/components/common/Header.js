@@ -31,7 +31,7 @@ export const Header = () => {
                         <img src={rabbit} height="20px" alt='rabbit' />
                         <span>Contacto</span>
                     </li>
-                    <li className=''>
+                    <li>
                         <span >Login</span>
                     </li>
                 </ul>
@@ -53,7 +53,8 @@ export const Header = () => {
                     <li>
                         <span>Contacto</span>
                     </li>
-                    <li className=''>
+                    <li className='empty'></li>
+                    <li>
                         <span >Login</span>
                     </li>
                 </ul>

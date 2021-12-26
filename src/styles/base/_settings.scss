@@ -1,6 +1,20 @@
-// Colors
+// COLORES
 
-$primary: #ff0000;
+// Green
+$green: #2b501a; 
+$green-medium:lighten($green,5%);
+$green-light:lighten($green,40%);
+$green-shadow:lighten($green,70%);
+
+// Brown
+$brown: rgb(107, 45, 45);
+$brown-medium:lighten($brown,5%);
+$brown-light:lighten($brown,40%);
+$brown-shadow:lighten($brown,70%);
+
+
+
+
 $primary2: #435bac;
 
 // color-footer

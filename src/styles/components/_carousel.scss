@@ -1,33 +1,97 @@
 .carousel_main{
-    border: 3px solid;
+    border: 0px solid;
     // background-color: #ccc;
-    transition: 3s linear;
+    // transition: 3s linear;
+    width: 100%;
+    height: 400px;
+
+   
+
 
     .carousel1{
-    
-        height: 300px;
+        // display: flex;
+        // align-items: center;
+        // justify-content: center;
+
+
+        height: 100%;
         width: 100%;
         background-image: url("../../images/child1.jpg");
-        background-position: center bottom;// anclar img. vertical + horizontal
+        background-position: top left;// anclar img. vertical + horizontal
         background-size: cover;// si se expande o se duplica
         background-attachment: scroll; // img estatica o se mueve conscroll - scroll o fixed
     }
 
     .carousel2{
+        // display: flex;
+        // align-items: center;
+        // justify-content: center;
 
-        height: 300px;
+        height: 100%;
         width: 100%;
         background-image: url("../../images/child2.jpg");
-        background-position: center bottom;
+        background-position: top left;
         background-size: cover;
     }
 
     .carousel3{
+        // display: flex;
+        // align-items: center;
+        // justify-content: center;
 
-        height: 300px;
+        height: 100%;
         width: 100%;
         background-image: url("../../images/child3.jpg");
-        background-position: center bottom;
+        background-position: top left;
         background-size: cover;
+
+
+    }
+
+    p{
+        // text-align: center;
+        // align-items: center;
+
+        // border: 1px dashed;
+        text-shadow: 20px;
+        
+
+        // color: $brown-medium;
+        color: white;
+
+        padding: 20px;
+        
+       
+        h1{
+            font-size: 1.7rem;
+            text-shadow: 0 0 3px black;
+            font-family: 'PatuaOne-Regular';
+            margin-bottom: 10px;
+
+        }
+        h3{
+            font-family: 'PatuaOne-Regular';
+            font-size: 1rem;
+            text-shadow: 0 0 3px black;
+
+
+        }
+    }
+
+
+    $small: 770px;
+    $medium: 900px;
+    @media screen and (min-width: $small) {
+        height: 600px;
+        p{
+            padding: 50px;
+            h1{
+                font-size: 4rem;
+            }
+            h3{
+                font-size: 2rem;
+            }
+
+        }
     }
 }

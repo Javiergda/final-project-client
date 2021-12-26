@@ -1,12 +1,17 @@
 .header__main{
+    margin: 10px;
     .nav_small{
+        font-size: 1.3rem;
+        margin: 5px 15px 5px 5px;
         ul{
+            margin: 0px;
             padding:0px;
         }
 
         li{
             list-style: none;
-            border: 3px solid black;
+            border: 1px solid black;
+            margin: 2px;
             padding: 15px;
             transition: all 0.3s;
 
@@ -15,13 +20,9 @@
                 justify-content: space-between;
             }
 
-            &:last-child{
-                background-color: $primary;
-                padding: 12px;
-            }
-
             &:hover{
-                background-color: $primary2;
+                color:$green;
+                background-color: $green-light;
                 cursor: pointer;
             }
         }
@@ -42,42 +43,53 @@
         li{
             justify-content: center;
             list-style: none;
-            border: 3px solid black;
-            padding: 15px;
+            border: 5px solid transparent;
+            margin: 0px 10px 0px 10px;
+            padding: 5px;
             transition: all 0.3s;
+
+            &:hover{
+                color: $green;
+                border-bottom: solid 5px $green-light;
+                cursor: pointer;
+            }           
 
             &:first-child{
                 display: flex;
                 justify-content:left;
+                &:hover{
+                    border-bottom: 5px solid transparent;
+                } 
             }
 
             &:last-child{
-                flex-grow: 2;
+                // flex-grow: 2;
                 justify-content:right;
-                background-color: $primary2;
                 display: flex;
-            }
-
-            &:hover{
-                background-color: $primary2;
-                cursor: pointer;
+                padding-right: 20px;
             }
         }
-    }
 
+        .empty{
+            flex-grow: 2;
+            &:hover{
+                border-bottom: 5px solid transparent;
+            }
+        }
+
+    }
 
     $small: 700px;
     $medium: 900px;
-
     @media screen and (min-width: $small) {
 
-    .nav_small{
-        display: none;
+        .nav_small{
+            display: none;
+        }
+        .nav_medium{
+            display: block;
+        }
     }
-    .nav_medium{
-        display: block;
-    }
-  }
 }
 
 

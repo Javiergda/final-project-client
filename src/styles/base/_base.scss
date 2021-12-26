@@ -1,7 +1,19 @@
+@font-face {
+  font-family: 'Luxurious-Roman';
+  src: url('../../fonts/LuxuriousRoman-Regular.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+
+  font-family: 'PatuaOne-Regular';
+  src: url('../../fonts/PatuaOne-Regular.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+
 *{
     margin: 0px;
     box-sizing: border-box;
-    font-family: "Arial";
+    font-family: "Luxurious-Roman";
   }
 
 html,body{

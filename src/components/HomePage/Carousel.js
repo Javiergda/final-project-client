@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import img1 from '../../images/child1.jpg'
-import img2 from '../../images/child2.jpg'
-import img3 from '../../images/child3.jpg'
+
+const title = ['Escuela Infantil Bambi',
+    'Un sitio donde investigar y explorar',
+    'Materiales adaptados a su etapa evolutiva',
+    'Con el Método Montessori',
+]
 
 export const Carousel = () => {
 
@@ -16,7 +19,12 @@ export const Carousel = () => {
 
     return (
         <div className='carousel_main'>
-            <div className={`carousel${img}`} />
+            <div className={`carousel${img}`} >
+                <p>
+                    <h1>{title[0]}</h1>
+                    <h3>{title[img]}</h3>
+                </p>
+            </div>
         </div>
     )
 }
