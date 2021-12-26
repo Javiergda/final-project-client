@@ -1,0 +1,47 @@
+.Services_main{
+
+    padding:20px;
+    display: flex;
+    // flex-direction: row;
+    justify-content: center;
+ 
+    .wrap{
+    
+
+        // align-items: center;
+            max-width: 1080px;
+
+    }
+
+
+  
+    p{
+        color: gray;
+        padding:20px 5px 10px 5px;
+    }
+
+    .boxs{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        .numbers{
+
+            color:$green ;
+            font-size: 1.7rem;
+        }
+
+        .box-text{
+            padding:15px;
+            display: flex;
+            flex-direction: column;
+            
+        }
+
+    }
+
+
+
+
+
+}
