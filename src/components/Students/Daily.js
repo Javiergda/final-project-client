@@ -1,8 +1,8 @@
 import React from 'react'
 
-export const Daily = ({ daily }) => {
+export const Daily = ({ student }) => {
 
-    const { id_daily, id_student, breakfast, lunch1, lunch2, dessert, snack, bottle, diaper, nap, message, date, absence } = daily;
+    const { id_daily, id_student, breakfast, lunch1, lunch2, dessert, snack, bottle, diaper, nap, message, date, absence } = student;
 
     return (
         <div className='daily_main'>

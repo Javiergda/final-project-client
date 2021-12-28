@@ -27,7 +27,6 @@ export const Student = ({ students, student, setStudent }) => {
             <span>{surname}</span>
             <span>{birthDate}</span>
             <span>{letter}</span>
-
         </div>
     )
 }
