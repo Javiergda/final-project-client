@@ -30,7 +30,7 @@ const cardValues = [
 
 export const Cards = () => {
     return (
-        <div div className='cards_title'>
+        <div className='cards_title'>
             <h1>Conócenos</h1>
             <div className='cards_main'>
 

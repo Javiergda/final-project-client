@@ -45,16 +45,16 @@ export const Students = () => {
         // where day=today
         // resultado posible solo 1 registro
         const dataDaily = {
-            id_daily: 1,
+            id_daily: 'a',
             id_student: 10,
-            breakfast: 1,
-            lunch1: 2,
-            lunch2: 2,
-            dessert: 3,
-            snack: 1,
-            bottle: 4,
-            diaper: 1,
-            nap: 2,
+            breakfast: 'a',
+            lunch1: 'b',
+            lunch2: 'b',
+            dessert: 'c',
+            snack: 'a',
+            bottle: 'd',
+            diaper: 'a',
+            nap: 'b',
             message: 'se ha portado muy bien',
             date: '2021-10-10',
             absence: true
