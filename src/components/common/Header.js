@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link, NavLink } from 'react-router-dom'
 import bird from '../../icons/bird.png'
 import butterfly from '../../icons/butterfly.png'
 import deer from '../../icons/deer.png'

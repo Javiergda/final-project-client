@@ -1,10 +1,9 @@
-import { Students } from "./components/Students/Students";
-import { HomePage } from "./components/HomePage/HomePage";
+import { AppRouter } from "./components/Routes/AppRouter";
 
 function App() {
   return (
     <div className="App">
-      <Students />
+      <AppRouter />
     </div>
   );
 }
