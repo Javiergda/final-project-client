@@ -68,7 +68,7 @@ export const Students = () => {
     const [student, setStudent] = useState({});// objeto filtrado de 1 estudiante
 
     return (
-        <div>
+        <div className='students_main'>
             <Student students={students} student={student} setStudent={setStudent} />
             <Daily student={student} />
         </div>

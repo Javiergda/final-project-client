@@ -11,7 +11,8 @@ export const Student = ({ students, student, setStudent }) => {
     };
 
     return (
-        <div>
+        <div className='student_main'>
+            <h4>Alumno: </h4>
             {/* LLenamos el select */}
             <select name='select' onChange={handleChange}>
                 {
@@ -20,13 +21,12 @@ export const Student = ({ students, student, setStudent }) => {
                     ))
                 }
             </select>
+            <span>Clase: {letter}</span>
 
-            <span>{fatherPhone}</span>
-            <span>{motherPhone}</span>
-            <span>{name}</span>
-            <span>{surname}</span>
-            <span>{birthDate}</span>
-            <span>{letter}</span>
+            <span>Tfno padre: {fatherPhone}</span>
+            <span>Tfno madre: {motherPhone}</span>
+            <span>Fecha nacimiento: {birthDate}</span>
+
         </div>
     )
 }
