@@ -10,8 +10,8 @@
             display: flex;
          
             div{
-                border: 1px solid black;
-                padding: 2px;
+                // border: 1px solid black;
+                // padding: 2px;
                 margin: 5px;
             }
 
@@ -29,12 +29,23 @@
 
     }
 
+    button{
+        width: 100%;
+        height: 100%;
+        padding:5px 10px 5px 10px;
+        border:1px solid grey;
+        border-radius: 5px;
+        background-color:rgb(199, 223, 199) ;
+    }
+
     .A{
         div{
             &:nth-child(2){
-                background-color: #748d63;
-                color:black;
-                border-color: black;
+                button{
+                    background-color: #748d63;
+                    color:black;
+                    border-color: black;
+                }
             }
         }
     }
@@ -42,9 +53,11 @@
     .B{
         div{
             &:nth-child(3){
-                background-color: #748d63;
-                color:black;
-                border-color: black;
+                button{
+                    background-color: #748d63;
+                    color:black;
+                    border-color: black;
+                }
             }
         }
     }
@@ -52,9 +65,11 @@
     .C{
         div{
             &:nth-child(4){
-                background-color: #748d63;
-                color:black;
-                border-color: black;
+                button{
+                    background-color: #748d63;
+                    color:black;
+                    border-color: black;
+                }
             }
         }
     }
@@ -62,9 +77,11 @@
     .age0{
         div{
             &:nth-child(2){
-                background-color: #748d63;
-                color:black;
-                border-color: black;
+                button{
+                    background-color: #748d63;
+                    color:black;
+                    border-color: black;
+                }
             }
         }
     }
@@ -72,9 +89,11 @@
     .age1{
         div{
             &:nth-child(3){
-                background-color: #748d63;
-                color:black;
-                border-color: black;
+                button{
+                    background-color: #748d63;
+                    color:black;
+                    border-color: black;
+                }
             }
         }
     }
@@ -82,9 +101,11 @@
     .age2{
         div{
             &:nth-child(4){
-                background-color: #748d63;
-                color:black;
-                border-color: black;
+                button{
+                    background-color: #748d63;
+                    color:black;
+                    border-color: black;
+                }
             }
         }
     }

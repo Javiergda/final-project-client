@@ -9,10 +9,10 @@ export const Course = ({ select, setSelect, students, setFilterStudents }) => {
 
     const handleChange = e => {
 
-        if (e.target.id) {
+        if (e.target.value) {
             setSelect({
                 ...select,
-                [e.target.title]: e.target.id
+                [e.target.name]: e.target.value
             });
         }
     };
@@ -41,16 +41,18 @@ export const Course = ({ select, setSelect, students, setFilterStudents }) => {
 
                 <div className={age + ' age'} onClick={handleChange}>
                     <div className='title'><span>Clase: </span></div>
-                    <div><span title='age' id='age0'>0-1 años</span></div>
-                    <div><span title='age' id='age1'>1-2 años</span></div>
-                    <div><span title='age' id='age2'>2-3 años</span></div>
+                    <div><button name='age' value='age0'>0-1 años</button></div>
+                    <div><button name='age' value='age1'>1-2 años</button></div>
+                    <div><button name='age' value='age2'>2-3 años</button></div>
                 </div>
+
+                {/* <button name='breakfast' value='1' id={id_student}>N</button> */}
 
                 <div className={letter + ' letter'} onClick={handleChange}>
                     <div className='title'><span>Letra: </span></div>
-                    <div><span title='letter' id='A'>A</span></div>
-                    <div><span title='letter' id='B'>B</span></div>
-                    <div><span title='letter' id='C'>C</span></div>
+                    <div><button name='letter' value='A'>A</button></div>
+                    <div><button name='letter' value='B'>B</button></div>
+                    <div><button name='letter' value='C'>C</button></div>
                 </div>
             </div>
 

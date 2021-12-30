@@ -1,13 +1,12 @@
 import React from 'react'
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 export const StudentsList = ({ filterStudents }) => {
 
     console.log(filterStudents);
 
-
-
     const handleChange = e => {
-
         if (e.target.id) {
             // cambiamos el valor de falta
             let value = e.target.value;
@@ -23,14 +22,11 @@ export const StudentsList = ({ filterStudents }) => {
 
     };
 
-
-
-
     return (
         <div className='studentList_main'>
             <button name='botoncito11111'>N</button>
             {
-                filterStudents.map(({ name, surname, id_student, breakfast, lunch1, lunch2, dessert, snack, bottle, diaper, nap, message, date, absence }) => {
+                filterStudents.map(({ name, surname, id_student, breakfast, lunch1, lunch2, dessert, snack, bottle, diaper, nap, message, date, absence }, index) => {
                     return (
 
                         <div key={id_student} className='wrapper'>
@@ -118,9 +114,9 @@ export const StudentsList = ({ filterStudents }) => {
 
                             <div className='message'>
                                 <h5>Mensaje:</h5>
-                                {/* <input className='' type="text" value={message} /> */}
-                            </div>
 
+                                <input type='text' value={message} id={id_student} />
+                            </div>
                         </div>
                     )
                 })
