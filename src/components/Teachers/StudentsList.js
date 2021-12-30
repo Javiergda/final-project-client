@@ -4,86 +4,123 @@ export const StudentsList = ({ filterStudents }) => {
 
     console.log(filterStudents);
 
+
+
+    const handleChange = e => {
+
+        if (e.target.id) {
+            // cambiamos el valor de falta
+            let value = e.target.value;
+            if (e.target.name == 'absence') {
+                e.target.value == 'a' ? value = '0' : value = 'a';
+            }
+
+            // 2. CRUD POST 
+            console.log(`instert into table Diario(${e.target.name}) values(${value}) where id_usuario=${e.target.id}`);
+            // a. Upade ---> si repuesta -> no existe entonces ->
+            // b. Create
+        }
+
+    };
+
+
+
+
     return (
         <div className='studentList_main'>
+            <button name='botoncito11111'>N</button>
             {
-                filterStudents.map(({ id_student, breakfast, lunch1, lunch2, dessert, snack, bottle, diaper, nap, message, date, absence }) => {
+                filterStudents.map(({ name, surname, id_student, breakfast, lunch1, lunch2, dessert, snack, bottle, diaper, nap, message, date, absence }) => {
                     return (
 
                         <div key={id_student} className='wrapper'>
-                            {/* <span>Dia: {date}</span> */}
-                            <span>Falta: {absence ? 'FALTA' : 'No'}</span>
-
-                            <h4>COMIDAS</h4>
-
-                            <h5>Desayuno</h5>
-                            <div className={breakfast + ' selector'} >
-                                <div><span>Nada</span></div>
-                                <div><span>Regular</span></div>
-                                <div><span>Bien</span></div>
-                                <div><span>Todo</span></div>
+                            <span>{name + ' ' + surname}</span>
+                            <div className='boxStudent'>
+                                <div className='title'>
+                                    <h5>Desayuno</h5>
+                                    <div className={breakfast + ' selector'} onClick={handleChange} >
+                                        <div><button name='breakfast' value='1' id={id_student}>N</button></div>
+                                        <div><button name='breakfast' value='2' id={id_student}>R</button></div>
+                                        <div><button name='breakfast' value='3' id={id_student}>B</button></div>
+                                        <div><button name='breakfast' value='4' id={id_student}>T</button></div>
+                                    </div>
+                                </div>
+                                <div className='title'>
+                                    <h5>Primero</h5>
+                                    <div className={lunch1 + ' selector'} onClick={handleChange}>
+                                        <div><button name='lunch1' value='1' id={id_student}>N</button></div>
+                                        <div><button name='lunch1' value='2' id={id_student}>R</button></div>
+                                        <div><button name='lunch1' value='3' id={id_student}>B</button></div>
+                                        <div><button name='lunch1' value='4' id={id_student}>T</button></div>
+                                    </div>
+                                </div>
+                                <div className='title'>
+                                    <h5>Segundo</h5>
+                                    <div className={lunch2 + ' selector'} onClick={handleChange}>
+                                        <div><button name='lunch2' value='1' id={id_student}>N</button></div>
+                                        <div><button name='lunch2' value='2' id={id_student}>R</button></div>
+                                        <div><button name='lunch3' value='3' id={id_student}>B</button></div>
+                                        <div><button name='lunch4' value='4' id={id_student}>T</button></div>
+                                    </div>
+                                </div>
+                                <div className='title'>
+                                    <h5>Postre</h5>
+                                    <div className={dessert + ' selector'} onClick={handleChange}>
+                                        <div><button name='dessert' value='1' id={id_student}>N</button></div>
+                                        <div><button name='dessert' value='2' id={id_student}>R</button></div>
+                                        <div><button name='dessert' value='3' id={id_student}>B</button></div>
+                                        <div><button name='dessert' value='4' id={id_student}>T</button></div>
+                                    </div>
+                                </div>
+                                <div className='title'>
+                                    <h5>Merienda</h5>
+                                    <div className={snack + ' selector'} onClick={handleChange}>
+                                        <div><button name='snack' value='1' id={id_student}>N</button></div>
+                                        <div><button name='snack' value='2' id={id_student}>R</button></div>
+                                        <div><button name='snack' value='3' id={id_student}>B</button></div>
+                                        <div><button name='snack' value='4' id={id_student}>T</button></div>
+                                    </div>
+                                </div>
+                                <div className='title'>
+                                    <h5>Biberon</h5>
+                                    <div className={bottle + ' selector'} onClick={handleChange}>
+                                        <div><button name='bottle' value='1' id={id_student}>1</button></div>
+                                        <div><button name='bottle' value='2' id={id_student}>2</button></div>
+                                        <div><button name='bottle' value='3' id={id_student}>3</button></div>
+                                        <div><button name='bottle' value='4' id={id_student}>4</button></div>
+                                    </div>
+                                </div>
+                                <div className='title'>
+                                    <h5>Pañal</h5>
+                                    <div className={diaper + ' selector'} onClick={handleChange}>
+                                        <div><button name='diaper' value='1' id={id_student}>1</button></div>
+                                        <div><button name='diaper' value='2' id={id_student}>2</button></div>
+                                        <div><button name='diaper' value='3' id={id_student}>3</button></div>
+                                        <div><button name='diaper' value='4' id={id_student}>4</button></div>
+                                    </div>
+                                </div>
+                                <div className='title'>
+                                    <h5>Siesta</h5>
+                                    <div className={nap + ' selector'} onClick={handleChange}>
+                                        <div><button name='nap' value='1' id={id_student}>No</button></div>
+                                        <div><button name='nap' value='2' id={id_student}>1/2</button></div>
+                                        <div><button name='nap' value='3' id={id_student}>1</button></div>
+                                        <div><button name='nap' value='4' id={id_student}>+1</button></div>
+                                    </div>
+                                </div>
+                                <div className='title'>
+                                    <h5>Falta</h5>
+                                    <div className={absence + ' selector'} onClick={handleChange}>
+                                        <div><button name='absence' value={absence} id={id_student}>Falta</button></div>
+                                    </div>
+                                </div>
                             </div>
 
-                            <h5>Primero</h5>
-                            <div className={lunch1 + ' selector'}>
-                                <div><span>Nada</span></div>
-                                <div><span>Regular</span></div>
-                                <div><span>Bien</span></div>
-                                <div><span>Todo</span></div>
+                            <div className='message'>
+                                <h5>Mensaje:</h5>
+                                {/* <input className='' type="text" value={message} /> */}
                             </div>
 
-                            <h5>Segundo</h5>
-                            <div className={lunch2 + ' selector'}>
-                                <div><span>Nada</span></div>
-                                <div><span>Regular</span></div>
-                                <div><span>Bien</span></div>
-                                <div><span>Todo</span></div>
-                            </div>
-
-                            <h5>Postre</h5>
-                            <div className={dessert + ' selector'}>
-                                <div><span>Nada</span></div>
-                                <div><span>Regular</span></div>
-                                <div><span>Bien</span></div>
-                                <div><span>Todo</span></div>
-                            </div>
-
-                            <h5>Merienda</h5>
-                            <div className={snack + ' selector'}>
-                                <div><span>Nada</span></div>
-                                <div><span>Regular</span></div>
-                                <div><span>Bien</span></div>
-                                <div><span>Todo</span></div>
-                            </div>
-
-                            <h4>BIBERONES</h4>
-                            <div className={bottle + ' selector'}>
-                                <div><span>1</span></div>
-                                <div><span>2</span></div>
-                                <div><span>3</span></div>
-                                <div><span>4</span></div>
-                            </div>
-
-                            <h4>CAMBIO PAÑAL</h4>
-                            <div className={diaper + ' selector'}>
-                                <div><span>1</span></div>
-                                <div><span>2</span></div>
-                                <div><span>3</span></div>
-                                <div><span>4</span></div>
-                            </div>
-
-                            <h4>SIESTA</h4>
-                            <div className={nap + ' selector'}>
-                                <div><span>No</span></div>
-                                <div><span>1/2 hora</span></div>
-                                <div><span>1 hora</span></div>
-                                <div><span>+1 hora</span></div>
-                            </div>
-
-                            <h4>MENSAJE</h4>
-                            <div className='{} selector'>
-                                <span>{message}</span>
-                            </div>
                         </div>
                     )
                 })

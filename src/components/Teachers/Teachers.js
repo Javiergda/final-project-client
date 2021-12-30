@@ -35,7 +35,7 @@ export const Teachers = () => {
                 nap: '',
                 message: '',
                 date: '',
-                absence: false
+                absence: '0'
             },
             {
                 id_student: 20,
@@ -46,7 +46,7 @@ export const Teachers = () => {
                 dayBirth: 5,
                 fatherPhone: 600111222333,
                 motherPhone: 600444555666,
-                letter: 'C',
+                letter: 'A',
                 id_daily: 'b',
                 breakfast: 'b',
                 lunch1: 'a',
@@ -58,7 +58,7 @@ export const Teachers = () => {
                 nap: 'c',
                 message: 'se ha portado muy regular',
                 date: '2021-10-10',
-                absence: true
+                absence: 'a'
             }
         ];
 

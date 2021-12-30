@@ -2,46 +2,99 @@
     display: flex;
     flex-direction: column;
     // justify-content: center;
-    // height: 100%;
+    height: 100%;
+    
+    .title{
+
+        display: flex;
+        flex-direction: column;
+    }
+
 
     .wrapper{
         display: flex;
-        // flex-direction: column;
-        padding:20px;
+        flex-direction: column;
+        padding:5px 10px 5px 10px;
         height: 100%;
-        width: 100%;
-        max-width: 1080px;
+        min-width: 100%;
+        // border: 1px solid red;
+        // max-width: 1080px;
         background-color: rgb(199, 223, 199);
-        
-            .selector{
+
+        .boxStudent{
+            display: flex;
+            // flex-direction: column;
+            width: 100%;
+
+            .title{
+
                 display: flex;
-                height: 100%;
-                margin-bottom: 5px;
+                flex-direction: column;
                 width: 100%;
-                div{
+    
+            
+                .selector{
                     display: flex;
-                    align-items: center;
                     justify-content: center;
-                    border: 1px solid grey;
-                    color:grey;
-                    // min-height: 20px;
-                    height: 100%;
+                    align-items: center;
+                    border: 1px solid black;
                     width: 100%;
-                    margin: 2px;
+                    // height: 100%;
+                    min-height: 30px;
+                
+                
+                    div{
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        // border: 1px solid grey;
+                        color:grey;
+                        // min-height: 20px;
+                        height: 100%;
+                        width: 100%;
+                        margin: 2px;
+                    }
+                }
+    
+                h5{
+                    // margin-left: 5px;
+                    color: rgb(15, 49, 15);
                 }
             }
 
-            h5{
-                margin-left: 5px;
-                color: rgb(15, 49, 15);
+            button{
+                width: 100%;
+                height: 100%;
+                border:1px solid grey;
+                border-radius: 5px;
+                background-color:rgb(199, 223, 199) ;
             }
-        
+
+
+
+        }
+
+        .message{
+            display: flex;
+            flex-wrap:nowrap;
+            font-size: 0.8rem;
+
+            h5{
+                padding: 3px;
+            }
+
+        }
+
+
             .a{
                 div{
                     &:nth-child(1){
-                        background-color: #748d63;
-                        color:black;
-                        border-color: black;
+                        button{
+                            background-color: rgb(15, 49, 15);
+                            color:black;
+                            border-color: black;
+
+                        }
                     }
                 }
             }
@@ -49,17 +102,22 @@
             .b{
                 div{
                     &:nth-child(2){
-                        background-color: #748d63;
-                        color:black;
-                        border-color: black;
+
+                        button{
+                            background-color:rgb(15, 49, 15);
+                            color:black;
+                            border-color: black;
+
+                        }
+
                     }
                 }
             }
         
             .c{
                 div{
-                    &:nth-child(3){
-                        background-color: #748d63;
+                    button{
+                        background-color: rgb(15, 49, 15);
                         color:black;
                         border-color: black;
                     }
@@ -69,9 +127,12 @@
             .d{
                 div{
                     &:nth-child(4){
-                        background-color: #748d63;
-                        color:black;
-                        border-color: black;
+                        button{
+                            background-color: rgb(15, 49, 15);
+                            color:black;
+                            border-color: black;
+
+                        }
                     }
                 }
             }
