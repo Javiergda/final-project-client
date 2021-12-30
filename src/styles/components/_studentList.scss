@@ -1,0 +1,80 @@
+.studentList_main{
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    // height: 100%;
+
+    .wrapper{
+        display: flex;
+        // flex-direction: column;
+        padding:20px;
+        height: 100%;
+        width: 100%;
+        max-width: 1080px;
+        background-color: rgb(199, 223, 199);
+        
+            .selector{
+                display: flex;
+                height: 100%;
+                margin-bottom: 5px;
+                width: 100%;
+                div{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border: 1px solid grey;
+                    color:grey;
+                    // min-height: 20px;
+                    height: 100%;
+                    width: 100%;
+                    margin: 2px;
+                }
+            }
+
+            h5{
+                margin-left: 5px;
+                color: rgb(15, 49, 15);
+            }
+        
+            .a{
+                div{
+                    &:nth-child(1){
+                        background-color: #748d63;
+                        color:black;
+                        border-color: black;
+                    }
+                }
+            }
+        
+            .b{
+                div{
+                    &:nth-child(2){
+                        background-color: #748d63;
+                        color:black;
+                        border-color: black;
+                    }
+                }
+            }
+        
+            .c{
+                div{
+                    &:nth-child(3){
+                        background-color: #748d63;
+                        color:black;
+                        border-color: black;
+                    }
+                }
+            }
+        
+            .d{
+                div{
+                    &:nth-child(4){
+                        background-color: #748d63;
+                        color:black;
+                        border-color: black;
+                    }
+                }
+            }
+    }
+}
+    
