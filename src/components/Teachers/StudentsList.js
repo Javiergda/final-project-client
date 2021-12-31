@@ -6,25 +6,69 @@ export const StudentsList = ({ filterStudents }) => {
 
     console.log(filterStudents);
 
+    // Crea dinamicamente array de indexs para controlas los cambios de inputs
+    useEffect(() => {
+        const filterMsn = filterStudents.map((element) => {
+            return (
+                element.message
+            )
+        });
+        setMsn(filterMsn);
+    }, [filterStudents])
+
+    const [msn, setMsn] = useState([]);
+
+    // controlar los cambios de los inputs creados dinamicamente
+    const handleMsn = e => {
+        setMsn({
+            ...msn,
+            [e.target.name]: e.target.value
+        });
+    };
+
     const handleChange = e => {
         if (e.target.id) {
-            // cambiamos el valor de falta
-            let value = e.target.value;
+            let nameItem = e.target.name;
+            let valueItem = e.target.value;
+            // cambiamos al contrario el valor de falta
             if (e.target.name == 'absence') {
-                e.target.value == 'a' ? value = '0' : value = 'a';
+                e.target.value == 'a' ? valueItem = '0' : valueItem = 'a';
+            }
+            // cambiamos el valor de nameItem xq viene de className
+            if (e.target.className == 'message') {
+                nameItem = e.target.className;
             }
 
             // 2. CRUD POST 
-            console.log(`instert into table Diario(${e.target.name}) values(${value}) where id_usuario=${e.target.id}`);
+            console.log(`instert into table Diario(${nameItem}) values(${valueItem}) where id_usuario=${e.target.id}`);
             // a. Upade ---> si repuesta -> no existe entonces ->
             // b. Create
-        }
+            // Recibimos dataStudents e inicializamos de nuevo el componente.
 
+
+            // CRUD de nuevo y ...... (hay que pasar props de Teachers)
+
+
+            // if (dataStudents) {
+
+            //     setStudents(dataStudents);
+
+            //     const ageChild = age.slice(-1);// extrae 1,2,3 de age1
+            //     const currentYear = dateToday.getFullYear();   
+            //     // de Enero a Septiembre se le quita 1 para que coincida con el curso escolar
+            //     if (dateToday.getMonth() + 1 < 9) {
+            //         currentYear = currentYear - 1;
+            //     }
+
+            //     // filtra objeto.letra == letra del select  &&  Año actual - año de nacimiento
+            //     const filter = dataStudents.filter((element) => element.letter == letter && (currentYear - element.yearBirth) == ageChild);
+            //     setFilterStudents(filter);
+            // }
+        }
     };
 
     return (
         <div className='studentList_main'>
-            <button name='botoncito11111'>N</button>
             {
                 filterStudents.map(({ name, surname, id_student, breakfast, lunch1, lunch2, dessert, snack, bottle, diaper, nap, message, date, absence }, index) => {
                     return (
@@ -114,8 +158,8 @@ export const StudentsList = ({ filterStudents }) => {
 
                             <div className='message'>
                                 <h5>Mensaje:</h5>
-
-                                <input type='text' value={message} id={id_student} />
+                                {/* Se usa defaultValue xq es un elemento no controlado. Funciona igual que value */}
+                                <input type='text' name={index} defaultValue={msn[index]} id={id_student} className='message' onChange={handleMsn} onBlur={handleChange} />
                             </div>
                         </div>
                     )
