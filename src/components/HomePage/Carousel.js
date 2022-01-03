@@ -33,9 +33,9 @@ export const Carousel = () => {
         <div className='carousel_main'>
             <div className={`carousel${img}`} >
                 <p>
-                    <h1>{title[0]}</h1>
+                    <span className='title1'>{title[0]}</span>
                     <img src={title[img].logo} height="50px" alt='phone' color='white' />
-                    <h3>{title[img].title}</h3>
+                    <span className='title3'>{title[img].title}</span>
                 </p>
             </div>
         </div>

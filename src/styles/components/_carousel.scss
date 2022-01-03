@@ -1,19 +1,12 @@
 .carousel_main{
     border: 0px solid;
-    // background-color: #ccc;
-    // transition: 3s linear;
     width: 100%;
     height: 400px;
-
-   
-
 
     .carousel1{
         display: flex;
         align-items: center;
         justify-content: center;
-
-
         height: 100%;
         width: 100%;
         background-image: url("../../images/child1.jpg");
@@ -26,7 +19,6 @@
         display: flex;
         align-items: center;
         justify-content: center;
-
         height: 100%;
         width: 100%;
         background-image: url("../../images/child2.jpg");
@@ -38,46 +30,37 @@
         display: flex;
         align-items: center;
         justify-content: center;
-
         height: 100%;
         width: 100%;
         background-image: url("../../images/child3.jpg");
         background-position: top left;
         background-size: cover;
-
-
     }
 
     p{
         text-align: center;
         align-items: center;
-
-        // border: 1px dashed;
+        background-color: rgba(180, 180, 180, 0.137);
+        border: 10px solid rgba(255, 255, 255, 0.582);
         text-shadow: 20px;
-        
-
-        // color: $brown-medium;
         color: white;
-
         padding: 20px;
         
-       
-        h1{
-            font-size: 1.7rem;
+        .title1{
+            display: flex;
+            justify-content: center;
+            font-size: 2rem;
             text-shadow: 0 0 3px black, 0 0 15px gray;
-            // font-family: 'PatuaOne-Regular';
             margin-bottom: 10px;
-
         }
-        h3{
-            // font-family: 'PatuaOne-Regular';
+
+        .title3{
+            display: flex;
+            justify-content: center;
             font-size: 1rem;
             text-shadow: 0 0 3px black, 0 0 15px gray;
-
-
         }
     }
-
 
     $small: 770px;
     $medium: 900px;
@@ -85,13 +68,12 @@
         height: 600px;
         p{
             padding: 50px;
-            h1{
+            .title1{
                 font-size: 4rem;
             }
-            h3{
+            .title3{
                 font-size: 2rem;
             }
-
         }
     }
 }

@@ -14,9 +14,6 @@ export const Header = () => {
 
     const { email, userTipe, logged } = context;
 
-    console.log(userTipe);
-    console.log(logged);
-
     return (
         <header className="header__main">
             <nav className="nav_small">

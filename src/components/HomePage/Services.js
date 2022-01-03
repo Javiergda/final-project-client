@@ -22,19 +22,18 @@ export const Services = () => {
                 </p>
                 <div className='boxs'>
                     <div className='box-text'>
-                        <sapn className='numbers'>15</sapn>
-                        <sapn>Alumnos/clase</sapn>
+                        <span className='numbers'>15</span>
+                        <span>Alumnos/clase</span>
                     </div>
 
                     <div className='box-text'>
-                        <sapn className='numbers'>8</sapn>
-                        <sapn>Profesores</sapn>
+                        <span className='numbers'>8</span>
+                        <span>Profesores</span>
                     </div>
 
                     <div className='box-text'>
-                        <sapn className='numbers'>+ 10</sapn>
-                        <sapn>Años de experiencia</sapn>
-
+                        <span className='numbers'>+ 10</span>
+                        <span>Años de experiencia</span>
                     </div>
                 </div>
             </div>
