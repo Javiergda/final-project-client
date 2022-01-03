@@ -1,9 +1,16 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
+import { Navigate } from 'react-router-dom'
+import { useContext } from 'react/cjs/react.development'
+import { AuthContext } from '../../auth/authContext'
 import { Course } from './Course'
 import { StudentsList } from './StudentsList'
 
+
+
 export const Teachers = () => {
+
+    const context = useContext(AuthContext);
 
     useEffect(() => {
 
@@ -96,9 +103,12 @@ export const Teachers = () => {
 
 
     return (
-        <div>
-            <Course select={select} setSelect={setSelect} students={students} setFilterStudents={setFilterStudents} />
-            <StudentsList filterStudents={filterStudents} />
-        </div>
+        context.logged && context.userTipe == 1 ? // ususario logeado y nivel 2
+            <div>
+                <Course select={select} setSelect={setSelect} students={students} setFilterStudents={setFilterStudents} />
+                <StudentsList filterStudents={filterStudents} />
+            </div>
+            :
+            <Navigate to='/login' />
     )
 }

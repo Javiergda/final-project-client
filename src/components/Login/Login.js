@@ -28,7 +28,6 @@ export const Login = () => {
     const handlesubmit = e => {
         e.preventDefault();
         // comprobamos que no este vacio quitandole espacios en blanco a derecha e izquierda
-
         // if (email.trim().length > 0 && password.trim().length > 0) {
         console.log('LOGIN');
 
@@ -36,16 +35,19 @@ export const Login = () => {
         const checkUser = email + password;
         ///////////////////////////////
         //// obtenemos repuesta
-        const user = 'ok';
+        const user = {
+            email: 'javier@javier',
+            userTipe: 1,
+            logged: true
+        };
 
-        if (user == 'ok') {
+        if (user) {
             setForm(initialState);
-
-            navigate('/homepage', {
+            localStorage.setItem('user', JSON.stringify(user)) // guardamos en localstorage
+            navigate('/homepage', { // navegamos pagina inicio y cargamos usuario del localstorage
                 replace: true // reemplaza del historial
             }
             );
-
         }
 
 

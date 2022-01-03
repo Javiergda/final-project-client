@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Daily } from './Daily'
 import { Student } from './Student'
 import { useEffect } from 'react'
 import { useState } from 'react'
+import { AuthContext } from '../../auth/authContext'
+import { Navigate } from 'react-router-dom'
+
 
 export const Students = () => {
+
+    const context = useContext(AuthContext);
 
     useEffect(() => {
         ///////////////////////// CRUD - GET
@@ -72,9 +77,12 @@ export const Students = () => {
     const [student, setStudent] = useState({});// objeto filtrado de 1 estudiante
 
     return (
-        <div className='students_main'>
-            <Student students={students} student={student} setStudent={setStudent} />
-            <Daily student={student} />
-        </div>
+        context.logged && context.userTipe == 1 ? // ususario logeado y nivel 2
+            <div className='students_main'>
+                <Student students={students} student={student} setStudent={setStudent} />
+                <Daily student={student} />
+            </div>
+            :
+            <Navigate to='/login' />
     )
 }

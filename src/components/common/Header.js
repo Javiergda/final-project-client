@@ -1,12 +1,20 @@
 import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
+import { useContext } from 'react'
 import bird from '../../icons/bird.png'
 import butterfly from '../../icons/butterfly.png'
 import deer from '../../icons/deer.png'
 import rabbit from '../../icons/rabbit.png'
 import menu from '../../icons/menu.png'
+import { AuthContext } from '../../auth/authContext'
 
 export const Header = () => {
+
+    const context = useContext(AuthContext);
+
+    const { email, userTipe, logged } = context;
+
+    console.log(context);
     return (
         <header className="header__main">
             <nav className="nav_small">
@@ -50,7 +58,7 @@ export const Header = () => {
                     <NavLink className='nav-link' to="login">
                         <li>
                             <img src={rabbit} height="20px" alt='rabbit' />
-                            <span >Login</span>
+                            <span >{email + ' - Login'}</span>
                         </li>
                     </NavLink>
                 </ul>
@@ -95,7 +103,7 @@ export const Header = () => {
 
                     <NavLink className='nav-item' to="login">
                         <li>
-                            <span >Login</span>
+                            <span >{email + ' - Login'}</span>
                         </li>
                     </NavLink>
 

@@ -7,6 +7,8 @@ import { Students } from '../Students/Students'
 import { Teachers } from '../Teachers/Teachers'
 import { Management } from '../Management/Management'
 import { Login } from '../Login/Login';
+import { PrivateRouteStudents } from './PrivateRouteStudents';
+
 
 
 export const AppRouter = () => {
@@ -16,9 +18,13 @@ export const AppRouter = () => {
 
             <Routes>
                 <Route path="homepage" element={<HomePage />} />
+
                 <Route path="alumno" element={<Students />} />
+
                 <Route path="profesor" element={<Teachers />} />
+
                 <Route path="administracion" element={<Management />} />
+
                 <Route path="login" element={<Login />} />
 
                 <Route path="/" element={<HomePage />} />

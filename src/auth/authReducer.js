@@ -8,23 +8,21 @@ import { types } from "../types/types";
 // }
 
 // POSIBLES ACCIONES
-const loginAtction = {
-    type: types.login,
-    payload: {
-        email: 'javier@javier',
-        userTipe: 1 / 2 / 3
+// const loginAtction = {
+//     type: types.login,
+//     payload: {
+//         email: 'javier@javier',
+//         userTipe: 1 / 2 / 3
+//     }
+// }
 
-    }
-}
-
-export const auth = (state = {}, action) => {
+export const authReducer = (state = {}, action) => {
 
     switch (action) {
         case types.login:
             return {
                 ...action.payload,
                 logged: true
-
             }
 
         case types.logout:
