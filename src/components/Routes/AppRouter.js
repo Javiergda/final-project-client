@@ -5,6 +5,7 @@ import { Footer } from '../common/Footer'
 import { HomePage } from '../HomePage/HomePage'
 import { Students } from '../Students/Students'
 import { Teachers } from '../Teachers/Teachers'
+import { Management } from '../Management/Management'
 
 export const AppRouter = () => {
     return (
@@ -15,6 +16,7 @@ export const AppRouter = () => {
                 <Route path="/" element={<HomePage />} />
                 <Route path="/Alumno" element={<Students />} />
                 <Route path="/Profesor" element={<Teachers />} />
+                <Route path="/Administracion" element={<Management />} />
             </Routes>
 
             <Footer />

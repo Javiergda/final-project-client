@@ -35,6 +35,12 @@ export const Header = () => {
                             <span>Profesor</span>
                         </li>
                     </NavLink>
+                    <NavLink className='nav-link' to="/Administracion">
+                        <li>
+                            <img src={deer} height="20px" alt='deer' />
+                            <span>Administracion</span>
+                        </li>
+                    </NavLink>
                     <NavLink className='nav-link' to="/Contacto">
                         <li>
                             <img src={rabbit} height="20px" alt='rabbit' />
@@ -70,6 +76,12 @@ export const Header = () => {
                     <NavLink className='nav-item' to="/Profesor">
                         <li>
                             <span>Profesor</span>
+                        </li>
+                    </NavLink>
+
+                    <NavLink className='nav-item' to="/Administracion">
+                        <li>
+                            <span>Admnistracion</span>
                         </li>
                     </NavLink>
 
