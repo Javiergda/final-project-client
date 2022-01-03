@@ -10,11 +10,13 @@ export const ManageStudents = () => {
         letter: 'A',
         phone1: '',
         phone2: '',
-        email: '',
+        year: '',
+        month: '',
+        day: '',
     }
 
     const [form, setForm] = useState(initialState);
-    const { name1, lastName, letter, phone1, phone2, email } = form;
+    const { name1, lastName, letter, phone1, phone2, year, month, day } = form;
 
     const handleChange = e => {
         setForm({
@@ -26,7 +28,7 @@ export const ManageStudents = () => {
     const handlesubmit = e => {
         e.preventDefault();
         // comprobamos que no este vacio quitandole espacios en blanco a derecha e izquierda
-        if (name1.trim().length > 0 && lastName.trim().length > 0 && letter.trim().length > 0 && phone1.trim().length > 0 && email.trim().length > 0) {
+        if (name1.trim().length > 0 && lastName.trim().length > 0 && letter.trim().length > 0 && phone1.trim().length > 0 && year.trim().length > 0 && month.trim().length > 0 && day.trim().length > 0) {
             console.log('NEW USER');
 
             /// CRUD - POST - Enviamos nuevo usuario insert into alumnos values
@@ -45,9 +47,8 @@ export const ManageStudents = () => {
     }
 
 
-
     return (
-        <div>
+        <div className='manageStudents_main'>
             <h1>Nuevo alumno</h1>
 
             <div className='wrapper'>
@@ -78,8 +79,20 @@ export const ManageStudents = () => {
                     </label>
                     <label>
                         Año de nacimiento:
-                        <input value={email} name='email' type='number' onChange={handleChange} className='' />
+                        <input value={year} name='year' type='number' onChange={handleChange} className='' />
                     </label>
+                    <label>
+                        Mes:
+                        <input value={month} name='month' type='number' onChange={handleChange} className='' />
+                    </label>
+                    <label>
+                        Año de nacimiento:
+                        <input value={day} name='day' type='number' onChange={handleChange} className='' />
+                    </label>
+
+                    <input name='day' type='date' onChange={handleChange} className='' />
+
+
 
                     <input type="submit" className='button' value="newStudent" />
                 </form>
