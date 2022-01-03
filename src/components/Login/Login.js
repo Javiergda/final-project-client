@@ -50,7 +50,6 @@ export const Login = () => {
             );
         }
 
-
         // }
 
 
@@ -60,16 +59,24 @@ export const Login = () => {
     };
 
     return (
-        <div>
+        <div className="login_main">
+
             <h1>login</h1>
 
+            <div className='wrapper'>
+                <form onSubmit={handlesubmit} className='form'>
+                    <label>
+                        Email:
+                        <input value={email} name='email' type='email' onChange={hadlechange} className='' placeholder='email' />
+                    </label>
+                    <label>
+                        Password:
+                        <input value={password} name="password" type='password' onChange={hadlechange} className='' placeholder='password' />
+                    </label>
 
-            <div className="cointainerLista" >
-                <form onSubmit={handlesubmit}>
-                    <input value={email} name='email' type='email' onChange={hadlechange} className='' placeholder='email' />
-                    <input value={password} name="password" type='password' onChange={hadlechange} className='' placeholder='password' />
 
-                    <br /><input type="submit" className='' value="Login" />
+
+                    <input type="submit" className='button' value="Login" />
                 </form>
             </div>
         </div>

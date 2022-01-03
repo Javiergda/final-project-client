@@ -1,0 +1,28 @@
+.login_main{
+
+    .wrapper{
+        display: flex;
+        justify-content: center;
+
+        .form{
+            display: flex;
+            flex-direction: column;
+            width: 80%;
+
+            input{
+                width: 100%;
+                height: 40px;
+                margin-top: 5px;
+            }
+
+            label{
+                margin-top:15px;
+            }
+
+            .button{
+                margin-top: 30px;
+                margin-bottom: 30px;
+            }
+        }
+    }
+}
