@@ -23,7 +23,7 @@ export const Course = ({ select, setSelect, students, setFilterStudents }) => {
             const ageChild = age.slice(-1);// extrae 1,2,3 de age1
 
             // de Enero a Septiembre se le quita 1 para que coincida con el curso escolar 
-            const currentYear = dateToday.getFullYear();
+            let currentYear = dateToday.getFullYear();
             if (dateToday.getMonth() + 1 < 9) {
                 currentYear = currentYear - 1;
             }

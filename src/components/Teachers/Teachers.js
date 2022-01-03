@@ -74,7 +74,7 @@ export const Teachers = () => {
             setStudents(dataStudents);
 
             const ageChild = age.slice(-1);// extrae 1,2,3 de age1
-            const currentYear = dateToday.getFullYear();
+            let currentYear = dateToday.getFullYear();
 
             // de Enero a Septiembre se le quita 1 para que coincida con el curso escolar
             if (dateToday.getMonth() + 1 < 9) {
