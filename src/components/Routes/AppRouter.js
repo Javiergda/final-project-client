@@ -15,11 +15,13 @@ export const AppRouter = () => {
             <Header />
 
             <Routes>
+                <Route path="homepage" element={<HomePage />} />
+                <Route path="alumno" element={<Students />} />
+                <Route path="profesor" element={<Teachers />} />
+                <Route path="administracion" element={<Management />} />
+                <Route path="login" element={<Login />} />
+
                 <Route path="/" element={<HomePage />} />
-                <Route path="/Alumno" element={<Students />} />
-                <Route path="/Profesor" element={<Teachers />} />
-                <Route path="/Administracion" element={<Management />} />
-                <Route path="/Login" element={<Login />} />
             </Routes>
 
             <Footer />

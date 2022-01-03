@@ -17,37 +17,37 @@ export const Header = () => {
 
                 </div>
                 <ul>
-                    <NavLink className='nav-link' to="/" >
+                    <NavLink className='nav-link' to="homepage" >
                         <li>
                             <img src={bird} height="20px" alt='bird' />
                             <span>Inicio</span>
                         </li>
                     </NavLink>
-                    <NavLink className='nav-link' to="/Alumno">
+                    <NavLink className='nav-link' to="alumno">
                         <li>
                             <img src={butterfly} height="20px" alt='butterfly' />
                             <span>Alumno</span>
                         </li>
                     </NavLink>
-                    <NavLink className='nav-link' to="/Profesor">
+                    <NavLink className='nav-link' to="profesor">
                         <li>
                             <img src={deer} height="20px" alt='deer' />
                             <span>Profesor</span>
                         </li>
                     </NavLink>
-                    <NavLink className='nav-link' to="/Administracion">
+                    <NavLink className='nav-link' to="administracion">
                         <li>
                             <img src={deer} height="20px" alt='deer' />
                             <span>Administracion</span>
                         </li>
                     </NavLink>
-                    <NavLink className='nav-link' to="/Contacto">
+                    <NavLink className='nav-link' to="contacto">
                         <li>
                             <img src={rabbit} height="20px" alt='rabbit' />
                             <span>Contacto</span>
                         </li>
                     </NavLink>
-                    <NavLink className='nav-link' to="/Login">
+                    <NavLink className='nav-link' to="login">
                         <li>
                             <img src={rabbit} height="20px" alt='rabbit' />
                             <span >Login</span>
@@ -61,31 +61,31 @@ export const Header = () => {
                         <h3><span>Escuela infantil Bambi</span></h3>
                     </li>
 
-                    <NavLink className='nav-item' to="/">
+                    <NavLink className='nav-item' to="homepage">
                         <li>
                             <span>Inicio</span>
                         </li>
                     </NavLink>
 
-                    <NavLink className='nav-item' to="/Alumno">
+                    <NavLink className='nav-item' to="alumno">
                         <li>
                             <span>Alumno</span>
                         </li>
                     </NavLink>
 
-                    <NavLink className='nav-item' to="/Profesor">
+                    <NavLink className='nav-item' to="profesor">
                         <li>
                             <span>Profesor</span>
                         </li>
                     </NavLink>
 
-                    <NavLink className='nav-item' to="/Administracion">
+                    <NavLink className='nav-item' to="administracion">
                         <li>
                             <span>Admnistracion</span>
                         </li>
                     </NavLink>
 
-                    <NavLink className='nav-item' to="/Contacto">
+                    <NavLink className='nav-item' to="contacto">
                         <li>
                             <span>Contacto</span>
                         </li>
@@ -93,7 +93,7 @@ export const Header = () => {
 
                     <li className='empty'></li>
 
-                    <NavLink className='nav-item' to="/Login">
+                    <NavLink className='nav-item' to="login">
                         <li>
                             <span >Login</span>
                         </li>
