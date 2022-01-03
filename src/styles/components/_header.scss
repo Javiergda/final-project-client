@@ -2,6 +2,14 @@
     
     margin: 10px;
 
+    .authorized{
+        display: block;
+    }
+
+    .notauthorized{
+        display: none;
+    }
+
     .active{ // cuando esta seleccionado
         span{
             color: $green;

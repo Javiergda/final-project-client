@@ -14,7 +14,9 @@ export const Header = () => {
 
     const { email, userTipe, logged } = context;
 
-    console.log(context);
+    console.log(userTipe);
+    console.log(logged);
+
     return (
         <header className="header__main">
             <nav className="nav_small">
@@ -31,19 +33,20 @@ export const Header = () => {
                             <span>Inicio</span>
                         </li>
                     </NavLink>
-                    <NavLink className='nav-link' to="alumno">
+
+                    <NavLink className={logged && userTipe == 1 ? 'nav-link' + ' authorized' : 'nav-link' + ' notauthorized'} to="alumno">
                         <li>
                             <img src={butterfly} height="20px" alt='butterfly' />
                             <span>Alumno</span>
                         </li>
                     </NavLink>
-                    <NavLink className='nav-link' to="profesor">
+                    <NavLink className={logged && userTipe == 1 ? 'nav-link' + ' authorized' : 'nav-link' + ' notauthorized'} to="profesor">
                         <li>
                             <img src={deer} height="20px" alt='deer' />
                             <span>Profesor</span>
                         </li>
                     </NavLink>
-                    <NavLink className='nav-link' to="administracion">
+                    <NavLink className={logged && userTipe == 1 ? 'nav-link' + ' authorized' : 'nav-link' + ' notauthorized'} to="administracion">
                         <li>
                             <img src={deer} height="20px" alt='deer' />
                             <span>Administracion</span>
@@ -75,19 +78,19 @@ export const Header = () => {
                         </li>
                     </NavLink>
 
-                    <NavLink className='nav-item' to="alumno">
+                    <NavLink className={logged && userTipe == 1 ? 'nav-item' + ' authorized' : 'nav-item' + ' notauthorized'} to="alumno">
                         <li>
                             <span>Alumno</span>
                         </li>
                     </NavLink>
 
-                    <NavLink className='nav-item' to="profesor">
+                    <NavLink className={logged && userTipe == 1 ? 'nav-item' + ' authorized' : 'nav-item' + ' notauthorized'} to="profesor">
                         <li>
                             <span>Profesor</span>
                         </li>
                     </NavLink>
 
-                    <NavLink className='nav-item' to="administracion">
+                    <NavLink className={logged && userTipe == 1 ? 'nav-item' + ' authorized' : 'nav-item' + ' notauthorized'} to="administracion">
                         <li>
                             <span>Admnistracion</span>
                         </li>
