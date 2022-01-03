@@ -6,6 +6,8 @@ import { HomePage } from '../HomePage/HomePage'
 import { Students } from '../Students/Students'
 import { Teachers } from '../Teachers/Teachers'
 import { Management } from '../Management/Management'
+import { Login } from '../Login/Login';
+
 
 export const AppRouter = () => {
     return (
@@ -17,6 +19,7 @@ export const AppRouter = () => {
                 <Route path="/Alumno" element={<Students />} />
                 <Route path="/Profesor" element={<Teachers />} />
                 <Route path="/Administracion" element={<Management />} />
+                <Route path="/Login" element={<Login />} />
             </Routes>
 
             <Footer />
