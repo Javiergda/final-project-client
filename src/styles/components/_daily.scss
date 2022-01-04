@@ -11,7 +11,7 @@
         height: 100%;
         width: 100%;
         max-width: 1080px;
-        background-color: rgb(199, 223, 199);
+        // background-color: $yellow-transparent;
         
             .selector{
                 display: flex;
@@ -33,7 +33,10 @@
 
             h5{
                 margin-left: 5px;
-                color: rgb(15, 49, 15);
+            }
+
+            h5,h4{
+                // color: $yellow;
             }
         
             .a{

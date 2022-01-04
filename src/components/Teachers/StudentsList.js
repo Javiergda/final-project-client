@@ -148,10 +148,10 @@ export const StudentsList = ({ filterStudents }) => {
                                         <div><button name='nap' value='4' id={id_student}>+1</button></div>
                                     </div>
                                 </div>
-                                <div className='title'>
-                                    <h5>Falta</h5>
+                                <div className='title absence' >
+                                    <h5 >Falta</h5>
                                     <div className={absence + ' selector'} onClick={handleChange}>
-                                        <div><button name='absence' value={absence} id={id_student}>Falta</button></div>
+                                        <div><button name='absence' value={absence} id={id_student} id='absence' >Falta</button></div>
                                     </div>
                                 </div>
                             </div>

@@ -6,6 +6,7 @@ import butterfly from '../../icons/butterfly.png'
 import deer from '../../icons/deer.png'
 import rabbit from '../../icons/rabbit.png'
 import menu from '../../icons/menu.png'
+import logo from '../../images/logo.jpg'
 import { AuthContext } from '../../auth/authContext'
 
 export const Header = () => {
@@ -18,8 +19,8 @@ export const Header = () => {
         <header className="header__main">
             <nav className="nav_small">
                 <div className='header_menu'>
-                    <img src={bird} height="20px" alt='bird' />
-                    <h3><span>Escuela infantil Bambi</span></h3>
+                    <img src={logo} height="30px" alt='logo' />
+                    <h3><span>Escuela infantil</span></h3>
                     <img src={menu} height="20px" alt='' />
 
                 </div>
@@ -66,7 +67,7 @@ export const Header = () => {
             <nav className='nav_medium'>
                 <ul>
                     <li>
-                        <h3><span>Escuela infantil Bambi</span></h3>
+                        <h3><span><img src={logo} height="30px" alt='logo' /></span></h3>
                     </li>
 
                     <NavLink className='nav-item' to="homepage">

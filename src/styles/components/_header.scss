@@ -10,16 +10,21 @@
         display: none;
     }
 
-    .active{ // cuando esta seleccionado
-        span{
-            color: $green;
-        }
-    }
+
 
     // Navegador samll - movil
     .nav_small{
         font-size: 1.3rem;
         margin: 5px 15px 5px 5px;
+
+        .active{ // cuando esta seleccionado
+            li{
+                background-color: $yellow;
+                span{
+                    color: white;
+                }
+            }
+        }
 
         .header_menu{
             display: flex;
@@ -27,6 +32,10 @@
             border: 1px solid black;
             margin: 2px;
             padding: 15px;
+
+            img{
+                margin-right: 5px;
+            }
         }
 
         ul{
@@ -46,10 +55,10 @@
                 border: 1px solid black;
                 margin: 2px;
                 padding: 15px;
-                transition: all 0.3s;
+                transition: all 0.4s;
     
                 &:hover{
-                    background-color: $green-light;
+                    background-color: $yellow;
                     cursor: pointer;
                 }
 
@@ -63,6 +72,13 @@
     // Navegador medium - tablet y pc
     .nav_medium{
         display: none;
+
+        .active{ // cuando esta seleccionado
+                span{
+                    color: $yellow;
+                } 
+        }
+
         ul{
             padding:0px;
             display: flex;
@@ -72,6 +88,10 @@
                 list-style: none;
                 h3{
                     padding:5px;
+                }
+
+                img{
+                    margin-right: 5px;
                 }
             }
 
@@ -88,8 +108,8 @@
                 }
 
                 &:hover{
-                    color: $green;
-                    border-bottom: solid 5px $green-light;
+                    color: $yellow;
+                    border-bottom: solid 5px $yellow;
                     cursor: pointer;
                 }   
             }
@@ -103,8 +123,8 @@
         }
     }
 
-    $small: 700px;
-    $medium: 900px;
+    // $small: 700px;
+    // $medium: 900px;
     @media screen and (min-width: $small) {
 
         .nav_small{

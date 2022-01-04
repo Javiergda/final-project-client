@@ -1,9 +1,8 @@
 .students_main{
-    background-color: rgb(199, 223, 199);
+    // background-color: rgb(199, 223, 199);
     font-size: 0.8rem;
 
-    $small: 700px;
-    $medium: 900px;
+
     @media screen and (min-width: $small) {
         font-size: 1.3rem;
     }

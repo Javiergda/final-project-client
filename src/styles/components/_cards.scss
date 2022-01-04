@@ -1,11 +1,12 @@
 
 .cards_title{
 
-        background-color: #dde2c1;
+        background-color: $purple;
         padding:20px;
 
         h1{
-        text-align: center;           
+        text-align: center; 
+        color: white;          
         }
 
     .cards_main{
@@ -13,13 +14,15 @@
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
+
+
     
         .card{
             display: flex;
             flex-direction: column;
             background-color: white;
             margin: 20px;
-            border-radius: 10px;
+            border-radius: 5px;
             width: 350px;
             height: 410px;
             cursor: pointer;
@@ -35,14 +38,15 @@
             }
             span{
                 text-align: right;
-                color: $brown;
+                color: $yellow;
             }
         }
     
         img{
-            border-radius: 10px 10px 0px 00px;
+            border-radius: 5px 5px 0px 00px;
             width: 100%;
             height: 250px;
+            
         }
     }
 }
