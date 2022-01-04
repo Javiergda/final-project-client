@@ -2,7 +2,9 @@ import React from 'react'
 import { useState } from 'react';
 
 
-export const ManageStudents = () => {
+export const ManageStudents = ({ students, setStudents }) => {
+
+    console.log(students);
 
     const initialState = {
         name1: '',
@@ -10,13 +12,13 @@ export const ManageStudents = () => {
         letter: 'A',
         phone1: '',
         phone2: '',
-        year: '',
-        month: '',
-        day: '',
+        yearBirth: '',
+        monthBirth: '',
+        dayBirt: '',
     }
 
     const [form, setForm] = useState(initialState);
-    const { name1, lastName, letter, phone1, phone2, year, month, day } = form;
+    const { name1, lastName, letter, phone1, phone2, yearBirth, monthBirth, dayBirth } = form;
 
     const handleChange = e => {
         setForm({
@@ -28,7 +30,7 @@ export const ManageStudents = () => {
     const handlesubmit = e => {
         e.preventDefault();
         // comprobamos que no este vacio quitandole espacios en blanco a derecha e izquierda
-        if (name1.trim().length > 0 && lastName.trim().length > 0 && letter.trim().length > 0 && phone1.trim().length > 0 && year.trim().length > 0 && month.trim().length > 0 && day.trim().length > 0) {
+        if (name1.trim().length > 0 && lastName.trim().length > 0 && letter.trim().length > 0 && phone1.trim().length > 0 && yearBirth.trim().length > 0 && monthBirth.trim().length > 0 && dayBirth.trim().length > 0) {
             console.log('NEW USER');
 
             /// CRUD - POST - Enviamos nuevo usuario insert into alumnos values
@@ -37,7 +39,9 @@ export const ManageStudents = () => {
             //// obtenemos repuesta
             const responseUser = 'ok';
             if (responseUser = 'ok') {
+
                 /// refrescamos donde haga falta!!!
+                setStudents([]);
 
             }
         } else {
@@ -79,19 +83,16 @@ export const ManageStudents = () => {
                     </label>
                     <label>
                         Año de nacimiento:
-                        <input value={year} name='year' type='number' onChange={handleChange} className='' />
+                        <input value={yearBirth} name='year' type='number' onChange={handleChange} className='' />
                     </label>
                     <label>
                         Mes:
-                        <input value={month} name='month' type='number' onChange={handleChange} className='' />
+                        <input value={monthBirth} name='month' type='number' onChange={handleChange} className='' />
                     </label>
                     <label>
-                        Año de nacimiento:
-                        <input value={day} name='day' type='number' onChange={handleChange} className='' />
+                        Dia:
+                        <input value={dayBirth} name='day' type='number' onChange={handleChange} className='' />
                     </label>
-
-                    <input name='day' type='date' onChange={handleChange} className='' />
-
 
 
                     <input type="submit" className='button' value="newStudent" />
