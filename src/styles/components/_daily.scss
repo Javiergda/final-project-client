@@ -1,15 +1,5 @@
 .daily_main{
 
-    @mixin backColor ($child){
-        div{
-            &:nth-child(#{$child}){
-                background-color: #748d63;
-                color:black;
-                border-color: black;
-            }
-        }
-    }
-
     display: flex;
     justify-content: center;
     height: 100%;
@@ -47,50 +37,19 @@
             }
         
             .a{
-                @include backColor(1);
-
-                div{
-
-            
-                    // &:nth-child(1){
-                    //     background-color: #748d63;
-                    //     color:black;
-                    //     border-color: black;
-                    // }
-                }
+                @include backColorDiv(1);
             }
         
             .b{
-                @include backColor(2);
-                // div{
-                //     &:nth-child(2){
-                //         background-color: #748d63;
-                //         color:black;
-                //         border-color: black;
-                //     }
-                // }
+                @include backColorDiv(2);
             }
         
             .c{
-                @include backColor(3);
-                // div{
-                //     &:nth-child(3){
-                //         background-color: #748d63;
-                //         color:black;
-                //         border-color: black;
-                //     }
-                // }
+                @include backColorDiv(3);
             }
         
             .d{
-                @include backColor(4);
-                // div{
-                //     &:nth-child(4){
-                //         background-color: #748d63;
-                //         color:black;
-                //         border-color: black;
-                //     }
-                // }
+                @include backColorDiv(4);
             }
     }
 }

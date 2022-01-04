@@ -1,4 +1,4 @@
-// COLORES
+// ------  COLORES  ------ //
 
 // Green
 $green: #2b501a; 
@@ -14,6 +14,33 @@ $brown-shadow:lighten($brown,70%);
 
 
 // color-footer
-
 $background_footer:#292929;
 $footer_text:lighten($background_footer,70%);
+
+
+// ------  MIXINS  ------ //
+
+@mixin backColorDiv ($child){
+    div{
+        &:nth-child(#{$child}){
+            background-color: #748d63;
+            color:black;
+            border-color: black;
+        }
+    }
+}
+
+@mixin backColorButton($child){
+    div{
+        &:nth-child(#{$child}){
+            button{
+                background-color: #748d63;
+                color:black;
+                border-color: black;
+            }
+        }
+    }
+}
+
+
+
