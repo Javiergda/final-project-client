@@ -44,8 +44,8 @@ export const ManageUsers = () => {
 
 
     return (
-        <div>
-            <h1>Nuevo usuario/padre</h1>
+        <div className='manageUsers_main'>
+            <h1>Nuevo usuario/padre/madre</h1>
 
             <div className='wrapper'>
                 <form onSubmit={handlesubmit} className='form'>
