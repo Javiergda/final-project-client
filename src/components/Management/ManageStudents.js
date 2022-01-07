@@ -80,6 +80,7 @@ export const ManageStudents = ({ users, setStudents }) => {
             <h1>Nuevo alumno</h1>
 
             <div className='wrapper'>
+
                 <form onSubmit={handlesubmit} className='form'>
                     <label>
                         Nombre:
@@ -99,7 +100,7 @@ export const ManageStudents = ({ users, setStudents }) => {
                     </label>
                     <label>
                         Telefono1:
-                        <input value={phone1} name='phone2' type='text' onChange={handleChange} className='' />
+                        <input value={phone1} name='phone1' type='text' onChange={handleChange} className='' />
                     </label>
                     <label>
                         Telefono2:

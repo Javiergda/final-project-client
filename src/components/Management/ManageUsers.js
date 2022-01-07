@@ -46,9 +46,10 @@ export const ManageUsers = () => {
 
     return (
         <div className='manageUsers_main'>
-            <h1>Nuevo usuario/padre/madre</h1>
+            <h1>Nuevo tutor</h1>
 
             <div className='wrapper'>
+
                 <form onSubmit={handlesubmit} className='form'>
                     <label>
                         Nombre:

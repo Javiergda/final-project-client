@@ -1,26 +1,52 @@
 .manageUsers_main{
+    margin:15px;
+    margin-bottom: 30px;
 
-    font-size: 1rem;
+    h1{
+        color: $yellow;
+        margin-left: 15px;
+        text-align: center;
+    }
 
     .wrapper{
         display: flex;
         justify-content: center;
+        // border-bottom: 2px solid $yellow;
+
 
         .form{
+            // background-color: $purple-transparent;
             
             display: flex;
             flex-direction: column;
             width: 80%;
+            max-width: 800px;
 
             input{
-                font-size: 1rem;
+                border: none;
                 width: 100%;
-                height: 20px;
+                height: 25px;
                 margin-top: 5px;
+                border-radius: 5px;
+                background-color: $purple-transparent;
+                color: $purple;
+                
+            }
+
+            label{
+                // color: $purple;
+                
             }
 
             select{
-                font-size: 1.2rem;
+                background-color: $purple-transparent;
+                border-color: $yellow;
+                border-radius: 5px;
+                border: none;
+                box-shadow: none;
+                
+                font-size: 1rem;
+                padding:3px;
                 margin-left: 5px;
             }
 
@@ -29,8 +55,13 @@
             }
 
             .button{
+                background-color: $purple-semitransparent;
+                color: white;
+                border:1px solid $purple;
+                height: 30px;
                 margin-top: 30px;
                 margin-bottom: 30px;
+                box-shadow: -1px 1px $purple-semitransparent ;
             }
         }
     }

@@ -65,7 +65,7 @@ export const Management = () => {
 
     return (
         context.logged && context.userTipe == 1 ? // ususario logeado y nivel 2
-            <div>
+            <div className='management_main'>
                 <ManageUsers />
                 <ManageStudents users={users} setStudents={setStudents} />
                 <DeleteStudents students={students} />
