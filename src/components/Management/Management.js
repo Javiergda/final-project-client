@@ -35,34 +35,41 @@ export const Management = () => {
         ];
         const dataStudents = [
             {
-                id_student: 10, name: 'Lucia', surname: 'Garcia', yearBirth: 2021, monthBirth: 4, dayBirth: 27, phone1: 600111222, phone2: 600444555, letter: 'A',
+                id_student: 10, name: 'Lucia', surname: 'Garcia', yearBirth: 2021, monthBirth: 4, dayBirth: 27, phone1: 600111222, phone2: 600444555, letter: 'A', email_user: 'javier@javier',
             },
             {
-                id_student: 20, name: 'Julia', surname: 'Garcia', yearBirth: 2019, monthBirth: 3, dayBirth: 11, phone1: 600111222, phone2: 600444555, letter: 'A',
+                id_student: 20, name: 'Julia', surname: 'Garcia', yearBirth: 2019, monthBirth: 3, dayBirth: 11, phone1: 600111222, phone2: 600444555, letter: 'A', email_user: 'javier@javier',
             }
         ];
-        const dataUser = [
+        const dataUsers = [
             {
-                name: 'Javier', surname: 'Garcia', email: 'javier@javier.com', password: '123456', userTipe: 1,
+                name: 'Javier', surname: 'Garcia', email_user: 'javier@javier.com', password: '123456', userTipe: 1,
             },
             {
-                name: 'Javier', surname: 'Garcia', email: 'javier@javier.com', password: '123456', userTipe: 1,
+                name: 'Javier', surname: 'Garcia', email_user: 'javier@javier.com', password: '123456', userTipe: 1,
             }
         ];
         if (dataStudents) {
             setStudents(dataStudents);
         }
+        if (dataStudents) {
+            setUsers(dataUsers);
+        }
+
+
     }, [])
 
 
     const [students, setStudents] = useState([]);
+    const [users, setUsers] = useState([]);
 
     return (
         context.logged && context.userTipe == 1 ? // ususario logeado y nivel 2
             <div>
-                <ManageStudents setStudents={setStudents} />
-                <DeleteStudents students={students} />
                 <ManageUsers />
+                <ManageStudents users={users} setStudents={setStudents} />
+                <DeleteStudents students={students} />
+
             </div>
             :
             <Navigate to='/login' />
