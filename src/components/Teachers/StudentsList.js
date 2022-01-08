@@ -27,9 +27,12 @@ export const StudentsList = ({ filterStudents }) => {
     };
 
     const handleChange = e => {
+        console.log(e.target);
         if (e.target.id) {
             let nameItem = e.target.name;
             let valueItem = e.target.value;
+            let idItem = e.target.id;
+            idItem = idItem.slice(2);
             // cambiamos al contrario el valor de falta
             if (e.target.name == 'absence') {
                 e.target.value == 'a' ? valueItem = '0' : valueItem = 'a';
@@ -40,7 +43,7 @@ export const StudentsList = ({ filterStudents }) => {
             }
 
             // 2. CRUD POST 
-            console.log(`instert into table Diario(${nameItem}) values(${valueItem}) where id_usuario=${e.target.id}`);
+            console.log(`instert into table Diario(${nameItem}) values(${valueItem}) where id_usuario=${idItem}`);
             // a. Upade ---> si repuesta -> no existe entonces ->
             // b. Create
             // Recibimos dataStudents e inicializamos de nuevo el componente.
@@ -73,85 +76,85 @@ export const StudentsList = ({ filterStudents }) => {
                 filterStudents.map(({ name, surname, id_student, breakfast, lunch1, lunch2, dessert, snack, bottle, diaper, nap, message, date, absence }, index) => {
                     return (
 
-                        <div key={id_student} className='wrapper'>
+                        <div key={id_student} className='wrapper' onClick={handleChange}>
                             <span>{name + ' ' + surname}</span>
                             <div className='boxStudent'>
                                 <div className='title'>
                                     <h5>Desayuno</h5>
-                                    <div className={breakfast + ' selector'} onClick={handleChange} >
-                                        <div><button name='breakfast' value='1' id={id_student}>N</button></div>
-                                        <div><button name='breakfast' value='2' id={id_student}>R</button></div>
-                                        <div><button name='breakfast' value='3' id={id_student}>B</button></div>
-                                        <div><button name='breakfast' value='4' id={id_student}>T</button></div>
+                                    <div className={breakfast + ' selector'} >
+                                        <div><button name='breakfast' value='a' id={'aa' + id_student}>N</button></div>
+                                        <div><button name='breakfast' value='b' id={'ab' + id_student}>R</button></div>
+                                        <div><button name='breakfast' value='c' id={'ac' + id_student}>B</button></div>
+                                        <div><button name='breakfast' value='d' id={'ad' + id_student}>T</button></div>
                                     </div>
                                 </div>
                                 <div className='title'>
                                     <h5>Primero</h5>
-                                    <div className={lunch1 + ' selector'} onClick={handleChange}>
-                                        <div><button name='lunch1' value='1' id={id_student}>N</button></div>
-                                        <div><button name='lunch1' value='2' id={id_student}>R</button></div>
-                                        <div><button name='lunch1' value='3' id={id_student}>B</button></div>
-                                        <div><button name='lunch1' value='4' id={id_student}>T</button></div>
+                                    <div className={lunch1 + ' selector'} >
+                                        <div><button name='lunch1' value='a' id={'ae' + id_student}>N</button></div>
+                                        <div><button name='lunch1' value='b' id={'af' + id_student}>R</button></div>
+                                        <div><button name='lunch1' value='c' id={'ag' + id_student}>B</button></div>
+                                        <div><button name='lunch1' value='d' id={'ah' + id_student}>T</button></div>
                                     </div>
                                 </div>
                                 <div className='title'>
                                     <h5>Segundo</h5>
-                                    <div className={lunch2 + ' selector'} onClick={handleChange}>
-                                        <div><button name='lunch2' value='1' id={id_student}>N</button></div>
-                                        <div><button name='lunch2' value='2' id={id_student}>R</button></div>
-                                        <div><button name='lunch3' value='3' id={id_student}>B</button></div>
-                                        <div><button name='lunch4' value='4' id={id_student}>T</button></div>
+                                    <div className={lunch2 + ' selector'} >
+                                        <div><button name='lunch2' value='a' id={'ai' + id_student}>N</button></div>
+                                        <div><button name='lunch2' value='b' id={'aj' + id_student}>R</button></div>
+                                        <div><button name='lunch3' value='c' id={'ak' + id_student}>B</button></div>
+                                        <div><button name='lunch4' value='d' id={'al' + id_student}>T</button></div>
                                     </div>
                                 </div>
                                 <div className='title'>
                                     <h5>Postre</h5>
-                                    <div className={dessert + ' selector'} onClick={handleChange}>
-                                        <div><button name='dessert' value='1' id={id_student}>N</button></div>
-                                        <div><button name='dessert' value='2' id={id_student}>R</button></div>
-                                        <div><button name='dessert' value='3' id={id_student}>B</button></div>
-                                        <div><button name='dessert' value='4' id={id_student}>T</button></div>
+                                    <div className={dessert + ' selector'} >
+                                        <div><button name='dessert' value='a' id={'am' + id_student}>N</button></div>
+                                        <div><button name='dessert' value='b' id={'an' + id_student}>R</button></div>
+                                        <div><button name='dessert' value='c' id={'ao' + id_student}>B</button></div>
+                                        <div><button name='dessert' value='d' id={'ap' + id_student}>T</button></div>
                                     </div>
                                 </div>
                                 <div className='title'>
                                     <h5>Merienda</h5>
-                                    <div className={snack + ' selector'} onClick={handleChange}>
-                                        <div><button name='snack' value='1' id={id_student}>N</button></div>
-                                        <div><button name='snack' value='2' id={id_student}>R</button></div>
-                                        <div><button name='snack' value='3' id={id_student}>B</button></div>
-                                        <div><button name='snack' value='4' id={id_student}>T</button></div>
+                                    <div className={snack + ' selector'} >
+                                        <div><button name='snack' value='a' id={'aq' + id_student}>N</button></div>
+                                        <div><button name='snack' value='b' id={'ar' + id_student}>R</button></div>
+                                        <div><button name='snack' value='c' id={'as' + id_student}>B</button></div>
+                                        <div><button name='snack' value='d' id={'at' + id_student}>T</button></div>
                                     </div>
                                 </div>
                                 <div className='title'>
                                     <h5>Biberon</h5>
-                                    <div className={bottle + ' selector'} onClick={handleChange}>
-                                        <div><button name='bottle' value='1' id={id_student}>1</button></div>
-                                        <div><button name='bottle' value='2' id={id_student}>2</button></div>
-                                        <div><button name='bottle' value='3' id={id_student}>3</button></div>
-                                        <div><button name='bottle' value='4' id={id_student}>4</button></div>
+                                    <div className={bottle + ' selector'} >
+                                        <div><button name='bottle' value='a' id={'au' + id_student}>1</button></div>
+                                        <div><button name='bottle' value='b' id={'av' + id_student}>2</button></div>
+                                        <div><button name='bottle' value='c' id={'aw' + id_student}>3</button></div>
+                                        <div><button name='bottle' value='d' id={'ax' + id_student}>4</button></div>
                                     </div>
                                 </div>
                                 <div className='title'>
                                     <h5>Pañal</h5>
-                                    <div className={diaper + ' selector'} onClick={handleChange}>
-                                        <div><button name='diaper' value='1' id={id_student}>1</button></div>
-                                        <div><button name='diaper' value='2' id={id_student}>2</button></div>
-                                        <div><button name='diaper' value='3' id={id_student}>3</button></div>
-                                        <div><button name='diaper' value='4' id={id_student}>4</button></div>
+                                    <div className={diaper + ' selector'} >
+                                        <div><button name='diaper' value='a' id={'ay' + id_student}>1</button></div>
+                                        <div><button name='diaper' value='b' id={'az' + id_student}>2</button></div>
+                                        <div><button name='diaper' value='c' id={'ba' + id_student}>3</button></div>
+                                        <div><button name='diaper' value='d' id={'bb' + id_student}>4</button></div>
                                     </div>
                                 </div>
                                 <div className='title'>
                                     <h5>Siesta</h5>
-                                    <div className={nap + ' selector'} onClick={handleChange}>
-                                        <div><button name='nap' value='1' id={id_student}>No</button></div>
-                                        <div><button name='nap' value='2' id={id_student}>1/2</button></div>
-                                        <div><button name='nap' value='3' id={id_student}>1</button></div>
-                                        <div><button name='nap' value='4' id={id_student}>+1</button></div>
+                                    <div className={nap + ' selector'} >
+                                        <div><button name='nap' value='a' id={'bc' + id_student}>No</button></div>
+                                        <div><button name='nap' value='b' id={'bd' + id_student}>1/2</button></div>
+                                        <div><button name='nap' value='c' id={'be' + id_student}>1</button></div>
+                                        <div><button name='nap' value='d' id={'bf' + id_student}>+1</button></div>
                                     </div>
                                 </div>
                                 <div className='title absence' >
                                     <h5 >Falta</h5>
-                                    <div className={absence + ' selector'} onClick={handleChange}>
-                                        <div><button name='absence' value={absence} id={id_student} id='absence' >Falta</button></div>
+                                    <div className={absence + ' selector'} >
+                                        <div><button name='absence' value={absence} id={'bg' + id_student} id='absence' >Falta</button></div>
                                     </div>
                                 </div>
                             </div>
@@ -159,7 +162,7 @@ export const StudentsList = ({ filterStudents }) => {
                             <div className='message'>
                                 <h5>Mensaje:</h5>
                                 {/* Se usa defaultValue xq es un elemento no controlado. Funciona igual que value */}
-                                <input type='text' name={index} defaultValue={msn[index]} id={id_student} className='message' onChange={handleMsn} onBlur={handleChange} />
+                                <input type='text' name={index} defaultValue={msn[index]} id={'bh' + id_student} className='message' onChange={handleMsn} onBlur={handleChange} />
                             </div>
                         </div>
                     )

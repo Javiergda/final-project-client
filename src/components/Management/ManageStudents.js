@@ -125,22 +125,12 @@ export const ManageStudents = ({ users, setStudents }) => {
 
                     <input type='button' className='buttonSearch' value="Asociar email" onClick={handleSearch} />
 
-
                     <label>
                         Tutor:
                         <span name='emailFounded'>{emailFoundedName}</span>
-
-
-
                     </label>
 
-
-
-
-
-
-
-                    <input type="submit" className='button' value="newStudent" />
+                    <input type="submit" className='button' value="Añadir estudiante" />
                 </form>
             </div>
         </div>

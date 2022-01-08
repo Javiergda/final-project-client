@@ -77,7 +77,7 @@ export const ManageUsers = () => {
                     </label>
 
 
-                    <input type="submit" className='button' value="newStudent" />
+                    <input type="submit" className='button' value="Añadir tutor" />
                 </form>
             </div>
         </div>
