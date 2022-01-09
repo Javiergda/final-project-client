@@ -1,49 +1,78 @@
 .delete_main{
 
 
-display: flex;
-// align-items: center;
-justify-content: center;
-    .wrapper{
-        font-size: 0.7rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
 
+    .title{
+        display: flex;
+  
+        justify-content: left;
+        align-items: left;
+        width: 80%;
+        // border:1px solid black;
+        h3{
+            span{
+                text-align: left;
+            }
+
+            width: 98%;
+            // border: 1px solid black;
+            margin: 5px 0 5px 0;
+            margin-left: 20px;
+            color: $purple;
+            }
+    }
+
+    .wrapper{
+
+        font-size: 0.8rem;
         display: flex;
         flex-direction: column;
         align-items: center;
         width: 80%;
-
         max-width: 800px;
-        border:1px solid black;
+        // border:1px solid black;
         max-height: 90px;
         overflow: scroll;
+
 
         .wrapper2{
 
             display: flex;
-             border:1px solid black;
-             background-color: $purple-transparent;
-                // height: 35px;
-            padding:1px;
-            margin:1px;
-             width: 98%;
+            border:1px solid $purple-semitransparent;
+            background-color: $purple-transparent;
+            border-radius: 3px;
+            padding:2px;
+            margin:2px;
+            width: 98%;
+            color: $purple;
 
             .name{
-                width: 100%;
-                min-width: 50px;
+                padding:2px 0 0 2px;
+                // width: 100%;
+                min-width: 100px;
             }
     
             .surname{
-                min-width: 50px;
-                border:1px solid black;
+                min-width: 100px;
+                // width: 100%;
+                padding-top: 2px;
+                // border:1px solid black;
             }
 
             .date{
-                min-width: 40px;
-                border:1px solid black;
+                min-width: 35px;
+                padding-top: 2px;
+                // border:1px solid black;
             }
             .phone{
-                min-width: 60px;
-                border:1px solid black;
+                min-width: 80px;
+                padding-top: 2px;
+                // border:1px solid black;
             }
 
             button{
@@ -52,6 +81,11 @@ justify-content: center;
                 border:1px solid $purple;
                     // height: 15px;
             }
-         }
+        }
+
+        .title{
+            background-color: $purple-semitransparent;
+            color: white;
+        }
     }
 }

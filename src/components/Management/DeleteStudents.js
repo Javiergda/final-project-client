@@ -8,12 +8,30 @@ export const DeleteStudents = ({ students }) => {
         console.log(`Se borrara el alumno y todas las referencias a los padres`);
         console.log(`Delete from USE-STU WHERE ID=${e.target.value}`);
         console.log(`Delete from STUDENTS WHERE ID=${e.target.value}`);
-        /// actualizar datos de nuevo
+        /// CRUD - POST
+        // -- SQL --
+        // DELETE FROM students
+        // WHERE id_student = $e.target.value
+        //
+        // --> y actualizar datos
     }
 
     return (
         <div className='delete_main'>
+            <div className='title'>
+                <h3><span>Eliminar alumno</span></h3>
+            </div>
+
             <div className='wrapper'>
+                <div className='wrapper2 title'>
+                    <div className='name'><span >Telefono</span></div>
+                    <div className='surname'><span>Apellidos</span></div>
+                    <div className='date'><span>Año</span></div>
+                    <div className='date'><span>Mes</span></div>
+                    <div className='date'><span>Dia</span></div>
+                    <div className='phone'><span>Telefono1</span></div>
+                    <div className='phone'><span>Telefono2</span></div>
+                </div>
                 {
                     students.map(({ id_student, name, surname, yearBirth, monthBirth, dayBirt, phone1, phone2 }) => (
                         <div key={id_student} className='wrapper2'>

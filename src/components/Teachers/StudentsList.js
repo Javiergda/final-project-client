@@ -43,9 +43,18 @@ export const StudentsList = ({ filterStudents }) => {
             }
 
             // 2. CRUD POST 
-            console.log(`instert into table Diario(${nameItem}) values(${valueItem}) where id_usuario=${idItem}`);
-            // a. Upade ---> si repuesta -> no existe entonces ->
-            // b. Create
+            // -- SQL --
+            // UPDATE daily
+            // SET $nameItem = $valueItem
+            // WHERE daily.id = $idItem
+            // AND date = GETDATE();
+
+            // ------> Si no existe registro entonces
+
+            // INSERT INTO daily($nameItem,date,id_student)
+            // VALUES ($valueItem,GETDATE(),$idItem);
+            console.log(`instert into table daily(${nameItem}) values(${valueItem}) where id_usuario=${idItem}`);
+
             // Recibimos dataStudents e inicializamos de nuevo el componente.
 
 

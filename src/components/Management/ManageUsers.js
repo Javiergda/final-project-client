@@ -26,8 +26,14 @@ export const ManageUsers = () => {
         if (name1.trim().length > 0 && lastName.trim().length > 0 && email.trim().length > 0 && password.trim().length > 0) {
             console.log('NEW USER');
 
-            /// CRUD - POST - Enviamos nuevo usuario insert into alumnos values
-            /// name1, lastName, letter, phone1, phone2, email
+            /// CRUD - POST
+            // -- SQL --
+            // SELECT COUNT(*) FROM users
+            // WHERE email_user = $email;
+            // --> si el email no exister lo creamos:
+            // INSERT INTO users(name,surname,email_user,password,user_type)
+            // VALUES ($name,$lastName,$email,$password,$userLevel);
+
             ///////////////////////////////
             //// obtenemos repuesta
             const responseUser = 'ok';

@@ -36,9 +36,11 @@ export const ManageStudents = ({ users, setStudents }) => {
             console.log('NEW USER');
             if (emailFounded) { // 2. Comprobacion: si esta asociado a email de tutor con alumno
 
-                /// CRUD - POST - Enviamos nuevo usuario insert into alumnos values
-                /// name1, lastName, letter, phone1, phone2, email
-                ///////////////////////////////
+                /// CRUD - POST
+                // -- SQL --
+                // INSERT INTO students(name,surname,email_user,birth_date,phone1,phone2,letter)
+                // VALUES ($name1,$lastName,$emailFounded,$birthDate,$phone1,$phone2,$letter);
+
                 //// obtenemos repuesta
                 const responseUser = 'ok';
                 if (responseUser = 'ok') {
@@ -127,7 +129,7 @@ export const ManageStudents = ({ users, setStudents }) => {
 
                     <label>
                         Tutor:
-                        <span name='emailFounded'>{emailFoundedName}</span>
+                        <span name='emailFounded' className='textSearch'>{emailFoundedName}</span>
                     </label>
 
                     <input type="submit" className='button' value="Añadir estudiante" />

@@ -13,8 +13,12 @@ export const Students = () => {
 
     useEffect(() => {
         ///////////////////////// CRUD - GET
-        // GET Tabla Usuarios + Alumnos + Diario (Join) where id_alumno(Usuario)==id_alumno(Alumnos)
-        // id_usuario(Usuario) logeado and where birtDate (year-actualyear <3)
+        // -- SQL --
+        // SELECT * FROM students
+        // JOIN daily ON daily.id_student = students.id_student
+        // WHERE DATEDIFF(year,birth_date,GETDATE()) < 4
+        // AND students.email_user = $email usuario logeado;
+
         // resultado 2 registros. Tiene 2 hijos en la guarde
         const dataStudents = [
             {

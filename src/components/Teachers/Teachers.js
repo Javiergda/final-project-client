@@ -15,9 +15,12 @@ export const Teachers = () => {
     useEffect(() => {
 
         ////////// CRUD - GET
-        // tabla diario + alumnos (join)
-        // select * where id_alumno and año_nacimiento 
-        // año actual 22 - año nacimiento 19 = 3 (entre 0 y 3 años)
+        // -- SQL --
+        // SELECT * FROM students
+        // JOIN daily ON daily.id_student = students.id_student
+        // WHERE DATEDIFF(year,birth_date,GETDATE()) < 4
+        // AND students.email_user = $email usuario logeado;
+
         // resultado todo alumnos actuales
 
         const dataStudents = [
