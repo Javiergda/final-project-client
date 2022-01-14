@@ -7,8 +7,11 @@ export const Daily = ({ student }) => {
     return (
         <div className='daily_main'>
             <div className='wrapper'>
-                <span>Dia: {date}</span>
-                <span>Falta: {absence ? 'FALTA' : 'No'}</span>
+                <div className='box1'>
+                    <span>Dia: {date}</span>
+                    {/* <span>Falta: {absence ? 'FALTA' : 'No'}</span> */}
+                </div>
+
 
                 <h4>COMIDAS</h4>
 

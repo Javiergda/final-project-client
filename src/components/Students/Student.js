@@ -12,21 +12,26 @@ export const Student = ({ students, student, setStudent }) => {
 
     return (
         <div className='student_main'>
-            <h4>Alumno: </h4>
-            {/* LLenamos el select */}
-            <select name='select' onChange={handleChange}>
-                {
-                    students.map(({ name, surname, id_student }) => (
-                        <option key={id_student} value={id_student}>{`${name} ${surname}`}</option>
-                    ))
-                }
-            </select>
-            <span>Clase: {letter}</span>
+            <div className='wrapper'>
+                <div className='box1'>
+                    <h4>Alumno: </h4>
+                    {/* LLenamos el select */}
+                    <select name='select' onChange={handleChange}>
+                        {
+                            students.map(({ name, surname, id_student }) => (
+                                <option key={id_student} value={id_student}>{`${name} ${surname}`}</option>
+                            ))
+                        }
+                    </select>
+                    <span>Clase: {letter}</span>
+                </div>
 
-            <span>Tfno padre: {phone1}</span>
-            <span>Tfno madre: {phone2}</span>
-            <span>Fecha nacimiento: {birth_date}</span>
-
+                <div className='box2'>
+                    <span>Telefono 1: {phone1}</span>
+                    <span>Telefono 2: {phone2}</span>
+                    {/* <span>Fecha nacimiento: {birth_date}</span> */}
+                </div>
+            </div>
         </div>
     )
 }
