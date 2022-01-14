@@ -29,7 +29,7 @@ export const Course = ({ select, setSelect, students, setFilterStudents }) => {
             }
 
             // filtra objeto.letra == letra del select  &&  Año actual - año de nacimiento
-            const filter = students.filter((element) => element.letter == letter && (currentYear - element.yearBirth) == ageChild);
+            const filter = students.filter((element) => element.letter == letter && (currentYear - Number(element.birth_date.slice(0, 4))) == ageChild);
             setFilterStudents(filter);
         }
     }, [select])

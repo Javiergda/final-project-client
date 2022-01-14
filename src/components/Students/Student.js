@@ -2,7 +2,7 @@ import React from 'react';
 
 export const Student = ({ students, student, setStudent }) => {
 
-    const { yearBirth, fatherPhone, id_student, letter, motherPhone, name, surname } = student;
+    const { birth_date, phone1, id_student, letter, phone2, name, surname } = student;
 
     // Pintamos ficha alumno seleccionado
     const handleChange = e => {
@@ -23,9 +23,9 @@ export const Student = ({ students, student, setStudent }) => {
             </select>
             <span>Clase: {letter}</span>
 
-            <span>Tfno padre: {fatherPhone}</span>
-            <span>Tfno madre: {motherPhone}</span>
-            <span>Fecha nacimiento: {yearBirth}</span>
+            <span>Tfno padre: {phone1}</span>
+            <span>Tfno madre: {phone2}</span>
+            <span>Fecha nacimiento: {birth_date}</span>
 
         </div>
     )

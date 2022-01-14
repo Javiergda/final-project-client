@@ -11,16 +11,14 @@ export const ManageStudents = ({ users, setStudents }) => {
         letter: 'A',
         phone1: '',
         phone2: '',
-        yearBirth: '',
-        monthBirth: '',
-        dayBirt: '',
+        birth_date: '',
         email_user: '', // no se envia con el insert x si lo cambia despues de asociarlo
         emailFounded: '', // se enviara como email_user con el insert
         emailFoundedName: '', // no se envia con el insert
     }
 
     const [form, setForm] = useState(initialState);
-    const { name1, lastName, letter, phone1, phone2, yearBirth, monthBirth, dayBirth, email_user, emailFounded, emailFoundedName } = form;
+    const { name1, lastName, letter, phone1, phone2, birth_date, email_user, emailFounded, emailFoundedName } = form;
 
     const handleChange = e => {
         setForm({
@@ -32,7 +30,7 @@ export const ManageStudents = ({ users, setStudents }) => {
     const handlesubmit = e => {
         e.preventDefault();
         // 1. Comprobacion: comprobamos que no este vacio quitandole espacios en blanco a derecha e izquierda
-        if (name1.trim().length > 0 && lastName.trim().length > 0 && letter.trim().length > 0 && phone1.trim().length > 0 && yearBirth.trim().length > 0 && monthBirth.trim().length > 0 && dayBirth.trim().length > 0 && email_user.trim().length > 0) {
+        if (name1.trim().length > 0 && lastName.trim().length > 0 && letter.trim().length > 0 && phone1.trim().length > 0 && birth_date.trim().length > 0 && email_user.trim().length > 0) {
             console.log('NEW USER');
             if (emailFounded) { // 2. Comprobacion: si esta asociado a email de tutor con alumno
 
@@ -110,15 +108,7 @@ export const ManageStudents = ({ users, setStudents }) => {
                     </label>
                     <label>
                         Año de nacimiento:
-                        <input value={yearBirth} name='year' type='number' onChange={handleChange} className='' />
-                    </label>
-                    <label>
-                        Mes:
-                        <input value={monthBirth} name='month' type='number' onChange={handleChange} className='' />
-                    </label>
-                    <label>
-                        Dia:
-                        <input value={dayBirth} name='day' type='number' onChange={handleChange} className='' />
+                        <input value={birth_date} name='year' type='date' onChange={handleChange} className='' />
                     </label>
                     <label>
                         Email tutor:

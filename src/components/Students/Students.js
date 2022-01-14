@@ -15,23 +15,25 @@ export const Students = () => {
         ///////////////////////// CRUD - GET
         // -- SQL --
         // SELECT * FROM students
-        // JOIN daily ON daily.id_student = students.id_student
-        // WHERE DATEDIFF(year,birth_date,GETDATE()) < 4
-        // AND students.email_user = $email usuario logeado;
+        // LEFT JOIN daily ON daily.id_student=students.id_student
+        // WHERE 
+        // (students.email_user='usuario1@gmail.com' AND TIMESTAMPDIFF(year,birth_date,NOW()) < 4) 
+        // AND 
+        // (date = CURDATE() OR date IS NULL);
+
 
         // resultado 2 registros. Tiene 2 hijos en la guarde
         const dataStudents = [
             {
-                id_student: 10,
+                id_student: 10,// clave foranea - no se muestra
                 name: 'Lucia',
                 surname: 'Garcia',
-                yearBirth: 2019,
-                monthBirth: 4,
-                dayBirth: 27,
-                fatherPhone: 600111222,
-                motherPhone: 600444555,
+                birth_date: '2019-04-27',
+                phone1: 600111222,
+                phone2: 600444555,
                 letter: 'A',
-                id_daily: 'a',
+                email_user: 'javier@javier', // no se muestra
+                id_daily: 1, // no se muestra
                 breakfast: 'a',
                 lunch1: 'b',
                 lunch2: 'b',
@@ -42,19 +44,18 @@ export const Students = () => {
                 nap: 'b',
                 message: 'se ha portado muy bien',
                 date: '2021-10-10',
-                absence: true
+                absence: false
             },
             {
-                id_student: 20,
+                id_student: 20, // clave foranea - no se muestra
                 name: 'Julia',
                 surname: 'Garcia',
-                yearBirth: 2020,
-                monthBirth: 1,
-                dayBirth: 5,
-                fatherPhone: 600111222333,
-                motherPhone: 600444555666,
+                birth_date: '2020-05-01',
+                phone1: 600111222333,
+                phone2: 600444555666,
                 letter: 'C',
-                id_daily: 'b',
+                email_user: 'javier@javier', // no se muestra
+                id_daily: 2, // no se muestra
                 breakfast: 'b',
                 lunch1: 'a',
                 lunch2: 'b',

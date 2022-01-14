@@ -21,10 +21,12 @@ export const Management = () => {
         // SELECT * FROM students ORDER BY id_student DESC;
         const dataStudents = [
             {
-                id_student: 10, name: 'Lucia', surname: 'Garcia', yearBirth: 2021, monthBirth: 4, dayBirth: 27, phone1: 600111222, phone2: 600444555, letter: 'A', email_user: 'javier@javier',
+                id_student: 10, name: 'Lucia', surname: 'Garcia', birth_date: '2021-04-27',
+                phone1: 600111222, phone2: 600444555, letter: 'A', email_user: 'javier@javier',
             },
             {
-                id_student: 20, name: 'Julia', surname: 'Garcia', yearBirth: 2019, monthBirth: 3, dayBirth: 11, phone1: 600111222, phone2: 600444555, letter: 'A', email_user: 'javier@javier',
+                id_student: 20, name: 'Julia', surname: 'Garcia', birth_date: '2021-04-27',
+                phone1: 600111222, phone2: 600444555, letter: 'A', email_user: 'garcia@garcia',
             }
         ];
 
@@ -35,7 +37,7 @@ export const Management = () => {
                 name: 'Javier', surname: 'Garcia', email_user: 'javier@javier.com', password: '123456', userTipe: 1,
             },
             {
-                name: 'Javier', surname: 'Garcia', email_user: 'javier@javier.com', password: '123456', userTipe: 1,
+                name: 'User2name', surname: 'User2surname', email_user: 'user2@user2.com', password: '123456', userTipe: 1,
             }
         ];
         if (dataStudents) {
@@ -44,8 +46,6 @@ export const Management = () => {
         if (dataStudents) {
             setUsers(dataUsers);
         }
-
-
     }, [])
 
 
