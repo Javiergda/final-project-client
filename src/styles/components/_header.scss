@@ -26,6 +26,14 @@
             }
         }
 
+        .hide{
+            display: none;
+        }
+
+        .show{
+            display: block;
+        }
+
         .header_menu{
             display: flex;
             justify-content: space-between;

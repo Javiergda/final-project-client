@@ -8,6 +8,7 @@ import rabbit from '../../icons/rabbit.png'
 import menu from '../../icons/menu.png'
 import logo from '../../images/logo.jpg'
 import { AuthContext } from '../../auth/authContext'
+import { useState } from 'react'
 
 export const Header = () => {
 
@@ -15,16 +16,23 @@ export const Header = () => {
 
     const { email, userTipe, logged } = context;
 
+    const [menuNav, setMenuNav] = useState('hide'); // muestra/oculta el menu small
+
+
+    const handleClick = () => {
+        menuNav == 'hide' ? setMenuNav('show') : setMenuNav('hide');
+    }
+
     return (
         <header className="header__main">
             <nav className="nav_small">
                 <div className='header_menu'>
                     <img src={logo} height="30px" alt='logo' />
                     <h3><span>Escuela infantil</span></h3>
-                    <img src={menu} height="20px" alt='' />
+                    <img src={menu} height="20px" alt='menu' onClick={handleClick} />
 
                 </div>
-                <ul>
+                <ul name='menuNav' className={menuNav}>
                     <NavLink className='nav-link' to="homepage" >
                         <li>
                             <img src={bird} height="20px" alt='bird' />
