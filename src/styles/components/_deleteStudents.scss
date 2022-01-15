@@ -1,28 +1,28 @@
 .delete_main{
 
-
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
+    // justify-content: left;
+    margin: 0px 0px 20px 40px;
+    overflow: scroll;
+
+
 
     .title{
+
         display: flex;
-  
         justify-content: left;
         align-items: left;
-        width: 80%;
-        // border:1px solid black;
+        width: 460px; // da margen al titulo
+        
         h3{
             span{
-                text-align: left;
+                text-align: center;
             }
-
             width: 98%;
-            // border: 1px solid black;
             margin: 5px 0 5px 0;
-            margin-left: 20px;
             color: $purple;
             }
     }
@@ -32,53 +32,59 @@
         font-size: 0.8rem;
         display: flex;
         flex-direction: column;
-        align-items: center;
-        width: 80%;
+        justify-content: left;
         max-width: 800px;
-        // border:1px solid black;
-        max-height: 90px;
+        max-height: 80px;
         overflow: scroll;
-
 
         .wrapper2{
 
             display: flex;
+            justify-content: left;
             border:1px solid $purple-semitransparent;
             background-color: $purple-transparent;
             border-radius: 3px;
             padding:2px;
             margin:2px;
-            width: 98%;
+            min-width: 515px;
             color: $purple;
 
+            .name,.surname,.date,.phone{
+                // overflow: hidden;
+
+            }
             .name{
                 padding:2px 0 0 2px;
                 // width: 100%;
                 min-width: 100px;
+            // border:3px solid red;
+                
             }
     
             .surname{
+
                 min-width: 100px;
-                // width: 100%;
                 padding-top: 2px;
-                // border:1px solid black;
+               
             }
 
             .date{
-                min-width: 35px;
+                
+                min-width: 80px;
                 padding-top: 2px;
-                // border:1px solid black;
+               
             }
             .phone{
                 min-width: 80px;
                 padding-top: 2px;
-                // border:1px solid black;
+                
             }
 
             button{
                 background-color: $purple-semitransparent;
                 color: white;
                 border:1px solid $purple;
+                border-radius: 5px;
                     // height: 15px;
             }
         }
