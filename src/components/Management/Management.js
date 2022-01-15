@@ -22,11 +22,11 @@ export const Management = () => {
         const dataStudents = [
             {
                 id_student: 10, name: 'Lucia', surname: 'Garcia', birth_date: '2021-04-27',
-                phone1: 600111222, phone2: 600444555, letter: 'A', email_user: 'javier@javier',
+                phone1: '600111222', phone2: '600444555', letter: 'A', email_user: 'javier@javier',
             },
             {
                 id_student: 20, name: 'Julia', surname: 'Garcia', birth_date: '2021-04-27',
-                phone1: 600111222, phone2: 600444555, letter: 'A', email_user: 'garcia@garcia',
+                phone1: '600111222', phone2: '600444555', letter: 'A', email_user: 'garcia@garcia',
             }
         ];
 
@@ -56,8 +56,8 @@ export const Management = () => {
         context.logged && context.userTipe == 1 ? // ususario logeado y nivel 2
             <div className='management_main'>
                 <ManageUsers />
-                <ManageStudents users={users} setStudents={setStudents} />
-                <DeleteStudents students={students} />
+                <ManageStudents users={users} students={students} setStudents={setStudents} />
+                {/* <DeleteStudents students={students} /> */}
 
             </div>
             :

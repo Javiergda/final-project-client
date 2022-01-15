@@ -46,7 +46,7 @@
             border-radius: 3px;
             padding:2px;
             margin:2px;
-            min-width: 515px;
+            min-width: 580px;
             color: $purple;
 
             .name,.surname,.date,.phone{
@@ -85,6 +85,7 @@
                 color: white;
                 border:1px solid $purple;
                 border-radius: 5px;
+                margin: 0px 2px 0px 5px;
                     // height: 15px;
             }
         }

@@ -1,13 +1,27 @@
 import React from 'react'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { FilterStudents } from './FilterStudents';
+import { DeleteStudents } from './DeleteStudents';
 
 
-export const ManageStudents = ({ users, setStudents }) => {
+export const ManageStudents = ({ users, students, setStudents }) => {
+
+    useEffect(() => {
+
+        setfilteredStudents(students);
+    }, [students])
+    // usuarios filtrados para componenete FilterStudents.js
+    const [filteredStudents, setfilteredStudents] = useState([]);
+
+
+    console.log(students);
+    console.log(filteredStudents);
+
 
 
     const initialState = {
         name1: '',
-        lastName: '',
+        surname: '',
         letter: 'A',
         phone1: '',
         phone2: '',
@@ -17,10 +31,12 @@ export const ManageStudents = ({ users, setStudents }) => {
         emailFoundedName: '', // no se envia con el insert
     }
 
-    const [form, setForm] = useState(initialState);
-    const { name1, lastName, letter, phone1, phone2, birth_date, email_user, emailFounded, emailFoundedName } = form;
+    const [form, setForm] = useState(initialState); // cambios en formulario y actualizaciones de FilterStudents
+    const { name1, surname, letter, phone1, phone2, birth_date, email_user, emailFounded, emailFoundedName } = form;
 
     const handleChange = e => {
+        console.log(e.target.value);
+        console.log(e.target.name);
         setForm({
             ...form,
             [e.target.name]: e.target.value
@@ -30,18 +46,18 @@ export const ManageStudents = ({ users, setStudents }) => {
     const handlesubmit = e => {
         e.preventDefault();
         // 1. Comprobacion: comprobamos que no este vacio quitandole espacios en blanco a derecha e izquierda
-        if (name1.trim().length > 0 && lastName.trim().length > 0 && letter.trim().length > 0 && phone1.trim().length > 0 && birth_date.trim().length > 0 && email_user.trim().length > 0) {
+        if (name1.trim().length > 0 && surname.trim().length > 0 && letter.trim().length > 0 && phone1.trim().length > 0 && birth_date.trim().length > 0 && email_user.trim().length > 0) {
             console.log('NEW USER');
             if (emailFounded) { // 2. Comprobacion: si esta asociado a email de tutor con alumno
 
                 /// CRUD - POST
                 // -- SQL --
                 // INSERT INTO students(name,surname,email_user,birth_date,phone1,phone2,letter)
-                // VALUES ($name1,$lastName,$emailFounded,$birthDate,$phone1,$phone2,$letter);
+                // VALUES ($name1,$surname,$emailFounded,$birthDate,$phone1,$phone2,$letter);
 
                 //// obtenemos repuesta
                 const responseUser = 'ok';
-                if (responseUser = 'ok') {
+                if (responseUser == 'ok') {
 
                     /// refrescamos donde haga falta!!!
                     setForm(initialState); // CRUD - GET estudiantes y refrescar para que se muestre el nuevo
@@ -80,6 +96,18 @@ export const ManageStudents = ({ users, setStudents }) => {
             <h1>Nuevo alumno</h1>
 
             <div className='wrapper'>
+                <FilterStudents students={students} setStudents={setStudents} setfilteredStudents={setfilteredStudents} />
+            </div>
+
+            <div className='wrapper'>
+                <DeleteStudents filteredStudents={filteredStudents} setForm={setForm} />
+            </div>
+
+
+
+
+            <div className='wrapper'>
+
 
                 <form onSubmit={handlesubmit} className='form'>
                     <label>
@@ -88,7 +116,7 @@ export const ManageStudents = ({ users, setStudents }) => {
                     </label>
                     <label>
                         Apellidos:
-                        <input value={lastName} name="lastName" type='text' onChange={handleChange} className='' />
+                        <input value={surname} name="surname" type='text' onChange={handleChange} className='' />
                     </label>
                     <label>
                         Letra:
@@ -108,7 +136,7 @@ export const ManageStudents = ({ users, setStudents }) => {
                     </label>
                     <label>
                         Año de nacimiento:
-                        <input value={birth_date} name='year' type='date' onChange={handleChange} className='' />
+                        <input value={birth_date} name='birth_date' type='date' onChange={handleChange} className='' />
                     </label>
                     <label>
                         Email tutor:
