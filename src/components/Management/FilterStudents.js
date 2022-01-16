@@ -22,13 +22,15 @@ export const FilterStudents = ({ students, setfilteredStudents }) => {
     }
 
     return (
-        <form className='form'>
-            <label>
-                Buscar email:
-                <input value={search} name='search' type='text' onChange={handleChange} className='' />
-            </label>
-            <input type="button" className='button' value="Buscar" onClick={handleClick} />
-            <input type="button" className='button2' value="Refresh" onClick={handleRefresh} />
-        </form>
+        <div className='filterStudents_main'>
+            <form className='form_filter'>
+                <label>
+                    Buscar email:
+                    <input value={search} name='search' type='text' onChange={handleChange} className='' />
+                </label>
+                <input type="button" className='button' value="Buscar" onClick={handleClick} />
+                <input type="button" className='button' value="Todos" onClick={handleRefresh} />
+            </form>
+        </div>
     )
 }

@@ -61,7 +61,7 @@ export const ManageStudents = ({ users, students, setStudents }) => {
 
                     /// refrescamos donde haga falta!!!
                     setForm(initialState); // CRUD - GET estudiantes y refrescar para que se muestre el nuevo
-                    setStudents([]);
+                    // setStudents([]);
 
                 }
             }
@@ -94,21 +94,9 @@ export const ManageStudents = ({ users, students, setStudents }) => {
     return (
         <div className='manageStudents_main'>
             <h1>Nuevo alumno</h1>
-
+            <FilterStudents students={students} setStudents={setStudents} setfilteredStudents={setfilteredStudents} />
+            <DeleteStudents filteredStudents={filteredStudents} setForm={setForm} />
             <div className='wrapper'>
-                <FilterStudents students={students} setStudents={setStudents} setfilteredStudents={setfilteredStudents} />
-            </div>
-
-            <div className='wrapper'>
-                <DeleteStudents filteredStudents={filteredStudents} setForm={setForm} />
-            </div>
-
-
-
-
-            <div className='wrapper'>
-
-
                 <form onSubmit={handlesubmit} className='form'>
                     <label>
                         Nombre:
@@ -142,14 +130,11 @@ export const ManageStudents = ({ users, students, setStudents }) => {
                         Email tutor:
                         <input value={email_user} name='email_user' type='text' onChange={handleChange} className='' />
                     </label>
-
                     <input type='button' className='buttonSearch' value="Asociar email" onClick={handleSearch} />
-
                     <label>
                         Tutor:
                         <span name='emailFounded' className='textSearch'>{emailFoundedName}</span>
                     </label>
-
                     <input type="submit" className='button' value="Añadir estudiante" />
                 </form>
             </div>

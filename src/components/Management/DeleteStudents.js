@@ -42,9 +42,9 @@ export const DeleteStudents = ({ filteredStudents, setForm }) => {
 
     return (
         <div className='delete_main'>
-            <div className='title'>
+            {/* <div className='title'>
                 <h3><span>Eliminar alumno</span></h3>
-            </div>
+            </div> */}
 
             <div className='wrapper'>
                 <div className='wrapper2 title'>
