@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
-import { Navigate } from 'react-router-dom'
-import { useContext } from 'react'
+// import { Navigate } from 'react-router-dom'
+// import { useContext } from 'react'
+// import { AuthContext } from '../../auth/authContext'
 import { useState } from 'react'
-import { AuthContext } from '../../auth/authContext'
 import { ManageStudents } from './ManageStudents'
 import { ManageUsers } from './ManageUsers'
 import { DeleteStudents } from './DeleteStudents'
@@ -11,7 +11,7 @@ import { DeleteStudents } from './DeleteStudents'
 
 export const Management = () => {
 
-    const context = useContext(AuthContext);
+    // const context = useContext(AuthContext);
 
 
     useEffect(() => {
@@ -53,14 +53,14 @@ export const Management = () => {
     const [users, setUsers] = useState([]);
 
     return (
-        context.logged && context.userTipe == 1 ? // ususario logeado y nivel 2
-            <div className='management_main'>
-                <ManageUsers />
-                <ManageStudents users={users} students={students} setStudents={setStudents} />
-                {/* <DeleteStudents students={students} /> */}
+        // context.logged && context.userTipe == 1 ? // ususario logeado y nivel 2
+        <div className='management_main'>
+            <ManageUsers />
+            <ManageStudents users={users} students={students} setStudents={setStudents} />
+            {/* <DeleteStudents students={students} /> */}
 
-            </div>
-            :
-            <Navigate to='/login' />
+        </div>
+        // :
+        // <Navigate to='/login' />
     )
 }
