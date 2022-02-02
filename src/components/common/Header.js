@@ -32,7 +32,7 @@ export const Header = () => {
                     <img src={menu} height="20px" alt='menu' onClick={handleClick} />
 
                 </div>
-                <ul name='menuNav' className={menuNav}>
+                <ul name='menuNav' className={menuNav} onClick={handleClick}>
                     <NavLink className='nav-link' to="homepage" >
                         <li>
                             <img src={bird} height="20px" alt='bird' />

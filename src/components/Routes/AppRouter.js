@@ -28,7 +28,7 @@ export const AppRouter = () => {
                 <Route path="profesor" element={context.logged && context.userTipe == 1 ? <Teachers /> : <Navigate to='/login' />} />
                 <Route path="administracion" element={context.logged && context.userTipe == 1 ? <Management /> : <Navigate to='/login' />} />
                 <Route path="login" element={<Login />} />
-                <Route path="/" element={<HomePage />} />
+                <Route path="*" element={<HomePage />} />
             </Routes>
 
             <Footer />
