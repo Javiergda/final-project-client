@@ -2,7 +2,7 @@ import React from 'react'
 
 export const Card = ({ values }) => {
 
-    console.log(values);
+    // console.log(values);
 
     const { img, title, description } = values;
     return (

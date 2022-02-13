@@ -31,8 +31,8 @@ export const Teachers = () => {
                 phone1: 600111222,
                 phone2: 600444555,
                 letter: 'A',
-                email_user: 'javier@javier', // no se muestra
-                id_daily: '', // no se muestra
+                student_id: 1, // no se muestra
+                id: 1, // no se muestra
                 breakfast: '',
                 lunch1: '',
                 lunch2: '',
@@ -53,8 +53,8 @@ export const Teachers = () => {
                 phone1: 600111222333,
                 phone2: 600444555666,
                 letter: 'A',
-                email_user: 'garcia@garcia',
-                id_daily: 'b',
+                student_id: 2,
+                id: 2,
                 breakfast: 'b',
                 lunch1: 'a',
                 lunch2: 'b',

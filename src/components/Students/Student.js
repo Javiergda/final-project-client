@@ -2,11 +2,11 @@ import React from 'react';
 
 export const Student = ({ students, student, setStudent }) => {
 
-    const { birth_date, phone1, id_student, letter, phone2, name, surname } = student;
+    const { birth_date, phone1, student_id, letter, phone2, name, surname } = student;
 
     // Pintamos ficha alumno seleccionado
     const handleChange = e => {
-        const filterStudents = students.filter((element) => element.id_student == e.target.value);
+        const filterStudents = students.filter((element) => element.student_id == e.target.value);
         setStudent(filterStudents[0]);
     };
 
@@ -18,8 +18,8 @@ export const Student = ({ students, student, setStudent }) => {
                     {/* LLenamos el select */}
                     <select name='select' onChange={handleChange}>
                         {
-                            students.map(({ name, surname, id_student }) => (
-                                <option key={id_student} value={id_student}>{`${name} ${surname}`}</option>
+                            students.map(({ name, surname, student_id }) => (
+                                <option key={student_id} value={student_id}>{`${name} ${surname}`}</option>
                             ))
                         }
                     </select>

@@ -57,7 +57,7 @@ export const Course = ({ select, setSelect, students, setFilterStudents }) => {
             </div>
 
             <div className='day'>
-                <span> {`Dia: ${dateToday.getDate()} / ${dateToday.getMonth()} / ${dateToday.getFullYear()}`} </span>
+                <span> {`Dia: ${dateToday.getDate()} / ${dateToday.getMonth() + 1} / ${dateToday.getFullYear()}`} </span>
             </div>
 
         </div>

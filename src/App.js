@@ -10,21 +10,23 @@ import { AuthContext } from "./auth/authContext";
 function App() {
 
   const initialValue = JSON.parse(localStorage.getItem('user')) || { // mira si esta logeado
-    email: 'javier@javier',
-    userTipe: 2,
-    logged: true
+    email: '',
+    user_type: 0,
+    logged: false
   };
+
+  console.log(initialValue);
 
   // BORRAR DESPUES DE PROBAR. ES PARA QUE NO PILLE EL LOCALSTRORAGE
   const initialValue2 = {
     email: 'javier@javier',
-    userTipe: 1,
+    user_type: 1,
     logged: true
   };
   //////////////////////////////////////////////////////////////////
 
   return (
-    <AuthContext.Provider value={initialValue2}>
+    <AuthContext.Provider value={initialValue}>
       <AppRouter />
     </AuthContext.Provider>
   );

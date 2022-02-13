@@ -15,9 +15,9 @@ export const Students = () => {
         ///////////////////////// CRUD - GET
         // -- SQL --
         // SELECT * FROM students
-        // LEFT JOIN daily ON daily.id_student=students.id_student
+        // LEFT JOIN daily ON daily.student_id=students.student_id
         // WHERE 
-        // (students.email_user='usuario1@gmail.com' AND TIMESTAMPDIFF(year,birth_date,NOW()) < 4) 
+        // (students.user_id='1' AND TIMESTAMPDIFF(year,birth_date,NOW()) < 4) 
         // AND 
         // (date = CURDATE() OR date IS NULL);
 
@@ -25,15 +25,15 @@ export const Students = () => {
         // resultado 2 registros. Tiene 2 hijos en la guarde
         const dataStudents = [
             {
-                id_student: 10,// clave foranea - no se muestra
+                student_id: 10,// clave foranea - no se muestra
                 name: 'Lucia',
                 surname: 'Garcia',
                 birth_date: '2019-04-27',
                 phone1: 600111222,
                 phone2: 600444555,
                 letter: 'A',
-                email_user: 'javier@javier', // no se muestra
-                id_daily: 1, // no se muestra
+                user_id: 1, // no se muestra
+                id: 1, // no se muestra
                 breakfast: 'a',
                 lunch1: 'b',
                 lunch2: 'b',
@@ -47,15 +47,15 @@ export const Students = () => {
                 absence: false
             },
             {
-                id_student: 20, // clave foranea - no se muestra
+                student_id: 20, // clave foranea - no se muestra
                 name: 'Julia',
                 surname: 'Garcia',
                 birth_date: '2020-05-01',
                 phone1: 600111222333,
                 phone2: 600444555666,
                 letter: 'C',
-                email_user: 'javier@javier', // no se muestra
-                id_daily: 2, // no se muestra
+                user_id: 1, // no se muestra
+                id: 2, // no se muestra
                 breakfast: 'b',
                 lunch1: 'a',
                 lunch2: 'b',
