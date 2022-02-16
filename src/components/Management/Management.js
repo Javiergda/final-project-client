@@ -1,43 +1,77 @@
 import React, { useEffect } from 'react'
 // import { Navigate } from 'react-router-dom'
-// import { useContext } from 'react'
-// import { AuthContext } from '../../auth/authContext'
+import { useContext } from 'react'
+import { AuthContext } from '../../auth/authContext'
 import { useState } from 'react'
 import { ManageStudents } from './ManageStudents'
 import { ManageUsers } from './ManageUsers'
 import { DeleteStudents } from './DeleteStudents'
+import { URL_CRUD } from '../../settings';
+
 
 
 
 export const Management = () => {
 
-    // const context = useContext(AuthContext);
-
+    const context = useContext(AuthContext);
 
     useEffect(() => {
 
-        ////////// CRUD - GET
-        // -- SQL --
-        // SELECT * FROM students ORDER BY id_student DESC;
+        // Obtenemos todos los Estudiantes
+        console.log('FETCH ALL STUDENTS ORDER BY DESC');
+
+        const endPointStudent = `student`;
+        const optionsStudent = {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + context.token
+            },
+        }
+        fetch(`${URL_CRUD}/${endPointStudent}`, optionsStudent)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                // setStudents(data);
+            });
+
+
         const dataStudents = [
             {
-                id_student: 10, name: 'Lucia', surname: 'Garcia', birth_date: '2021-04-27',
-                phone1: '600111222', phone2: '600444555', letter: 'A', email_user: 'javier@javier',
+                id: 10, name: 'Lucia', surname: 'Garcia', birth_date: '2021-04-27',
+                phone1: '600111222', phone2: '600444555', letter: 'A', user_id: 1,
             },
             {
-                id_student: 20, name: 'Julia', surname: 'Garcia', birth_date: '2021-04-27',
-                phone1: '600111222', phone2: '600444555', letter: 'A', email_user: 'garcia@garcia',
+                id: 20, name: 'Julia', surname: 'Garcia', birth_date: '2021-04-27',
+                phone1: '600111222', phone2: '600444555', letter: 'A', user_id: 1,
             }
         ];
 
-        // -- SQL --
-        // SELECT * FROM users ORDER BY id_user DESC;
+
+        // Obtenemos todos los Usuarios
+        console.log('FETCH ALL USERS ORDER BY DESC');
+
+        const endPointUser = `user`;
+        const optionsUser = {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + context.token
+            },
+        }
+        fetch(`${URL_CRUD}/${endPointUser}`, optionsUser)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                // setUsers(data);
+            });
+
         const dataUsers = [
             {
-                name: 'Javier', surname: 'Garcia', email_user: 'javier@javier.com', password: '123456', userTipe: 1,
+                id: 1, name: 'Javier', surname: 'Garcia', email: 'javier@javier.com', password: '123456', userTipe: 1,
             },
             {
-                name: 'User2name', surname: 'User2surname', email_user: 'user2@user2.com', password: '123456', userTipe: 1,
+                id: 2, name: 'User2name', surname: 'User2surname', email: 'user2@user2.com', password: '123456', userTipe: 1,
             }
         ];
         if (dataStudents) {

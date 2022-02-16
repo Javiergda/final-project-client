@@ -1,14 +1,15 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
 // import { Navigate } from 'react-router-dom'
-// import { useContext } from 'react/cjs/react.development'
-// import { AuthContext } from '../../auth/authContext'
+import { useContext } from 'react/cjs/react.development'
+import { AuthContext } from '../../auth/authContext'
 import { Course } from './Course'
 import { StudentsList } from './StudentsList'
+import { URL_CRUD } from '../../settings';
 
 export const Teachers = () => {
 
-    // const context = useContext(AuthContext);
+    const context = useContext(AuthContext);
 
     useEffect(() => {
 
@@ -20,8 +21,25 @@ export const Teachers = () => {
         // AND 
         // (date = CURDATE() OR date IS NULL);
 
-        // resultado todo alumnos actuales
+        console.log('FETCH ALUMNOS');
 
+        const endPoint = `daily/${context.id}`;
+        const options = {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + context.token
+            },
+        }
+        fetch(`${URL_CRUD}/${endPoint}`, options)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                // Cargamos token o mostramos mensaje error
+                // (data.token) ? setToken(data) : console.log(data);
+            });
+
+        // resultado todo alumnos actuales
         const dataStudents = [
             {
                 id_student: 10, // clave foranea - no se muestra
@@ -105,15 +123,10 @@ export const Teachers = () => {
     const [students, setStudents] = useState([]); //todos los estudiantes para filtrar en las opciones de Course
     const [filterStudents, setFilterStudents] = useState([]); // estudiantes filtrados que vienen de Course
 
-
-
     return (
-        // context.logged && context.userTipe == 1 ? // ususario logeado y nivel 2
         <div>
             <Course select={select} setSelect={setSelect} students={students} setFilterStudents={setFilterStudents} />
             <StudentsList filterStudents={filterStudents} />
         </div>
-        // :
-        // <Navigate to='/login' />
     )
 }

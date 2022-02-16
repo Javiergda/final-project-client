@@ -42,6 +42,7 @@ export const Login = () => {
             fetch(`${URL_CRUD}/${endPoint}`, options)
                 .then(response => response.json())
                 .then(data => {
+                    console.log(data.token);
                     // Cargamos token o mostramos mensaje error
                     (data.token) ? setToken(data) : console.log(data);
                 });
@@ -64,8 +65,8 @@ export const Login = () => {
             const userData = fetch(`${URL_CRUD}/${endPoint}`, options)
                 .then(response => response.json())
                 .then(data => {
-                    console.log(data);
                     setForm(initialState); // vaciamo formulario
+                    data.token = token.token;
                     localStorage.setItem('user', JSON.stringify(data)); // guardamos en localstorage
                     // navigate('/homepage', { // navegamos pagina inicio y cargamos usuario del localstorage
                     //     replace: true // reemplaza del historial

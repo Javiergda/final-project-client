@@ -11,7 +11,7 @@ export const FilterStudents = ({ students, setfilteredStudents }) => {
     const handleClick = () => {
         console.log(students);
 
-        const found = students.filter(element => element.email_user == search);
+        const found = students.filter(element => element.surname == search);
 
         console.log(found);
         setfilteredStudents(found); // filtramos los alumnos -> ManageStudents.js
@@ -25,7 +25,7 @@ export const FilterStudents = ({ students, setfilteredStudents }) => {
         <div className='filterStudents_main'>
             <form className='form_filter'>
                 <label>
-                    Buscar email:
+                    Buscar apellidos:
                     <input value={search} name='search' type='text' onChange={handleChange} className='' />
                 </label>
                 <input type="button" className='button' value="Buscar" onClick={handleClick} />

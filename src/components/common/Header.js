@@ -112,7 +112,7 @@ export const Header = () => {
 
                     <NavLink className='nav-item' to="login">
                         <li>
-                            <span >{email + '  Login'}</span>
+                            <span >{email ? email : 'Login'}</span>
                         </li>
                     </NavLink>
 

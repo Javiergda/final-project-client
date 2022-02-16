@@ -11,7 +11,6 @@
 
     .wrapper{
         display: flex;
-      
         justify-content: center;
         // border:2px solid black;
         // border-bottom: 2px solid $yellow;
@@ -22,7 +21,7 @@
             display: flex;
             flex-direction: column;
             width: 80%;
-            max-width: 800px;
+            max-width: 600px;
 
             input{
                 border: none;
@@ -36,8 +35,13 @@
             }
 
             label{
-                // color: $purple;
-                
+                display: flex;
+                flex-direction: row;
+                margin-top:5px;
+                span{
+                    margin-top: 7px;
+                    margin-right: 3px;
+                }
             }
 
             select{
@@ -49,10 +53,7 @@
                 font-size: 1rem;
                 padding:3px;
                 margin-left: 5px;
-            }
-
-            label{
-                margin-top:15px;
+                margin-top: 5px;
             }
 
             .button{
@@ -69,7 +70,6 @@
                     color: white;
                 }
             }
-
 
             .textSearch{
                 // margin-left: 15px 0 0 5px;
@@ -90,14 +90,7 @@
                     background-color: $purple-semitransparent;
                     color: white;
                 }
-
             }
         }
-
-        
     }
-
-
-
-
 }

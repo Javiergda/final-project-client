@@ -5,6 +5,7 @@ import { useEffect } from 'react'
 import { useState } from 'react'
 import { AuthContext } from '../../auth/authContext'
 import { Navigate } from 'react-router-dom'
+import { URL_CRUD } from '../../settings';
 
 
 export const Students = () => {
@@ -20,6 +21,26 @@ export const Students = () => {
         // (students.user_id='1' AND TIMESTAMPDIFF(year,birth_date,NOW()) < 4) 
         // AND 
         // (date = CURDATE() OR date IS NULL);
+
+
+        console.log('FETCH ALUMNOS');
+
+        const endPoint = `daily/${context.id}`;
+        const options = {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + context.token
+            },
+        }
+        fetch(`${URL_CRUD}/${endPoint}`, options)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                // Cargamos token o mostramos mensaje error
+                // (data.token) ? setToken(data) : console.log(data);
+            });
+
 
 
         // resultado 2 registros. Tiene 2 hijos en la guarde
@@ -82,12 +103,9 @@ export const Students = () => {
     const [student, setStudent] = useState({});// objeto filtrado de 1 estudiante
 
     return (
-        context.logged && context.userTipe == 1 ? // ususario logeado y nivel 2
-            <div className='students_main'>
-                <Student students={students} student={student} setStudent={setStudent} />
-                <Daily student={student} />
-            </div>
-            :
-            <Navigate to='/login' />
+        <div className='students_main'>
+            <Student students={students} student={student} setStudent={setStudent} />
+            <Daily student={student} />
+        </div>
     )
 }

@@ -58,24 +58,30 @@ export const ManageUsers = () => {
 
                 <form onSubmit={handlesubmit} className='form'>
                     <label>
-                        Nombre:
+                        <span>Nombre:</span>
                         <input value={name1} name='name1' type='text' onChange={handleChange} className='' />
                     </label>
                     <label>
-                        Apellidos:
+                        <span>Apellidos:</span>
+
+
                         <input value={lastName} name="lastName" type='text' onChange={handleChange} className='' />
                     </label>
+
                     <label>
-                        Email:
+                        <span>Email:</span>
+
                         <input value={email} name='email' type='mail' onChange={handleChange} className='' />
                     </label>
 
                     <label>
-                        Password:
+                        <span>Password:</span>
+
                         <input value={password} name='password' type='text' onChange={handleChange} className='' />
                     </label>
                     <label>
-                        Nivel de pago:
+                        <span>Nivel de pago:</span>
+
                         <select name='userLevel' value={userLevel} onChange={handleChange}>
                             <option name='userLevel' value={2}>Normal</option>
                             <option name='userLevel' value={3}>Con camaras</option>

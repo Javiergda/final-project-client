@@ -26,13 +26,13 @@ export const ManageStudents = ({ users, students, setStudents }) => {
         phone1: '',
         phone2: '',
         birth_date: '',
-        email_user: '', // no se envia con el insert x si lo cambia despues de asociarlo
-        emailFounded: '', // se enviara como email_user con el insert
-        emailFoundedName: '', // no se envia con el insert
+        email_user: '', // para buscarlo si existe en usuarios cuando lo insertemos en bd
+        // emailFounded: '', // se enviara como email_user con el insert
+        // emailFoundedName: '', // no se envia con el insert
     }
 
     const [form, setForm] = useState(initialState); // cambios en formulario y actualizaciones de FilterStudents
-    const { name1, surname, letter, phone1, phone2, birth_date, email_user, emailFounded, emailFoundedName } = form;
+    const { name1, surname, letter, phone1, phone2, birth_date, email_user } = form;
 
     const handleChange = e => {
         console.log(e.target.value);
@@ -44,16 +44,22 @@ export const ManageStudents = ({ users, students, setStudents }) => {
     }
 
     const handlesubmit = e => {
+        console.log('NEW USER');
         e.preventDefault();
-        // 1. Comprobacion: comprobamos que no este vacio quitandole espacios en blanco a derecha e izquierda
-        if (name1.trim().length > 0 && surname.trim().length > 0 && letter.trim().length > 0 && phone1.trim().length > 0 && birth_date.trim().length > 0 && email_user.trim().length > 0) {
-            console.log('NEW USER');
-            if (emailFounded) { // 2. Comprobacion: si esta asociado a email de tutor con alumno
+
+        // 1. Comprobamos que no este vacio quitandole espacios en blanco a derecha e izquierda
+        if (name1.trim().length > 0 && surname.trim().length > 0 && letter.trim().length > 0 && phone1.trim().length > 0
+            && birth_date.trim().length > 0 && email_user.trim().length > 0) {
+
+            // 2. buscamos que el email exista en algun usuario
+            const found = users.find(element => element.email == email_user);
+            console.log(found);
+            if (found) {
 
                 /// CRUD - POST
                 // -- SQL --
-                // INSERT INTO students(name,surname,email_user,birth_date,phone1,phone2,letter)
-                // VALUES ($name1,$surname,$emailFounded,$birthDate,$phone1,$phone2,$letter);
+                // INSERT INTO students(name,surname,user_id,birth_date,phone1,phone2,letter)
+                // VALUES ($name1,$surname,found.email,$birthDate,$phone1,$phone2,$letter);
 
                 //// obtenemos repuesta
                 const responseUser = 'ok';
@@ -64,50 +70,49 @@ export const ManageStudents = ({ users, students, setStudents }) => {
                     // setStudents([]);
 
                 }
+                // }
+            } else {
+                alert('¡El email debe existir en algun usuario!')
             }
-
-
         } else {
             alert('¡Todos los campos son obligatorios!')
         };
-
     }
 
-    const handleSearch = e => {
-        console.log('BUSCAR EMAIL PADRE');
+    // const handleSearch = e => {
+    //     console.log('BUSCAR EMAIL PADRE');
 
-        const found = users.find(element => element.email_user == email_user);
+    //     const found = users.find(element => element.email_user == email_user);
 
+    //     if (found) { // si exite el email del tutor se asocia al alumno
+    //         console.log(found);
 
-        if (found) { // si exite el email del tutor se asocia al alumno
-            console.log(found);
-
-            setForm({
-                ...form,
-                'emailFounded': email_user,
-                'emailFoundedName': ` ${found.name} ${found.surname} - ${email_user}`
-            });
-        }
-    }
+    //         setForm({
+    //             ...form,
+    //             'emailFounded': email_user,
+    //             'emailFoundedName': ` ${found.name} ${found.surname} - ${email_user}`
+    //         });
+    //     }
+    // }
 
 
     return (
         <div className='manageStudents_main'>
             <h1>Nuevo alumno</h1>
             <FilterStudents students={students} setStudents={setStudents} setfilteredStudents={setfilteredStudents} />
-            <DeleteStudents filteredStudents={filteredStudents} setForm={setForm} />
+            <DeleteStudents users={users} filteredStudents={filteredStudents} setForm={setForm} />
             <div className='wrapper'>
                 <form onSubmit={handlesubmit} className='form'>
                     <label>
-                        Nombre:
+                        <span>Nombre:</span>
                         <input value={name1} name='name1' type='text' onChange={handleChange} className='' />
                     </label>
                     <label>
-                        Apellidos:
+                        <span>Apellidos:</span>
                         <input value={surname} name="surname" type='text' onChange={handleChange} className='' />
                     </label>
                     <label>
-                        Letra:
+                        <span>Letra:</span>
                         <select name='letter' value={letter} onChange={handleChange}>
                             <option name='letter' value='A'>A</option>
                             <option name='letter' value='B'>B</option>
@@ -115,26 +120,26 @@ export const ManageStudents = ({ users, students, setStudents }) => {
                         </select>
                     </label>
                     <label>
-                        Telefono1:
+                        <span>Telefono1:</span>
                         <input value={phone1} name='phone1' type='text' onChange={handleChange} className='' />
                     </label>
                     <label>
-                        Telefono2:
+                        <span>Telefono2:</span>
                         <input value={phone2} name='phone2' type='text' onChange={handleChange} className='' />
                     </label>
                     <label>
-                        Año de nacimiento:
+                        <span>Nacimiento:</span>
                         <input value={birth_date} name='birth_date' type='date' onChange={handleChange} className='' />
                     </label>
                     <label>
-                        Email tutor:
+                        <span>Email/Tutor:</span>
                         <input value={email_user} name='email_user' type='text' onChange={handleChange} className='' />
                     </label>
-                    <input type='button' className='buttonSearch' value="Asociar email" onClick={handleSearch} />
-                    <label>
-                        Tutor:
+                    {/* <input type='button' className='buttonSearch' value="Asociar email" onClick={handleSearch} /> */}
+                    {/* <label>
+                        <span>Tutor:</span>
                         <span name='emailFounded' className='textSearch'>{emailFoundedName}</span>
-                    </label>
+                    </label> */}
                     <input type="submit" className='button' value="Añadir estudiante" />
                 </form>
             </div>

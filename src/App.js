@@ -10,9 +10,11 @@ import { AuthContext } from "./auth/authContext";
 function App() {
 
   const initialValue = JSON.parse(localStorage.getItem('user')) || { // mira si esta logeado
+    id: '',
     email: '',
     user_type: 0,
-    logged: false
+    logged: false,
+    token: ''
   };
 
   console.log(initialValue);
