@@ -1,17 +1,34 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react';
+import { FilterUsers } from './FilterUsers';
+import { DeleteUsers } from './DeleteUsers';
+import { AuthContext } from '../../auth/authContext';
+import { useContext } from 'react';
+import { URL_CRUD } from '../../settings';
 
-export const ManageUsers = () => {
+export const ManageUsers = ({ users, setUsers }) => {
+
+    const context = useContext(AuthContext);
+
+    useEffect(() => {
+        setfilteredUsers(users);
+    }, [users])
+    // usuarios filtrados para componenete FilterStudents.js
+    const [filteredUsers, setfilteredUsers] = useState([]);
+
+
     const initialState = {
-        name1: '',
-        lastName: '',
+        id: '',
+        userName: '',
+        surname: '',
         email: '',
         password: '',
-        userLevel: 2
+        user_type: 2,
+        button: 'Añadir usuario'
     }
 
     const [form, setForm] = useState(initialState);
-    const { name1, lastName, email, password, userLevel } = form;
+    const { id, userName, surname, email, password, user_type, button } = form;
 
     const handleChange = e => {
         setForm({
@@ -23,16 +40,48 @@ export const ManageUsers = () => {
     const handlesubmit = e => {
         e.preventDefault();
         // comprobamos que no este vacio quitandole espacios en blanco a derecha e izquierda
-        if (name1.trim().length > 0 && lastName.trim().length > 0 && email.trim().length > 0 && password.trim().length > 0) {
+        if (userName.trim().length > 0 && surname.trim().length > 0 && email.trim().length > 0 && password.trim().length > 0) {
             console.log('NEW USER');
 
-            /// CRUD - POST
-            // -- SQL --
-            // SELECT COUNT(*) FROM users
-            // WHERE email_user = $email;
-            // --> si el email no exister lo creamos:
-            // INSERT INTO users(name,surname,email_user,password,user_type)
-            // VALUES ($name,$lastName,$email,$password,$userLevel);
+            if (id === '') {
+                // cogemos valor de id de user
+                console.log('insertamos');
+
+                const endPoint = `user`;
+                const options = {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": "Bearer " + context.token
+                    },
+                    body: JSON.stringify(form)
+                }
+                fetch(`${URL_CRUD}/${endPoint}`, options)
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data);
+                        // setUsers(data);
+                    });
+            }
+            // si id vale algo estamos modificando
+            else {
+                console.log('modificamos');
+                const endPoint = `user/${form.id}`;
+                const options = {
+                    method: "PUT",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": "Bearer " + context.token
+                    },
+                    body: JSON.stringify(form)
+                }
+                fetch(`${URL_CRUD}/${endPoint}`, options)
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data);
+                        // setUsers(data);
+                    });
+            }
 
             ///////////////////////////////
             //// obtenemos repuesta
@@ -43,53 +92,48 @@ export const ManageUsers = () => {
 
             }
         } else {
-            alert('Todos los campos son obligatorios menos telefono 2')
+            alert('Todos los campos son obligatorios ');
         };
 
     }
 
+    const handleCancel = e => {
+        setForm(initialState);
+    }
 
 
     return (
         <div className='manageUsers_main'>
             <h1>Nuevo tutor</h1>
-
+            <FilterUsers users={users} setfilteredUsers={setfilteredUsers} />
+            <DeleteUsers users={users} filteredUsers={filteredUsers} setForm={setForm} />
             <div className='wrapper'>
-
                 <form onSubmit={handlesubmit} className='form'>
                     <label>
                         <span>Nombre:</span>
-                        <input value={name1} name='name1' type='text' onChange={handleChange} className='' />
+                        <input value={userName} name='userName' type='text' onChange={handleChange} className='' />
                     </label>
                     <label>
                         <span>Apellidos:</span>
-
-
-                        <input value={lastName} name="lastName" type='text' onChange={handleChange} className='' />
+                        <input value={surname} name="surname" type='text' onChange={handleChange} className='' />
                     </label>
-
                     <label>
                         <span>Email:</span>
-
                         <input value={email} name='email' type='mail' onChange={handleChange} className='' />
                     </label>
-
                     <label>
                         <span>Password:</span>
-
                         <input value={password} name='password' type='text' onChange={handleChange} className='' />
                     </label>
                     <label>
                         <span>Nivel de pago:</span>
-
-                        <select name='userLevel' value={userLevel} onChange={handleChange}>
-                            <option name='userLevel' value={2}>Normal</option>
-                            <option name='userLevel' value={3}>Con camaras</option>
+                        <select name='user_type' value={user_type} onChange={handleChange}>
+                            <option name='user_type' value={2}>Normal</option>
+                            <option name='user_type' value={3}>Con camaras</option>
                         </select>
                     </label>
-
-
-                    <input type="submit" className='button' value="Añadir tutor" />
+                    <input type="submit" className='button' value={button} />
+                    <input type="button" className='button' value='Cancelar' onClick={handleCancel} />
                 </form>
             </div>
         </div>

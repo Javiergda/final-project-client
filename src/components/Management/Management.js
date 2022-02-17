@@ -86,15 +86,25 @@ export const Management = () => {
     const [students, setStudents] = useState([]);
     const [users, setUsers] = useState([]);
 
-    return (
-        // context.logged && context.userTipe == 1 ? // ususario logeado y nivel 2
-        <div className='management_main'>
-            <ManageUsers />
-            <ManageStudents users={users} students={students} setStudents={setStudents} />
-            {/* <DeleteStudents students={students} /> */}
+    const [screen, setScreen] = useState('Users'); // muestra una ventana u otra
 
+    const handleClick = e => {
+        setScreen(e.target.value)
+    }
+
+    return (
+        <div className='management_main'>
+            {/* <button name='button' className='button' value='Users' onClick={handleClick} >Tutores</button>
+            <button name='button' className='button' value='Students' onClick={handleClick} >Alumnos</button>
+
+            {
+                screen === 'Users' ?
+                    <ManageUsers />
+                    : <ManageStudents users={users} students={students} setStudents={setStudents} />
+            } */}
+
+            <ManageUsers users={users} setUsers={setUsers} />
+            <ManageStudents users={users} students={students} setStudents={setStudents} />
         </div>
-        // :
-        // <Navigate to='/login' />
     )
 }

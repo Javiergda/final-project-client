@@ -3,47 +3,38 @@ import { URL_CRUD } from '../../settings';
 import { useContext } from 'react'
 import { AuthContext } from '../../auth/authContext'
 
-export const DeleteStudents = ({ filteredStudents, setForm, users }) => {
+export const DeleteUsers = ({ filteredUsers, setForm, users }) => {
 
     const context = useContext(AuthContext);
 
     const handleUpdate = e => {
         e.preventDefault();
 
-        // selecciona registro estudiante
-        const studentFounded = filteredStudents.find(element => element.id == e.target.value);
-        if (studentFounded) {
+        // selecciona registro usuario
+        const userFounded = filteredUsers.find(element => element.id == e.target.value);
+        if (userFounded) {
 
-            console.log(users);
-            console.log(studentFounded.user_id);
-            // selecciona resgistro usuario relacionado con estudiante
-            const userFounded = users.find(element => element.id == studentFounded.user_id);
             console.log(userFounded);
 
             const state = {
-                id: studentFounded.id,
-                user_id: userFounded.id, // user
-                userName: studentFounded.name,
-                surname: studentFounded.surname,
-                letter: studentFounded.letter,
-                phone1: studentFounded.phone1,
-                phone2: studentFounded.phone2,
-                birth_date: studentFounded.birth_date,
-                email_user: userFounded.email, // user
+                id: userFounded.id,
+                userName: userFounded.name,
+                surname: userFounded.surname,
+                email: userFounded.email,
+                password: userFounded.password,
+                user_type: userFounded.user_type,
                 button: 'Guardar modificacion'
             }
-            setForm(state); // Actualiza formulario de ManageStudents con estudiante seleccionado
+            setForm(state); // Actualiza formulario de ManageUsers con usuario seleccionado
         }
     }
 
     const handleDelete = (e) => {
 
-
-        console.log(`Se borrara el alumno y todas las referencias a los padres`);
-        console.log(`Delete from STUDENTS WHERE ID=${e.target.value}`);
+        console.log(`Delete from USERS WHERE ID=${e.target.value}`);
 
         console.log('eliminamos');
-        const endPointUser = `student/${e.target.value}`;
+        const endPointUser = `user/${e.target.value}`;
         const options = {
             method: "DELETE",
             headers: {
@@ -69,18 +60,17 @@ export const DeleteStudents = ({ filteredStudents, setForm, users }) => {
                 <div className='wrapper2 title'>
                     <div className='name'><span >Nombre</span></div>
                     <div className='surname'><span>Apellidos</span></div>
-                    <div className='date'><span>Fecha nac.</span></div>
-                    <div className='phone'><span>Telefono1</span></div>
-                    <div className='phone'><span>Telefono2</span></div>
+                    <div className='date'><span>Email</span></div>
+                    <div className='phone'><span>Tipo usuario</span></div>
                 </div>
                 {
-                    filteredStudents.map(({ id, name, surname, birth_date, phone1, phone2 }) => (
+                    filteredUsers.map(({ id, name, surname, email, user_type }) => (
                         <div key={id} className='wrapper2'>
                             <div className='name'><span >{name}</span></div>
                             <div className='surname'><span>{surname}</span></div>
-                            <div className='date'><span>{birth_date}</span></div>
-                            <div className='phone'><span>{phone1}</span></div>
-                            <div className='phone'><span>{phone2}</span></div>
+                            <div className='email'><span>{email}</span></div>
+                            <div className='user_type'><span>{user_type}</span></div>
+
                             <div className='button'><button name='button' type='submit' value={id} onClick={handleUpdate}>Modificar</button ></div>
                             <div className='button'><button name='button' type='submit' value={id} onClick={handleDelete}>Borrar</button ></div>
                         </div>

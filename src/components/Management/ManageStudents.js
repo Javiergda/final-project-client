@@ -1,10 +1,14 @@
 import React from 'react'
+import { useContext } from 'react'
 import { useState, useEffect } from 'react';
 import { FilterStudents } from './FilterStudents';
 import { DeleteStudents } from './DeleteStudents';
-
+import { AuthContext } from '../../auth/authContext'
+import { URL_CRUD } from '../../settings';
 
 export const ManageStudents = ({ users, students, setStudents }) => {
+
+    const context = useContext(AuthContext);
 
     useEffect(() => {
 
@@ -20,19 +24,20 @@ export const ManageStudents = ({ users, students, setStudents }) => {
 
 
     const initialState = {
-        name1: '',
+        id: '', // vacio si es insertar - con valor para modificar
+        user_id: '', // vacio si es intertar - con valor para modificar
+        userName: '',
         surname: '',
         letter: 'A',
         phone1: '',
         phone2: '',
         birth_date: '',
         email_user: '', // para buscarlo si existe en usuarios cuando lo insertemos en bd
-        // emailFounded: '', // se enviara como email_user con el insert
-        // emailFoundedName: '', // no se envia con el insert
+        button: 'Añadir estudiante'
     }
 
     const [form, setForm] = useState(initialState); // cambios en formulario y actualizaciones de FilterStudents
-    const { name1, surname, letter, phone1, phone2, birth_date, email_user } = form;
+    const { id, userName, surname, letter, phone1, phone2, birth_date, email_user, button } = form;
 
     const handleChange = e => {
         console.log(e.target.value);
@@ -48,18 +53,65 @@ export const ManageStudents = ({ users, students, setStudents }) => {
         e.preventDefault();
 
         // 1. Comprobamos que no este vacio quitandole espacios en blanco a derecha e izquierda
-        if (name1.trim().length > 0 && surname.trim().length > 0 && letter.trim().length > 0 && phone1.trim().length > 0
+        if (userName.trim().length > 0 && surname.trim().length > 0 && letter.trim().length > 0 && phone1.trim().length > 0
             && birth_date.trim().length > 0 && email_user.trim().length > 0) {
 
             // 2. buscamos que el email exista en algun usuario
-            const found = users.find(element => element.email == email_user);
-            console.log(found);
-            if (found) {
+            const foundUser = users.find(element => element.email == email_user);
+            console.log(foundUser);
+            console.log(form);
+            if (foundUser) {
 
                 /// CRUD - POST
                 // -- SQL --
                 // INSERT INTO students(name,surname,user_id,birth_date,phone1,phone2,letter)
-                // VALUES ($name1,$surname,found.email,$birthDate,$phone1,$phone2,$letter);
+                // VALUES ($userName,$surname,foundUser.email,$birthDate,$phone1,$phone2,$letter);
+
+                // Asignamos id del usuario encontrado a user_id
+
+                // si id='' estamos insertando
+                if (id === '') {
+                    // cogemos valor de id de user
+                    console.log('insertamos');
+                    const valuesForm = form;
+                    valuesForm.user_id = foundUser.id;
+
+                    const endPoint = `student`;
+                    const options = {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Authorization": "Bearer " + context.token
+                        },
+                        body: JSON.stringify(valuesForm)
+                    }
+                    fetch(`${URL_CRUD}/${endPoint}`, options)
+                        .then(response => response.json())
+                        .then(data => {
+                            console.log(data);
+                            // setUsers(data);
+                        });
+                }
+                // si id vale algo estamos modificando
+                else {
+                    console.log('modificamos');
+                    const endPoint = `student/${form.id}`;
+                    const options = {
+                        method: "PUT",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Authorization": "Bearer " + context.token
+                        },
+                        body: JSON.stringify(form)
+                    }
+                    fetch(`${URL_CRUD}/${endPoint}`, options)
+                        .then(response => response.json())
+                        .then(data => {
+                            console.log(data);
+                            // setUsers(data);
+                        });
+                }
+
 
                 //// obtenemos repuesta
                 const responseUser = 'ok';
@@ -79,22 +131,9 @@ export const ManageStudents = ({ users, students, setStudents }) => {
         };
     }
 
-    // const handleSearch = e => {
-    //     console.log('BUSCAR EMAIL PADRE');
-
-    //     const found = users.find(element => element.email_user == email_user);
-
-    //     if (found) { // si exite el email del tutor se asocia al alumno
-    //         console.log(found);
-
-    //         setForm({
-    //             ...form,
-    //             'emailFounded': email_user,
-    //             'emailFoundedName': ` ${found.name} ${found.surname} - ${email_user}`
-    //         });
-    //     }
-    // }
-
+    const handleCancel = e => {
+        setForm(initialState);
+    }
 
     return (
         <div className='manageStudents_main'>
@@ -105,7 +144,7 @@ export const ManageStudents = ({ users, students, setStudents }) => {
                 <form onSubmit={handlesubmit} className='form'>
                     <label>
                         <span>Nombre:</span>
-                        <input value={name1} name='name1' type='text' onChange={handleChange} className='' />
+                        <input value={userName} name='userName' type='text' onChange={handleChange} className='' />
                     </label>
                     <label>
                         <span>Apellidos:</span>
@@ -140,7 +179,8 @@ export const ManageStudents = ({ users, students, setStudents }) => {
                         <span>Tutor:</span>
                         <span name='emailFounded' className='textSearch'>{emailFoundedName}</span>
                     </label> */}
-                    <input type="submit" className='button' value="Añadir estudiante" />
+                    <input type="submit" className='button' value={button} />
+                    <input type="button" className='button' value='Cancelar' onClick={handleCancel} />
                 </form>
             </div>
         </div>
