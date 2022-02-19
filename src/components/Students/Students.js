@@ -24,8 +24,9 @@ export const Students = () => {
 
 
         console.log('FETCH ALUMNOS');
+        console.log(context.id);
 
-        const endPoint = `daily/${context.id}`;
+        const endPoint = `student/${context.id}`;
         const options = {
             method: "GET",
             headers: {
@@ -37,6 +38,9 @@ export const Students = () => {
             .then(response => response.json())
             .then(data => {
                 console.log(data);
+                setStudents(data);
+                console.log(data[0]);
+                setStudent(data[0]);
                 // Cargamos token o mostramos mensaje error
                 // (data.token) ? setToken(data) : console.log(data);
             });
@@ -46,7 +50,7 @@ export const Students = () => {
         // resultado 2 registros. Tiene 2 hijos en la guarde
         const dataStudents = [
             {
-                student_id: 10,// clave foranea - no se muestra
+                // student_id: 10,// clave foranea - no se muestra
                 name: 'Lucia',
                 surname: 'Garcia',
                 birth_date: '2019-04-27',
@@ -68,7 +72,7 @@ export const Students = () => {
                 absence: false
             },
             {
-                student_id: 20, // clave foranea - no se muestra
+                // student_id: 20, // clave foranea - no se muestra
                 name: 'Julia',
                 surname: 'Garcia',
                 birth_date: '2020-05-01',
@@ -85,27 +89,30 @@ export const Students = () => {
                 bottle: 'd',
                 diaper: 'a',
                 nap: 'c',
-                message: 'se ha portado muy regular',
+                message: 'se ha portado muy mal',
                 date: '2021-10-10',
                 absence: true
             }
         ];
 
-        if (dataStudents) {
-            setStudents(dataStudents)
-            setStudent(dataStudents[0]);
-        }
+        // if (dataStudents) {
+        //     setStudents(dataStudents)
+        //     setStudent(dataStudents[0]); // cargamos primer estudiante filtrado
+        // }
 
     }, [])
 
     // Student
-    const [students, setStudents] = useState([]);// Todos los estudiantes para opciones del select
-    const [student, setStudent] = useState({});// objeto filtrado de 1 estudiante
+    const [students, setStudents] = useState([]); // Todos los estudiantes para opciones del select
+    const [student, setStudent] = useState({}); // Dias de un estudiante para opciones del select
+
+    // Daily
+    const [dailyStudent, setDailyStudent] = useState({}); // Daily de studiante seleccionado
 
     return (
         <div className='students_main'>
-            <Student students={students} student={student} setStudent={setStudent} />
-            <Daily student={student} />
+            <Student students={students} student={student} setStudent={setStudent} setDailyStudent={setDailyStudent} />
+            <Daily dailyStudent={dailyStudent} student={student} />
         </div>
     )
 }

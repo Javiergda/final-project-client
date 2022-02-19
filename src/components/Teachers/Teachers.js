@@ -40,52 +40,9 @@ export const Teachers = () => {
             });
 
         // resultado todo alumnos actuales
-        const dataStudents = [
-            {
-                id_student: 10, // clave foranea - no se muestra
-                name: 'Lucia',
-                surname: 'Garcia',
-                birth_date: '2021-04-27',
-                phone1: 600111222,
-                phone2: 600444555,
-                letter: 'A',
-                student_id: 1, // no se muestra
-                id: 1, // no se muestra
-                breakfast: '',
-                lunch1: '',
-                lunch2: '',
-                dessert: '',
-                snack: '',
-                bottle: '',
-                diaper: '',
-                nap: '',
-                message: '',
-                date: '',
-                absence: '0'
-            },
-            {
-                id_student: 20,
-                name: 'Julia',
-                surname: 'Garcia',
-                birth_date: '2021-01-05',
-                phone1: 600111222333,
-                phone2: 600444555666,
-                letter: 'A',
-                student_id: 2,
-                id: 2,
-                breakfast: 'b',
-                lunch1: 'a',
-                lunch2: 'b',
-                dessert: 'a',
-                snack: 'b',
-                bottle: 'd',
-                diaper: 'a',
-                nap: 'c',
-                message: 'se ha portado muy regular',
-                date: '2021-10-10',
-                absence: 'a'
-            }
-        ];
+
+
+
 
         if (dataStudents) {
 

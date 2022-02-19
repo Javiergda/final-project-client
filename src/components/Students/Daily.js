@@ -1,19 +1,17 @@
 import React from 'react'
 
-export const Daily = ({ student }) => {
+export const Daily = ({ dailyStudent }) => {
 
-    const { id, student_id, breakfast, lunch1, lunch2, dessert, snack, bottle, diaper, nap, message, date, absence } = student;
-
+    const { id, student_id, breakfast, lunch1, lunch2, dessert, snack, bottle, diaper, nap, message, date, absence } = dailyStudent;
     const dateToday = new Date();
 
     return (
         <div className='daily_main'>
             <div className='wrapper'>
                 <div className='box1'>
-                    <span> {`Dia: ${dateToday.getDate()} / ${dateToday.getMonth() + 1} / ${dateToday.getFullYear()}`}</span>
+                    <span> {`Hoy: ${dateToday.getDate()} / ${dateToday.getMonth() + 1} / ${dateToday.getFullYear()}`}</span>
                     {/* <span>Falta: {absence ? 'FALTA' : 'No'}</span> */}
                 </div>
-
 
                 <h4>COMIDAS</h4>
 

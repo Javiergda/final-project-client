@@ -40,12 +40,13 @@ export const ManageUsers = ({ users, setUsers }) => {
     const handlesubmit = e => {
         e.preventDefault();
         // comprobamos que no este vacio quitandole espacios en blanco a derecha e izquierda
-        if (userName.trim().length > 0 && surname.trim().length > 0 && email.trim().length > 0 && password.trim().length > 0) {
+        if (userName.trim().length > 0 && surname.trim().length > 0 && email.trim().length > 0) {
             console.log('NEW USER');
 
             if (id === '') {
                 // cogemos valor de id de user
                 console.log('insertamos');
+
 
                 const endPoint = `user`;
                 const options = {
@@ -66,6 +67,7 @@ export const ManageUsers = ({ users, setUsers }) => {
             // si id vale algo estamos modificando
             else {
                 console.log('modificamos');
+                console.log(form);
                 const endPoint = `user/${form.id}`;
                 const options = {
                     method: "PUT",
@@ -85,12 +87,12 @@ export const ManageUsers = ({ users, setUsers }) => {
 
             ///////////////////////////////
             //// obtenemos repuesta
-            const responseUser = 'ok';
-            if (responseUser = 'ok') {
-                /// refrescamos donde haga falta!!!
-                // CRUD - GET usuarios y refrescar para que se muestre el nuevo
+            // const responseUser = 'ok';
+            // if (responseUser = 'ok') {
+            /// refrescamos donde haga falta!!!
+            // CRUD - GET usuarios y refrescar para que se muestre el nuevo
 
-            }
+            // }
         } else {
             alert('Todos los campos son obligatorios ');
         };

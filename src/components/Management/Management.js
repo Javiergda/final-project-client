@@ -8,9 +8,6 @@ import { ManageUsers } from './ManageUsers'
 import { DeleteStudents } from './DeleteStudents'
 import { URL_CRUD } from '../../settings';
 
-
-
-
 export const Management = () => {
 
     const context = useContext(AuthContext);
@@ -18,7 +15,7 @@ export const Management = () => {
     useEffect(() => {
 
         // Obtenemos todos los Estudiantes
-        console.log('FETCH ALL STUDENTS ORDER BY DESC');
+        // console.log('FETCH ALL STUDENTS ORDER BY DESC');
 
         const endPointStudent = `student`;
         const optionsStudent = {
@@ -63,6 +60,9 @@ export const Management = () => {
             .then(response => response.json())
             .then(data => {
                 console.log(data);
+                if (data) {
+                    setUsers(data);
+                }
                 // setUsers(data);
             });
 
@@ -77,9 +77,9 @@ export const Management = () => {
         if (dataStudents) {
             setStudents(dataStudents);
         }
-        if (dataStudents) {
-            setUsers(dataUsers);
-        }
+        // if (dataUsers) {
+        //     setUsers(dataUsers);
+        // }
     }, [])
 
 
