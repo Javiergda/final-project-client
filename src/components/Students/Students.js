@@ -58,18 +58,23 @@ export const Students = () => {
                 phone2: 600444555,
                 letter: 'A',
                 user_id: 1, // no se muestra
-                id: 1, // no se muestra
-                breakfast: 'a',
-                lunch1: 'b',
-                lunch2: 'b',
-                dessert: 'c',
-                snack: 'a',
-                bottle: 'd',
-                diaper: 'a',
-                nap: 'b',
-                message: 'se ha portado muy bien',
-                date: '2021-10-10',
-                absence: false
+                dailies: [
+                    {
+                        id: 1, // no se muestra
+                        breakfast: 'a',
+                        lunch1: 'b',
+                        lunch2: 'b',
+                        dessert: 'c',
+                        snack: 'a',
+                        bottle: 'd',
+                        diaper: 'a',
+                        nap: 'b',
+                        message: 'se ha portado muy bien',
+                        date: '2021-10-10',
+                        absence: false
+                    }
+                ]
+
             },
             {
                 // student_id: 20, // clave foranea - no se muestra

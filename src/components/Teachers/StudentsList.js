@@ -6,25 +6,28 @@ export const StudentsList = ({ filterStudents }) => {
 
     console.log(filterStudents);
 
-    // Crea dinamicamente array de indexs para controlas los cambios de inputs
-    useEffect(() => {
-        const filterMsn = filterStudents.map((element) => {
-            return (
-                element.message
-            )
-        });
-        setMsn(filterMsn);
-    }, [filterStudents])
 
-    const [msn, setMsn] = useState([]);
+    // Crea dinamicamente array de indexs para controlas los cambios de inputs
+    // useEffect(() => {
+    //     const filterMsn = filterStudents.map((element) => {
+    //         return (
+    //             element.message
+    //         )
+    //     });
+
+    //     setMsn(filterMsn);
+    // }, [filterStudents])
+
+    // const [msn, setMsn] = useState([]);
+    // console.log(msn);
 
     // controlar los cambios de los inputs creados dinamicamente
-    const handleMsn = e => {
-        setMsn({
-            ...msn,
-            [e.target.name]: e.target.value
-        });
-    };
+    // const handleMsn = e => {
+    //     setMsn({
+    //         ...msn,
+    //         [e.target.name]: e.target.value
+    //     });
+    // };
 
     const handleChange = e => {
         console.log(e.target);
@@ -81,7 +84,9 @@ export const StudentsList = ({ filterStudents }) => {
 
     return (
         <div className='studentList_main'>
+
             {
+
                 filterStudents.map(({ name, surname, id_student, breakfast, lunch1, lunch2, dessert, snack, bottle, diaper, nap, message, date, absence }, index) => {
                     return (
 
@@ -171,7 +176,9 @@ export const StudentsList = ({ filterStudents }) => {
                             <div className='message'>
                                 <h5>Mensaje:</h5>
                                 {/* Se usa defaultValue xq es un elemento no controlado. Funciona igual que value */}
-                                <input type='text' name={index} defaultValue={msn[index]} id={'bh' + id_student} className='message' onChange={handleMsn} onBlur={handleChange} />
+                                {/* <input type='text' name={index} defaultValue={msn[index]} id={'bh' + id_student} className='message' onChange={handleMsn} onBlur={handleChange} /> */}
+
+                                <input type='text' name={index} defaultValue={message} id={'bh' + id_student} className='message' onBlur={handleChange} />
                             </div>
                         </div>
                     )
