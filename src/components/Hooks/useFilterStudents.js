@@ -9,7 +9,7 @@ export const useFilterStudents = (allStudents, letter, age) => {
             id_student: element.id,
             letter: element.letter,
             birth_date: element.birth_date || '',
-            breakfast: element.dailies[0]?.breakfast || '',
+            breackfast: element.dailies[0]?.breackfast || '',
             lunch1: element.dailies[0]?.lunch1 || '',
             lunch2: element.dailies[0]?.lunch2 || '',
             dessert: element.dailies[0]?.dessert || '',

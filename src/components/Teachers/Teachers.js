@@ -8,12 +8,16 @@ import { URL_CRUD } from '../../settings';
 import { useFilterStudents } from '../Hooks/useFilterStudents'
 import { useFetch } from '../Hooks/useFetch'
 
+
 export const Teachers = () => {
 
     const context = useContext(AuthContext);
 
+
+    const dateToday = new Date().toLocaleDateString('en-CA', { year: 'numeric', month: '2-digit', day: '2-digit' });
+
     const initalStateFetchData = {
-        endPoint: 'student/current/2022-02-19',
+        endPoint: `student/current/${dateToday}`,
         options: {
             method: "GET",
             headers: {
@@ -107,14 +111,10 @@ export const Teachers = () => {
 
     // const dateToday = new Date();
 
-
-
-
-
     return (
         <div>
             <Course select={select} setSelect={setSelect} students={students} setFilterStudents={setFilterStudents} />
-            <StudentsList filterStudents={filterStudents} />
+            <StudentsList filterStudents={filterStudents} setfetchData={setfetchData} />
         </div>
     )
 }
