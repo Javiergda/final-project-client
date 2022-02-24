@@ -5,17 +5,37 @@ import { DeleteUsers } from './DeleteUsers';
 import { AuthContext } from '../../auth/authContext';
 import { useContext } from 'react';
 import { URL_CRUD } from '../../settings';
+import { useFetch } from '../Hooks/useFetch'
 
-export const ManageUsers = ({ users, setUsers }) => {
+export const ManageUsers = ({ users, setUsers, setfetchDataUsers }) => {
 
     const context = useContext(AuthContext);
 
     useEffect(() => {
         setfilteredUsers(users);
     }, [users])
-    // usuarios filtrados para componenete FilterStudents.js
-    const [filteredUsers, setfilteredUsers] = useState([]);
 
+    const [filteredUsers, setfilteredUsers] = useState([]); // usuarios filtrados para componenete FilterStudents.js
+
+    const [modifyDataUser, setModifyDataUser] = useState([]); // datos para el fetch
+    const modifyUser = useFetch(modifyDataUser); // hacemos fetch inicial
+
+    // Actualizamos datos en componente principal cuando insertamos
+    console.log(modifyUser);
+    useEffect(() => {
+        if (modifyUser.result == 'ok') {
+            setfetchDataUsers({
+                endPoint: `user`,
+                options: {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": "Bearer " + context.token
+                    }
+                }
+            })
+        }
+    }, [modifyUser])
 
     const initialState = {
         id: '',
@@ -26,7 +46,6 @@ export const ManageUsers = ({ users, setUsers }) => {
         user_type: 2,
         button: 'Añadir usuario'
     }
-
     const [form, setForm] = useState(initialState);
     const { id, userName, surname, email, password, user_type, button } = form;
 
@@ -39,70 +58,41 @@ export const ManageUsers = ({ users, setUsers }) => {
 
     const handlesubmit = e => {
         e.preventDefault();
-        // comprobamos que no este vacio quitandole espacios en blanco a derecha e izquierda
         if (userName.trim().length > 0 && surname.trim().length > 0 && email.trim().length > 0) {
-            console.log('NEW USER');
-
             if (id === '') {
-                // cogemos valor de id de user
-                console.log('insertamos');
-
-
-                const endPoint = `user`;
-                const options = {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                        "Authorization": "Bearer " + context.token
+                setModifyDataUser({
+                    endPoint: `user`,
+                    options: {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Authorization": "Bearer " + context.token
+                        },
+                        body: JSON.stringify(form)
                     },
-                    body: JSON.stringify(form)
-                }
-                fetch(`${URL_CRUD}/${endPoint}`, options)
-                    .then(response => response.json())
-                    .then(data => {
-                        console.log(data);
-                        // setUsers(data);
-                    });
-            }
-            // si id vale algo estamos modificando
-            else {
-                console.log('modificamos');
-                console.log(form);
-                const endPoint = `user/${form.id}`;
-                const options = {
-                    method: "PUT",
-                    headers: {
-                        "Content-Type": "application/json",
-                        "Authorization": "Bearer " + context.token
+                });
+            } else {
+                setModifyDataUser({
+                    endPoint: `user/${form.id}`,
+                    options: {
+                        method: "PUT",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Authorization": "Bearer " + context.token
+                        },
+                        body: JSON.stringify(form)
                     },
-                    body: JSON.stringify(form)
-                }
-                fetch(`${URL_CRUD}/${endPoint}`, options)
-                    .then(response => response.json())
-                    .then(data => {
-                        console.log(data);
-                        // setUsers(data);
-                    });
+                });
             }
-
-            ///////////////////////////////
-            //// obtenemos repuesta
-            // const responseUser = 'ok';
-            // if (responseUser = 'ok') {
-            /// refrescamos donde haga falta!!!
-            // CRUD - GET usuarios y refrescar para que se muestre el nuevo
-
-            // }
+            setForm(initialState);
         } else {
             alert('Todos los campos son obligatorios ');
         };
-
     }
 
     const handleCancel = e => {
         setForm(initialState);
     }
-
 
     return (
         <div className='manageUsers_main'>

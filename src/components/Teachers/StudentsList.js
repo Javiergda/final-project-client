@@ -18,6 +18,7 @@ export const StudentsList = ({ filterStudents, setfetchData }) => {
 
     const modifyDaily = useFetch(modifyData); // hacemos fetch inicial
 
+    // Actualizamos datos en componente principal
     useEffect(() => {
         if (modifyDaily.result == 'ok') {
             setfetchData({
