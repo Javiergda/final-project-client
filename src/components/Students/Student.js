@@ -47,11 +47,6 @@ export const Student = ({ students, student, setStudent, setDailyStudent }) => {
                     </select>
                     <span>Clase: {letter}</span>
                 </div>
-                {/* <div className='box2'>
-                    <span>Telefono 1: {phone1}</span>
-                    <span>Telefono 2: {phone2}</span>
-                </div> */}
-
                 <div className='box1'>
                     <h4>Dia: </h4>
                     {/* LLenamos el select de fechas*/}
@@ -64,9 +59,7 @@ export const Student = ({ students, student, setStudent, setDailyStudent }) => {
                             })
                         }
                     </select>
-
                 </div>
-
             </div>
         </div >
     )

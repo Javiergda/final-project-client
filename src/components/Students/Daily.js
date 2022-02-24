@@ -10,7 +10,7 @@ export const Daily = ({ dailyStudent }) => {
             <div className='wrapper'>
                 <div className='box1'>
                     <span> {`Hoy: ${dateToday.getDate()} / ${dateToday.getMonth() + 1} / ${dateToday.getFullYear()}`}</span>
-                    {/* <span>Falta: {absence ? 'FALTA' : 'No'}</span> */}
+                    {absence && <span>FALTA</span>}
                 </div>
 
                 <h4>COMIDAS</h4>

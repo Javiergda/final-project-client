@@ -13,7 +13,6 @@ export const Teachers = () => {
 
     const context = useContext(AuthContext);
 
-
     const dateToday = new Date().toLocaleDateString('en-CA', { year: 'numeric', month: '2-digit', day: '2-digit' });
 
     const initalStateFetchData = {
