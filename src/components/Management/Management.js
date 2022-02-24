@@ -7,86 +7,55 @@ import { ManageStudents } from './ManageStudents'
 import { ManageUsers } from './ManageUsers'
 import { DeleteStudents } from './DeleteStudents'
 import { URL_CRUD } from '../../settings';
+import { useFetch } from '../Hooks/useFetch'
 
 export const Management = () => {
 
     const context = useContext(AuthContext);
 
+    const [fetchDataStudents, setfetchDataStudents] = useState({
+        endPoint: `student`,
+        options: {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + context.token
+            }
+        }
+    });
+
+    const [fetchDataUsers, setfetchDataUsers] = useState({
+        endPoint: `user`,
+        options: {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + context.token
+            }
+        }
+    });
+
+    // 1. obtenemos datos estudiantes
+    const allStudents = useFetch(fetchDataStudents);
+    console.log(allStudents);
+
+    // 2. obtenemos datos usuarios
+    const allUsers = useFetch(fetchDataUsers);
+    console.log(allUsers);
+
+    // 3. cargamos datos estudiantes y usuarios
     useEffect(() => {
+        allStudents.length > 0 && setStudents(allStudents);
+    }, [allStudents])
 
-        // Obtenemos todos los Estudiantes
-        // console.log('FETCH ALL STUDENTS ORDER BY DESC');
+    useEffect(() => {
+        allUsers.length > 0 && setUsers(allUsers);
+    }, [allUsers])
 
-        const endPointStudent = `student`;
-        const optionsStudent = {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": "Bearer " + context.token
-            },
-        }
-        fetch(`${URL_CRUD}/${endPointStudent}`, optionsStudent)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-                // setStudents(data);
-            });
+    const [students, setStudents] = useState([]); // todos los estudiantes
+    const [users, setUsers] = useState([]); // todos los usuarios
 
-
-        const dataStudents = [
-            {
-                id: 10, name: 'Lucia', surname: 'Garcia', birth_date: '2021-04-27',
-                phone1: '600111222', phone2: '600444555', letter: 'A', user_id: 1,
-            },
-            {
-                id: 20, name: 'Julia', surname: 'Garcia', birth_date: '2021-04-27',
-                phone1: '600111222', phone2: '600444555', letter: 'A', user_id: 1,
-            }
-        ];
-
-
-        // Obtenemos todos los Usuarios
-        console.log('FETCH ALL USERS ORDER BY DESC');
-
-        const endPointUser = `user`;
-        const optionsUser = {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": "Bearer " + context.token
-            },
-        }
-        fetch(`${URL_CRUD}/${endPointUser}`, optionsUser)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-                if (data) {
-                    setUsers(data);
-                }
-                // setUsers(data);
-            });
-
-        const dataUsers = [
-            {
-                id: 1, name: 'Javier', surname: 'Garcia', email: 'javier@javier.com', password: '123456', userTipe: 1,
-            },
-            {
-                id: 2, name: 'User2name', surname: 'User2surname', email: 'user2@user2.com', password: '123456', userTipe: 1,
-            }
-        ];
-        if (dataStudents) {
-            setStudents(dataStudents);
-        }
-        // if (dataUsers) {
-        //     setUsers(dataUsers);
-        // }
-    }, [])
-
-
-    const [students, setStudents] = useState([]);
-    const [users, setUsers] = useState([]);
-
-    const [screen, setScreen] = useState('Users'); // muestra una ventana u otra
+    const [screen, setScreen] = useState('Users'); // selector usuarios/estudiantes
 
     const handleClick = e => {
         setScreen(e.target.value)

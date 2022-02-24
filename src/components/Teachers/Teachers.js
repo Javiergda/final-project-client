@@ -8,7 +8,6 @@ import { URL_CRUD } from '../../settings';
 import { useFilterStudents } from '../Hooks/useFilterStudents'
 import { useFetch } from '../Hooks/useFetch'
 
-
 export const Teachers = () => {
 
     const context = useContext(AuthContext);
