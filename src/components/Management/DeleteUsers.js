@@ -7,13 +7,14 @@ import { useFetch } from '../Hooks/useFetch'
 export const DeleteUsers = ({ filteredUsers, setForm, users, setfetchDataUsers }) => {
 
     const context = useContext(AuthContext);
-    const [modifyDataUser, setModifyDataUser] = useState([]); // datos para el fetch
-    const modifyUser = useFetch(modifyDataUser); // hacemos fetch inicial
+
+    const [deleteDataUser, setDeleteDataUser] = useState([]); // datos para el fetch
+    const deleteUser = useFetch(deleteDataUser); // hacemos fetch inicial
 
     // Actualizamos datos en componente principal cuando borramos
-    console.log(modifyUser);
+    console.log(deleteUser);
     useEffect(() => {
-        if (modifyUser.result == 'ok') {
+        if (deleteUser.result == 'ok') {
             setfetchDataUsers({
                 endPoint: `user`,
                 options: {
@@ -25,7 +26,7 @@ export const DeleteUsers = ({ filteredUsers, setForm, users, setfetchDataUsers }
                 }
             })
         }
-    }, [modifyUser])
+    }, [deleteUser])
 
     const handleUpdate = e => {
         e.preventDefault();
@@ -46,7 +47,7 @@ export const DeleteUsers = ({ filteredUsers, setForm, users, setfetchDataUsers }
     }
 
     const handleDelete = (e) => {
-        setModifyDataUser({
+        setDeleteDataUser({
             endPoint: `user/${e.target.value}`,
             options: {
                 method: "DELETE",

@@ -73,7 +73,7 @@ export const Management = () => {
             } */}
 
             <ManageUsers users={users} setUsers={setUsers} setfetchDataUsers={setfetchDataUsers} />
-            <ManageStudents users={users} students={students} setStudents={setStudents} />
+            <ManageStudents users={users} students={students} setStudents={setStudents} setfetchDataStudents={setfetchDataStudents} />
         </div>
     )
 }

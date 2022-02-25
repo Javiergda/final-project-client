@@ -5,23 +5,36 @@ import { FilterStudents } from './FilterStudents';
 import { DeleteStudents } from './DeleteStudents';
 import { AuthContext } from '../../auth/authContext'
 import { URL_CRUD } from '../../settings';
+import { useFetch } from '../Hooks/useFetch';
 
-export const ManageStudents = ({ users, students, setStudents }) => {
+export const ManageStudents = ({ users, students, setStudents, setfetchDataStudents }) => {
 
     const context = useContext(AuthContext);
 
     useEffect(() => {
-
         setfilteredStudents(students);
     }, [students])
-    // usuarios filtrados para componenete FilterStudents.js
-    const [filteredStudents, setfilteredStudents] = useState([]);
 
+    const [filteredStudents, setfilteredStudents] = useState([]); // students filtrados para componenete FilterStudents.js
 
-    console.log(students);
-    console.log(filteredStudents);
+    const [modifyDataStudent, setModifyDataStudent] = useState([]); // datos para el fetch
+    const modifyStudent = useFetch(modifyDataStudent); // hacemos fetch inicial
 
-
+    // Actualizamos datos en componente principal cuando insertamos
+    useEffect(() => {
+        if (modifyStudent.result == 'ok') {
+            setfetchDataStudents({
+                endPoint: `student`,
+                options: {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": "Bearer " + context.token
+                    }
+                }
+            })
+        }
+    }, [modifyStudent])
 
     const initialState = {
         id: '', // vacio si es insertar - con valor para modificar
@@ -49,80 +62,47 @@ export const ManageStudents = ({ users, students, setStudents }) => {
     }
 
     const handlesubmit = e => {
-        console.log('NEW USER');
         e.preventDefault();
-
-        // 1. Comprobamos que no este vacio quitandole espacios en blanco a derecha e izquierda
         if (userName.trim().length > 0 && surname.trim().length > 0 && letter.trim().length > 0 && phone1.trim().length > 0
             && birth_date.trim().length > 0 && email_user.trim().length > 0) {
 
-            // 2. buscamos que el email exista en algun usuario
+            // buscamos que el email exista en algun usuario
             const foundUser = users.find(element => element.email == email_user);
             console.log(foundUser);
             console.log(form);
             if (foundUser) {
-
-                /// CRUD - POST
-                // -- SQL --
-                // INSERT INTO students(name,surname,user_id,birth_date,phone1,phone2,letter)
-                // VALUES ($userName,$surname,foundUser.email,$birthDate,$phone1,$phone2,$letter);
-
-                // Asignamos id del usuario encontrado a user_id
-
-                // si id='' estamos insertando
                 if (id === '') {
-                    // cogemos valor de id de user
-                    console.log('insertamos');
+                    // Asignamos id del usuario encontrado a user_id
                     const valuesForm = form;
                     valuesForm.user_id = foundUser.id;
 
-                    const endPoint = `student`;
-                    const options = {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json",
-                            "Authorization": "Bearer " + context.token
+                    setModifyDataStudent({
+                        endPoint: `student`,
+                        options: {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json",
+                                "Authorization": "Bearer " + context.token
+                            },
+                            body: JSON.stringify(valuesForm)
                         },
-                        body: JSON.stringify(valuesForm)
-                    }
-                    fetch(`${URL_CRUD}/${endPoint}`, options)
-                        .then(response => response.json())
-                        .then(data => {
-                            console.log(data);
-                            // setUsers(data);
-                        });
-                }
-                // si id vale algo estamos modificando
-                else {
+                    });
+                } else {
                     console.log('modificamos');
-                    const endPoint = `student/${form.id}`;
-                    const options = {
-                        method: "PUT",
-                        headers: {
-                            "Content-Type": "application/json",
-                            "Authorization": "Bearer " + context.token
+
+                    setModifyDataStudent({
+                        endPoint: `student/${form.id}`,
+                        options: {
+                            method: "PUT",
+                            headers: {
+                                "Content-Type": "application/json",
+                                "Authorization": "Bearer " + context.token
+                            },
+                            body: JSON.stringify(form)
                         },
-                        body: JSON.stringify(form)
-                    }
-                    fetch(`${URL_CRUD}/${endPoint}`, options)
-                        .then(response => response.json())
-                        .then(data => {
-                            console.log(data);
-                            // setUsers(data);
-                        });
+                    });
                 }
-
-
-                //// obtenemos repuesta
-                const responseUser = 'ok';
-                if (responseUser == 'ok') {
-
-                    /// refrescamos donde haga falta!!!
-                    setForm(initialState); // CRUD - GET estudiantes y refrescar para que se muestre el nuevo
-                    // setStudents([]);
-
-                }
-                // }
+                setForm(initialState);
             } else {
                 alert('¡El email debe existir en algun usuario!')
             }
@@ -139,7 +119,7 @@ export const ManageStudents = ({ users, students, setStudents }) => {
         <div className='manageStudents_main'>
             <h1>Nuevo alumno</h1>
             <FilterStudents students={students} setStudents={setStudents} setfilteredStudents={setfilteredStudents} />
-            <DeleteStudents users={users} filteredStudents={filteredStudents} setForm={setForm} />
+            <DeleteStudents users={users} filteredStudents={filteredStudents} setForm={setForm} setfetchDataStudents={setfetchDataStudents} />
             <div className='wrapper'>
                 <form onSubmit={handlesubmit} className='form'>
                     <label>

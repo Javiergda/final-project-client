@@ -15,13 +15,12 @@ export const ManageUsers = ({ users, setUsers, setfetchDataUsers }) => {
         setfilteredUsers(users);
     }, [users])
 
-    const [filteredUsers, setfilteredUsers] = useState([]); // usuarios filtrados para componenete FilterStudents.js
+    const [filteredUsers, setfilteredUsers] = useState([]); // usuarios filtrados para componenete FilterUsers.js
 
     const [modifyDataUser, setModifyDataUser] = useState([]); // datos para el fetch
     const modifyUser = useFetch(modifyDataUser); // hacemos fetch inicial
 
     // Actualizamos datos en componente principal cuando insertamos
-    console.log(modifyUser);
     useEffect(() => {
         if (modifyUser.result == 'ok') {
             setfetchDataUsers({

@@ -2,8 +2,9 @@ import React from 'react'
 import { URL_CRUD } from '../../settings';
 import { useContext } from 'react'
 import { AuthContext } from '../../auth/authContext'
+import { useFetch } from '../Hooks/useFetch'
 
-export const DeleteStudents = ({ filteredStudents, setForm, users }) => {
+export const DeleteStudents = ({ filteredStudents, setForm, users, setfetchDataStudents }) => {
 
     const context = useContext(AuthContext);
 
