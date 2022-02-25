@@ -1,21 +1,37 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { URL_CRUD } from '../../settings';
 import { useContext } from 'react'
 import { AuthContext } from '../../auth/authContext'
+import { useFetch } from '../Hooks/useFetch'
 
-export const DeleteUsers = ({ filteredUsers, setForm, users }) => {
+export const DeleteUsers = ({ filteredUsers, setForm, users, setfetchDataUsers }) => {
 
     const context = useContext(AuthContext);
+    const [modifyDataUser, setModifyDataUser] = useState([]); // datos para el fetch
+    const modifyUser = useFetch(modifyDataUser); // hacemos fetch inicial
+
+    // Actualizamos datos en componente principal cuando borramos
+    console.log(modifyUser);
+    useEffect(() => {
+        if (modifyUser.result == 'ok') {
+            setfetchDataUsers({
+                endPoint: `user`,
+                options: {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": "Bearer " + context.token
+                    }
+                }
+            })
+        }
+    }, [modifyUser])
 
     const handleUpdate = e => {
         e.preventDefault();
-
         // selecciona registro usuario
         const userFounded = filteredUsers.find(element => element.id == e.target.value);
         if (userFounded) {
-
-            console.log(userFounded);
-
             const state = {
                 id: userFounded.id,
                 userName: userFounded.name,
@@ -30,32 +46,20 @@ export const DeleteUsers = ({ filteredUsers, setForm, users }) => {
     }
 
     const handleDelete = (e) => {
-
-        console.log(`Delete from USERS WHERE ID=${e.target.value}`);
-
-        console.log('eliminamos');
-        const endPointUser = `user/${e.target.value}`;
-        const options = {
-            method: "DELETE",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": "Bearer " + context.token
+        setModifyDataUser({
+            endPoint: `user/${e.target.value}`,
+            options: {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": "Bearer " + context.token
+                },
             },
-        }
-        fetch(`${URL_CRUD}/${endPointUser}`, options)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-                // setUsers(data);
-            });
+        });
     }
 
     return (
         <div className='delete_main'>
-            {/* <div className='title'>
-                <h3><span>Eliminar alumno</span></h3>
-            </div> */}
-
             <div className='wrapper'>
                 <div className='wrapper2 title'>
                     <div className='name'><span >Nombre</span></div>
@@ -70,7 +74,6 @@ export const DeleteUsers = ({ filteredUsers, setForm, users }) => {
                             <div className='surname'><span>{surname}</span></div>
                             <div className='email'><span>{email}</span></div>
                             <div className='user_type'><span>{user_type}</span></div>
-
                             <div className='button'><button name='button' type='submit' value={id} onClick={handleUpdate}>Modificar</button ></div>
                             <div className='button'><button name='button' type='submit' value={id} onClick={handleDelete}>Borrar</button ></div>
                         </div>

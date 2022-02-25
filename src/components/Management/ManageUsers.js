@@ -98,7 +98,7 @@ export const ManageUsers = ({ users, setUsers, setfetchDataUsers }) => {
         <div className='manageUsers_main'>
             <h1>Nuevo tutor</h1>
             <FilterUsers users={users} setfilteredUsers={setfilteredUsers} />
-            <DeleteUsers users={users} filteredUsers={filteredUsers} setForm={setForm} />
+            <DeleteUsers users={users} filteredUsers={filteredUsers} setForm={setForm} setfetchDataUsers={setfetchDataUsers} />
             <div className='wrapper'>
                 <form onSubmit={handlesubmit} className='form'>
                     <label>
