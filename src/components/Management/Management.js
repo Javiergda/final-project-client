@@ -37,11 +37,9 @@ export const Management = () => {
 
     // 1. obtenemos datos estudiantes
     const allStudents = useFetch(fetchDataStudents);
-    console.log(allStudents);
 
     // 2. obtenemos datos usuarios
     const allUsers = useFetch(fetchDataUsers);
-    console.log(allUsers);
 
     // 3. cargamos datos estudiantes y usuarios
     useEffect(() => {

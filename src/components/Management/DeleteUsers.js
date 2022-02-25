@@ -12,7 +12,6 @@ export const DeleteUsers = ({ filteredUsers, setForm, users, setfetchDataUsers }
     const deleteUser = useFetch(deleteDataUser); // hacemos fetch inicial
 
     // Actualizamos datos en componente principal cuando borramos
-    console.log(deleteUser);
     useEffect(() => {
         if (deleteUser.result == 'ok') {
             setfetchDataUsers({

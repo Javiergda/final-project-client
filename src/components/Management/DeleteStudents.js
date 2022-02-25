@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { URL_CRUD } from '../../settings';
 import { useContext } from 'react'
 import { AuthContext } from '../../auth/authContext'
@@ -7,6 +7,25 @@ import { useFetch } from '../Hooks/useFetch'
 export const DeleteStudents = ({ filteredStudents, setForm, users, setfetchDataStudents }) => {
 
     const context = useContext(AuthContext);
+
+    const [deleteDataStudent, setDeleteDataStudent] = useState([]); // datos para el fetch
+    const deleteStudent = useFetch(deleteDataStudent); // hacemos fetch inicial
+
+    // Actualizamos datos en componente principal cuando borramos
+    useEffect(() => {
+        if (deleteStudent.result == 'ok') {
+            setfetchDataStudents({
+                endPoint: `student`,
+                options: {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": "Bearer " + context.token
+                    }
+                }
+            })
+        }
+    }, [deleteStudent])
 
     const handleUpdate = e => {
         e.preventDefault();
@@ -38,26 +57,32 @@ export const DeleteStudents = ({ filteredStudents, setForm, users, setfetchDataS
     }
 
     const handleDelete = (e) => {
-
-
-        console.log(`Se borrara el alumno y todas las referencias a los padres`);
-        console.log(`Delete from STUDENTS WHERE ID=${e.target.value}`);
-
-        console.log('eliminamos');
-        const endPointUser = `student/${e.target.value}`;
-        const options = {
-            method: "DELETE",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": "Bearer " + context.token
+        setDeleteDataStudent({
+            endPoint: `student/${e.target.value}`,
+            options: {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": "Bearer " + context.token
+                },
             },
-        }
-        fetch(`${URL_CRUD}/${endPointUser}`, options)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-                // setUsers(data);
-            });
+        });
+
+
+        // const endPointUser = `student/${e.target.value}`;
+        // const options = {
+        //     method: "DELETE",
+        //     headers: {
+        //         "Content-Type": "application/json",
+        //         "Authorization": "Bearer " + context.token
+        //     },
+        // }
+        // fetch(`${URL_CRUD}/${endPointUser}`, options)
+        //     .then(response => response.json())
+        //     .then(data => {
+        //         console.log(data);
+        //         // setUsers(data);
+        //     });
     }
 
     return (
