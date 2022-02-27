@@ -34,7 +34,8 @@ export const useFilterStudents = (allStudents, letter, age) => {
     }
 
     // filtra objeto.letra == letra del select  &&  Año actual - año de nacimiento (extrae los 4 primeros xq es el año de date)
-    const filterDataStudents = dataStudentsMaped.filter((element) => element.letter == letter && (currentYear - Number(element.birth_date.slice(0, 4))) == ageChild);
+    const filterDataStudents = dataStudentsMaped.filter((element) => element.letter == letter
+        && (Math.abs(currentYear - Number(element.birth_date.slice(0, 4)))) == ageChild);
 
     return [dataStudentsMaped, filterDataStudents]; // devolvemos 1. todos los usuarios, 2. usuarios filtrados por letra y edad
 }
