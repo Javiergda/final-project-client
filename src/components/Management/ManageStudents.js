@@ -53,8 +53,6 @@ export const ManageStudents = ({ users, students, setStudents, setfetchDataStude
     const { id, userName, surname, letter, phone1, phone2, birth_date, email_user, button } = form;
 
     const handleChange = e => {
-        console.log(e.target.value);
-        console.log(e.target.name);
         setForm({
             ...form,
             [e.target.name]: e.target.value
@@ -68,8 +66,6 @@ export const ManageStudents = ({ users, students, setStudents, setfetchDataStude
 
             // buscamos que el email exista en algun usuario
             const foundUser = users.find(element => element.email == email_user);
-            console.log(foundUser);
-            console.log(form);
             if (foundUser) {
                 if (id === '') {
                     // Asignamos id del usuario encontrado a user_id
@@ -88,8 +84,6 @@ export const ManageStudents = ({ users, students, setStudents, setfetchDataStude
                         },
                     });
                 } else {
-                    console.log('modificamos');
-
                     setModifyDataStudent({
                         endPoint: `student/${form.id}`,
                         options: {
@@ -154,11 +148,6 @@ export const ManageStudents = ({ users, students, setStudents, setfetchDataStude
                         <span>Email/Tutor:</span>
                         <input value={email_user} name='email_user' type='text' onChange={handleChange} className='' />
                     </label>
-                    {/* <input type='button' className='buttonSearch' value="Asociar email" onClick={handleSearch} /> */}
-                    {/* <label>
-                        <span>Tutor:</span>
-                        <span name='emailFounded' className='textSearch'>{emailFoundedName}</span>
-                    </label> */}
                     <input type="submit" className='button' value={button} />
                     <input type="button" className='button' value='Cancelar' onClick={handleCancel} />
                 </form>

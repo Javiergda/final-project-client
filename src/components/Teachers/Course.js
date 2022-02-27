@@ -4,7 +4,6 @@ import { useEffect } from 'react';
 export const Course = ({ select, setSelect, students, setFilterStudents }) => {
 
     const { age, letter } = select;
-
     const dateToday = new Date();
 
     const handleChange = e => {
@@ -23,9 +22,6 @@ export const Course = ({ select, setSelect, students, setFilterStudents }) => {
             if (dateToday.getMonth() + 1 < 9) {
                 currentYear = currentYear - 1;
             }
-
-            Math.abs(-2);
-
             const filter = students.filter((element) => element.letter == letter
                 && (Math.abs(currentYear - Number(element.birth_date.slice(0, 4)))) == ageChild);
             setFilterStudents(filter);
