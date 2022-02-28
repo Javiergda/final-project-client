@@ -8,7 +8,7 @@ import menu from '../../icons/menu.png'
 import logo from '../../images/logo.jpg'
 import { useState } from 'react'
 
-export const HeaderSmall = ({ context }) => {
+export const HeaderSmall = ({ context, hover, setHover }) => {
 
     const { email, user_type, logged } = context;
 
@@ -55,10 +55,17 @@ export const HeaderSmall = ({ context }) => {
                         <span>Contacto</span>
                     </li>
                 </NavLink>
-                <NavLink className='nav-link' to="login">
+                <NavLink className='nav-link' to="login"
+                    onMouseEnter={() => setHover('Log-out')}
+                    onMouseLeave={() => setHover(email)}
+                    onClick={() => {
+                        localStorage.removeItem('user') // borramos localstorage
+                        window.location.replace("/login");  // redirigimos a login actualizando context
+                    }}
+                >
                     <li>
                         <img src={rabbit} height="20px" alt='rabbit' />
-                        <span >{email + ' - Login'}</span>
+                        <span >{email ? hover : 'Login'}</span>
                     </li>
                 </NavLink>
             </ul>

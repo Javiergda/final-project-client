@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import logo from '../../images/logo.jpg'
 
-export const HeaderMedium = ({ context }) => {
+export const HeaderMedium = ({ context, hover, setHover }) => {
 
     const { email, user_type, logged } = context;
+
+    // const [hover, setHover] = useState(email); // cambiar texto login en hover
+
 
     return (
         <nav className='nav_medium'>
@@ -38,12 +41,19 @@ export const HeaderMedium = ({ context }) => {
                     </li>
                 </NavLink>
                 <li className='empty'></li>
-                <NavLink className='nav-item' to="login">
+                <NavLink className='nav-item' to="login"
+                    onMouseEnter={() => setHover('Log-out')}
+                    onMouseLeave={() => setHover(email)}
+                    onClick={() => {
+                        localStorage.removeItem('user') // borramos localstorage
+                        window.location.replace("/login");  // redirigimos a login actualizando context
+                    }}
+                >
                     <li>
-                        <span >{email ? email : 'Login'}</span>
+                        <span>{email ? hover : 'Login'}</span>
                     </li>
                 </NavLink>
             </ul>
-        </nav>
+        </nav >
     )
 }

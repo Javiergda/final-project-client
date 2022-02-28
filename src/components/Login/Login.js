@@ -1,12 +1,8 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-// import { useFetch } from '../Hooks/useFetch'
 import { URL_CRUD } from '../../settings';
 
 export const Login = () => {
-
-    const navigate = useNavigate();
 
     const initialState = {
         username: '',
@@ -27,10 +23,7 @@ export const Login = () => {
     // Obtenemos token
     const handlesubmit = e => {
         e.preventDefault();
-        // comprobamos que no este vacio quitandole espacios en blanco a derecha e izquierda
         if (username.trim().length > 0 && password.trim().length > 0) {
-            console.log('LOGIN');
-            //     {"username": "javier@garcia.com", "password": "123456"}
             const endPoint = 'login_check';
             const options = {
                 method: "POST",
@@ -42,7 +35,6 @@ export const Login = () => {
             fetch(`${URL_CRUD}/${endPoint}`, options)
                 .then(response => response.json())
                 .then(data => {
-                    console.log(data.token);
                     // Cargamos token o mostramos mensaje error
                     (data.token) ? setToken(data) : console.log(data);
                 });
@@ -51,8 +43,6 @@ export const Login = () => {
 
     useEffect(() => { // Cuando obtenemos token cargamos usuario
         if (token) {
-            console.log('entramos en useEfect');
-
             const endPoint = `user/${username}`;
             const options = {
                 method: "GET",
@@ -65,14 +55,10 @@ export const Login = () => {
             const userData = fetch(`${URL_CRUD}/${endPoint}`, options)
                 .then(response => response.json())
                 .then(data => {
-                    setForm(initialState); // vaciamo formulario
+                    setForm(initialState);
                     data.token = token.token;
                     localStorage.setItem('user', JSON.stringify(data)); // guardamos en localstorage
-                    // navigate('/homepage', { // navegamos pagina inicio y cargamos usuario del localstorage
-                    //     replace: true // reemplaza del historial
-                    // });
-
-                    window.location.replace("/homepage");
+                    window.location.replace("/homepage"); // redirigimos y actualizamos context
                 });
         }
     }, [token])

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useContext } from 'react'
 import { AuthContext } from '../../auth/authContext'
 import { HeaderSmall } from './HeaderSmall'
@@ -8,10 +8,12 @@ export const Header = () => {
 
     const context = useContext(AuthContext);
 
+    const [hover, setHover] = useState(context?.email); // cambiar texto login en hover
+
     return (
         <header className="header__main">
-            <HeaderSmall context={context} />
-            <HeaderMedium context={context} />
+            <HeaderSmall context={context} hover={hover} setHover={setHover} />
+            <HeaderMedium context={context} hover={hover} setHover={setHover} />
         </header >
     )
 }
