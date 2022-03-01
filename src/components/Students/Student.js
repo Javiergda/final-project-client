@@ -2,8 +2,10 @@ import React, { useEffect } from 'react';
 
 export const Student = ({ students, student, setStudent, setDailyStudent }) => {
 
+    const dateToday = new Date();
+
     // estudiante seleccionado
-    const { birth_date, phone1, id, letter, phone2, name, surname, dailies = {} } = student;
+    const { letter, dailies = {} } = student;
 
     // guardamos fechas del estudiante seleccionado
     const studentDates = Object.entries(dailies).map(([key, value], index) => {
@@ -59,6 +61,7 @@ export const Student = ({ students, student, setStudent, setDailyStudent }) => {
                             })
                         }
                     </select>
+                    <span> {`Hoy: ${dateToday.getDate()} / ${dateToday.getMonth() + 1} / ${dateToday.getFullYear()}`}</span>
                 </div>
             </div>
         </div >
