@@ -10,13 +10,13 @@ import tweeter from '../../icons/tweeter.png'
 export const Footer = () => {
     return (
         <footer className='footer__main'>
-            <hr />
+            {/* <hr /> */}
             <div className='wrap'>
                 <nav className='footer_menu'>
 
                     <ul>
                         <li>
-                            <h3><span className='title'>BAMBI</span></h3>
+                            <h3><span className='title'>Nuestra escuela</span></h3>
                         </li>
                         <li>
                             <span>Inicio</span>
@@ -35,15 +35,15 @@ export const Footer = () => {
                 <div className='footer_contact'>
                     <ul>
                         <li>
-                            <h3><span className='title'>Contacto</span></h3>
+                            <h3><span className='title'>Contacta con nosotros</span></h3>
                         </li>
                         <li>
-                            <p>
+                            {/* <p>
                                 <img src={house} height="15px" alt='adress' />
                                 <span>Escuela infantil</span>
-                            </p>
-                            <p>C/ calle nº1</p>
-                            <p>29010 Málaga</p>
+                            </p> */}
+                            <p>C/ calle nº1 29010 Málaga</p>
+                            {/* <p>29010 Málaga</p> */}
                         </li>
                         <li>
                             <img src={phone} height="15px" alt='phone' />

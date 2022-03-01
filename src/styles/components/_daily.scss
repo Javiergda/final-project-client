@@ -17,10 +17,11 @@
             margin: 10px 0px 0px 0px;
             text-align: right;
             span{
-                color: $purple;
-                background-color: $purple-transparent;
-                padding:5px;
-                border-radius: 5px;
+                font-size: 1rem;
+                // color: $purple;
+                // background-color: $purple-transparent;
+                // padding:5px;
+                // border-radius: 5px;
                 margin-right: 15px;
             }
         }
@@ -36,7 +37,6 @@
                 justify-content: center;
                 border: 1px solid grey;
                 color:grey;
-                // min-height: 20px;
                 height: 100%;
                 width: 100%;
                 margin: 2px;
@@ -45,10 +45,6 @@
 
         h5{
             margin-left: 5px;
-        }
-
-        h5,h4{
-            // color: $yellow;
         }
         
         .a{
