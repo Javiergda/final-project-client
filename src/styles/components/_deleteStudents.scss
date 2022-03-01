@@ -4,11 +4,8 @@
     flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
-    // justify-content: left;
     margin: 20px 0px 20px 40px;
     overflow: scroll;
-
-
 
     .title{
 
@@ -34,7 +31,7 @@
         flex-direction: column;
         justify-content: left;
         max-width: 800px;
-        max-height: 80px;
+        max-height: 800px;
         overflow: scroll;
 
         .wrapper2{
@@ -51,30 +48,31 @@
 
             .name,.surname,.date,.phone{
                 // overflow: hidden;
-
             }
             .name{
                 padding:2px 0 0 2px;
-                // width: 100%;
                 min-width: 100px;
-            // border:3px solid red;
-                
             }
-    
             .surname{
-
                 min-width: 100px;
                 padding-top: 2px;
-               
             }
-
             .date{
-                
                 min-width: 80px;
                 padding-top: 2px;
-               
             }
             .phone{
+                min-width: 80px;
+                padding-top: 2px;
+                
+            }
+            .email{
+                min-width: 160px;
+                padding-top: 2px;
+                
+            }
+
+            .user_type{
                 min-width: 80px;
                 padding-top: 2px;
                 
@@ -86,7 +84,6 @@
                 border:1px solid $purple;
                 border-radius: 5px;
                 margin: 0px 2px 0px 5px;
-                    // height: 15px;
             }
         }
 

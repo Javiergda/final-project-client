@@ -1,12 +1,9 @@
 import React, { useEffect } from 'react'
-// import { Navigate } from 'react-router-dom'
 import { useContext } from 'react'
 import { AuthContext } from '../../auth/authContext'
 import { useState } from 'react'
 import { ManageStudents } from './ManageStudents'
 import { ManageUsers } from './ManageUsers'
-import { DeleteStudents } from './DeleteStudents'
-import { URL_CRUD } from '../../settings';
 import { useFetch } from '../Hooks/useFetch'
 
 export const Management = () => {
@@ -61,17 +58,18 @@ export const Management = () => {
 
     return (
         <div className='management_main'>
-            {/* <button name='button' className='button' value='Users' onClick={handleClick} >Tutores</button>
-            <button name='button' className='button' value='Students' onClick={handleClick} >Alumnos</button>
+            <div className='boxButtonSelector'>
+                <button name='button' className={screen === 'Users' ? 'buttonSelected' + ' buttonSelector' : 'buttonSelector'} value='Users' onClick={handleClick} >Tutores</button>
+                <button name='button' className={screen === 'Students' ? 'buttonSelected' + ' buttonSelector' : 'buttonSelector'} value='Students' onClick={handleClick} >Alumnos</button>
+            </div>
 
             {
                 screen === 'Users' ?
-                    <ManageUsers />
-                    : <ManageStudents users={users} students={students} setStudents={setStudents} />
-            } */}
-
-            <ManageUsers users={users} setUsers={setUsers} setfetchDataUsers={setfetchDataUsers} />
-            <ManageStudents users={users} students={students} setStudents={setStudents} setfetchDataStudents={setfetchDataStudents} />
+                    <ManageUsers users={users} setUsers={setUsers} setfetchDataUsers={setfetchDataUsers} />
+                    : <ManageStudents users={users} students={students} setStudents={setStudents} setfetchDataStudents={setfetchDataStudents} />
+            }
+            {/* <ManageUsers users={users} setUsers={setUsers} setfetchDataUsers={setfetchDataUsers} />
+            <ManageStudents users={users} students={students} setStudents={setStudents} setfetchDataStudents={setfetchDataStudents} /> */}
         </div>
     )
 }

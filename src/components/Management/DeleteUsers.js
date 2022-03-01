@@ -64,7 +64,7 @@ export const DeleteUsers = ({ filteredUsers, setForm, users, setfetchDataUsers }
                 <div className='wrapper2 title'>
                     <div className='name'><span >Nombre</span></div>
                     <div className='surname'><span>Apellidos</span></div>
-                    <div className='date'><span>Email</span></div>
+                    <div className='email'><span>Email</span></div>
                     <div className='phone'><span>Tipo usuario</span></div>
                 </div>
                 {
