@@ -1,36 +1,37 @@
 import React from 'react'
-import { Cards } from '../common/Cards'
-import person1 from '../../images/person1.jpg'
-import bambi2 from '../../images/bambi2.jpg'
-import bambi3 from '../../images/bambi3.jpg'
-import bambi4 from '../../images/bambi4.jpg'
+import { CardSectionContact } from './CardSectionContact'
+// import { Cards } from '../common/Cards'
+// import person1 from '../../images/person1.jpg'
+// import bambi2 from '../../images/bambi2.jpg'
+// import bambi3 from '../../images/bambi3.jpg'
+// import bambi4 from '../../images/bambi4.jpg'
 
-const cardValues = [
-    {
-        img: person1,
-        title: 'Servicios',
-        description: 'Los mejores servicios de toda la zona',
-        info: '+ Info'
-    },
-    {
-        img: bambi2,
-        title: 'Horarios',
-        description: 'Los mejores horarios de toda la zona',
-        info: '+ Info'
-    },
-    {
-        img: bambi3,
-        title: 'Profesores',
-        description: 'Los mejores profesores del mundo',
-        info: '+ Info'
-    },
-    {
-        img: bambi4,
-        title: 'Contacto',
-        description: 'Contacta con nosotros',
-        info: '+ Info'
-    }
-];
+// const cardValues = [
+//     {
+//         img: person1,
+//         title: 'Servicios',
+//         description: 'Los mejores servicios de toda la zona',
+//         info: '+ Info'
+//     },
+//     {
+//         img: bambi2,
+//         title: 'Horarios',
+//         description: 'Los mejores horarios de toda la zona',
+//         info: '+ Info'
+//     },
+//     {
+//         img: bambi3,
+//         title: 'Profesores',
+//         description: 'Los mejores profesores del mundo',
+//         info: '+ Info'
+//     },
+//     {
+//         img: bambi4,
+//         title: 'Contacto',
+//         description: 'Contacta con nosotros',
+//         info: '+ Info'
+//     }
+// ];
 
 export const Contact = () => {
 
@@ -60,7 +61,7 @@ export const Contact = () => {
 
                 <h2>Nuestro profesores</h2>
 
-                <Cards cardValues={cardValues} />
+                <CardSectionContact />
 
                 <h2>Siguenos</h2>
 
