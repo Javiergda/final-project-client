@@ -10,6 +10,7 @@ import { Login } from '../Login/Login';
 import { useContext } from 'react'
 import { AuthContext } from '../../auth/authContext'
 import { Navigate } from 'react-router-dom'
+import { Contact } from '../Contact/Contact';
 
 // Teachers: ususario logeado y nivel 2
 // Management: ususario logeado y nivel 2
@@ -27,6 +28,7 @@ export const AppRouter = () => {
                 <Route path="alumno" element={context.logged && context.user_type == 1 ? <Students /> : <Navigate to='/login' />} />
                 <Route path="profesor" element={context.logged && context.user_type == 1 ? <Teachers /> : <Navigate to='/login' />} />
                 <Route path="administracion" element={context.logged && context.user_type == 1 ? <Management /> : <Navigate to='/login' />} />
+                <Route path="contacto" element={<Contact />} />
                 <Route path="login" element={<Login />} />
                 <Route path="*" element={<HomePage />} />
             </Routes>

@@ -2,9 +2,7 @@ import React from 'react'
 
 export const Card = ({ values }) => {
 
-    // console.log(values);
-
-    const { img, title, description } = values;
+    const { img, title, description, info } = values;
     return (
         <div className='card'>
             <img src={img} alt='img' />
@@ -14,7 +12,7 @@ export const Card = ({ values }) => {
             <p>
                 {description}
             </p>
-            <span>+ Info</span>
+            <span>{info}</span>
         </div>
     )
 }
