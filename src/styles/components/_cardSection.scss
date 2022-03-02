@@ -1,6 +1,7 @@
 .cardSection_main{
-        background-color: $purple;
-        padding:20px;
+        background-color: $purple-semitransparent;
+        padding:30px;
+        
 
         h1{
         text-align: center; 
@@ -19,18 +20,18 @@
             background-color: white;
             margin: 20px;
             border-radius: 5px;
-            width: 350px;
-            height: 410px;
+            width: 250px;
+            height: 330px;
             cursor: pointer;
 
             h5{
                 margin:20px 0px 0px 15px;
                 font-size: 1.4rem;
-                padding: 5px;
+                padding: 3px;
             }
 
             p,span{
-                padding: 15px;
+                padding: 12px;
                 color: gray;
                 margin-left:20px;
             }

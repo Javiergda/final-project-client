@@ -9,19 +9,19 @@ const cardValues = [
     {
         img: bambi1,
         title: 'Servicios',
-        description: 'Los mejores servicios de toda la zona',
+        description: 'Atención personalizada',
         info: '+ Info'
     },
     {
         img: bambi2,
         title: 'Horarios',
-        description: 'Los mejores horarios de toda la zona',
+        description: 'Amplios horarios',
         info: '+ Info'
     },
     {
         img: bambi3,
         title: 'Profesores',
-        description: 'Los mejores profesores del mundo',
+        description: 'profesores con experiencia',
         info: '+ Info'
     },
     {
@@ -35,7 +35,7 @@ const cardValues = [
 export const CardSection = () => {
     return (
         <div className='cardSection_main'>
-            <h1>Conócenos</h1>
+            {/* <h1>Conócenos</h1> */}
             <Cards cardValues={cardValues} />
         </div>
     )
