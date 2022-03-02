@@ -1,5 +1,5 @@
 .cardSectionContact_main{
-        background-color: $purple;
+        // background-color: $purple;
         padding:20px;
 
         h1{
@@ -17,32 +17,35 @@
             display: flex;
             flex-direction: column;
             background-color: white;
-            margin: 20px;
-            border-radius: 5px;
-            width: 350px;
+            margin: 0px 35px 0px 25px;
+            // border-radius: 50px;
+            width: 260px;
             height: 410px;
             cursor: pointer;
+            text-align: center;
 
             h5{
-                margin:20px 0px 0px 15px;
-                font-size: 1.4rem;
-                padding: 5px;
+                margin-top:20px;
+                font-size: 1.3rem;
+
+                // background-color: blue;
             }
 
             p,span{
-                padding: 15px;
+                padding: 7px;
                 color: gray;
-                margin-left:20px;
+
+                // background-color: red;
             }
 
             span{
-                text-align: right;
+                // text-align: center;
                 color: $yellow;
             }
         }
     
         img{
-            border-radius: 5px 5px 0px 00px;
+            border-radius: 50%;
             width: 100%;
             height: 250px; 
         }

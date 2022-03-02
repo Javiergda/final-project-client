@@ -1,34 +1,27 @@
 import React from 'react'
 import { Cards } from '../common/Cards'
 import person1 from '../../images/person1.jpg'
-import bambi2 from '../../images/bambi2.jpg'
-import bambi3 from '../../images/bambi3.jpg'
-import bambi4 from '../../images/bambi4.jpg'
+import person2 from '../../images/person2.jpg'
+import person3 from '../../images/person3.jpg'
 
 const cardValues = [
     {
         img: person1,
         title: 'Carmen Garcia Sanchez',
         description: 'Directora de la escuela',
-        info: 'Teléfono: 600 111 222'
+        info: '600 111 222'
     },
     {
-        img: bambi2,
-        title: 'Horarios',
-        description: 'Los mejores horarios de toda la zona',
-        info: '+ Info'
+        img: person2,
+        title: 'Maria Lopez Fernández',
+        description: 'Subdirectora y profesora',
+        info: '655 444 333'
     },
     {
-        img: bambi3,
-        title: 'Profesores',
-        description: 'Los mejores profesores del mundo',
-        info: '+ Info'
-    },
-    {
-        img: bambi4,
-        title: 'Contacto',
-        description: 'Contacta con nosotros',
-        info: '+ Info'
+        img: person3,
+        title: 'Francisco Perez',
+        description: 'Cocinero',
+        info: '622 333 444'
     }
 ];
 
