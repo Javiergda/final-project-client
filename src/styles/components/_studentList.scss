@@ -15,16 +15,12 @@
         margin-bottom: 5px;
         height: 100%;
         min-width: 100%;
-        border-top: 3px solid $yellow;
 
         span{
-            // color: $purple;
             margin-bottom: 1px;
-            // background-color: red;
+            font-size: 1.2rem;
+            margin-bottom: 7px;
         }
-       
-        // max-width: 1080px;
-        // background-color: $purple-transparent;
 
         .boxStudent{
             display: flex;
@@ -37,19 +33,15 @@
 
             .title{
                 background-color: $purple-transparent;
-
                 margin-left: 5px;
                 display: flex;
                 flex-direction: column;
                 width: 100%;
-                // border-left:1px dashed black;
-                // border-bottom: 1px solid black;
     
                 .selector{
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    // border: 1px solid black;
                     width: 100%;
                     min-height: 30px;
                 
@@ -61,26 +53,25 @@
                         height: 100%;
                         width: 100%;
                         margin: 2px;
-
-
                     }
-                }
-    
-                h5{
-                    color: $purple;
                 }
             }
 
             button{
+                cursor: pointer;
                 width: 100%;
                 height: 100%;
                 padding:0px 5px 0px 5px;
                 border:1px solid grey;
                 color: grey;
                 border-radius: 5px;
-                // background-color:rgb(199, 223, 199) ;
-            }
+                background-color:white ;
+                &:hover{
+                    background-color:$purple-semitransparent ;
+                    color: white;
 
+                }
+            }
         }
 
         .message{
