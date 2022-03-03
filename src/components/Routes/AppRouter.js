@@ -25,7 +25,7 @@ export const AppRouter = () => {
 
             <Routes>
                 <Route path="homepage" element={<HomePage />} />
-                <Route path="alumno" element={context.logged && context.user_type == 1 ? <Students /> : <Navigate to='/login' />} />
+                <Route path="alumno" element={context.logged ? <Students /> : <Navigate to='/login' />} />
                 <Route path="profesor" element={context.logged && context.user_type == 1 ? <Teachers /> : <Navigate to='/login' />} />
                 <Route path="administracion" element={context.logged && context.user_type == 1 ? <Management /> : <Navigate to='/login' />} />
                 <Route path="contacto" element={<Contact />} />

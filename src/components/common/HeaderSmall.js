@@ -31,7 +31,7 @@ export const HeaderSmall = ({ context, hover, setHover }) => {
                         <span>Inicio</span>
                     </li>
                 </NavLink>
-                <NavLink className={logged && user_type == 1 ? 'nav-link' + ' authorized' : 'nav-link' + ' notauthorized'} to="alumno">
+                <NavLink className={logged ? 'nav-link' + ' authorized' : 'nav-link' + ' notauthorized'} to="alumno">
                     <li>
                         <img src={butterfly} height="20px" alt='butterfly' />
                         <span>Alumno</span>

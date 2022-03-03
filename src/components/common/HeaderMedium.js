@@ -20,7 +20,7 @@ export const HeaderMedium = ({ context, hover, setHover }) => {
                         <span>Inicio</span>
                     </li>
                 </NavLink>
-                <NavLink className={logged && user_type == 1 ? 'nav-item' + ' authorized' : 'nav-item' + ' notauthorized'} to="alumno">
+                <NavLink className={logged ? 'nav-item' + ' authorized' : 'nav-item' + ' notauthorized'} to="alumno">
                     <li>
                         <span>Alumno</span>
                     </li>
