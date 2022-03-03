@@ -111,7 +111,7 @@ export const ManageStudents = ({ users, students, setStudents, setfetchDataStude
 
     return (
         <div className='manageStudents_main'>
-            <h1>Nuevo alumno</h1>
+            {/* <h1>Nuevo alumno</h1> */}
             <FilterStudents students={students} setStudents={setStudents} setfilteredStudents={setfilteredStudents} />
             <DeleteStudents users={users} filteredStudents={filteredStudents} setForm={setForm} setfetchDataStudents={setfetchDataStudents} />
             <div className='wrapper'>
@@ -146,7 +146,7 @@ export const ManageStudents = ({ users, students, setStudents, setfetchDataStude
                     </label>
                     <label>
                         <span>Email/Tutor:</span>
-                        <input value={email_user} name='email_user' type='text' onChange={handleChange} className='' />
+                        <input value={email_user} name='email_user' type='email' onChange={handleChange} className='' />
                     </label>
                     <input type="submit" className='button' value={button} />
                     <input type="button" className='button' value='Cancelar' onClick={handleCancel} />

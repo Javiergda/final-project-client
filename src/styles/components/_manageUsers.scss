@@ -11,20 +11,14 @@
     .wrapper{
         display: flex;
         justify-content: center;
-        // border-bottom: 2px solid $yellow;
-
 
         .form{
-            // background-color: $purple-transparent;
-            
             display: flex;
             flex-direction: column;
             width: 80%;
             max-width: 600px;
 
-
             input{
-                // display: inline;
                 border: none;
                 width: 100%;
                 height: 25px;

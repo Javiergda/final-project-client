@@ -95,7 +95,7 @@ export const ManageUsers = ({ users, setUsers, setfetchDataUsers }) => {
 
     return (
         <div className='manageUsers_main'>
-            <h1>Nuevo tutor</h1>
+            {/* <h1>Nuevo tutor</h1> */}
             <FilterUsers users={users} setfilteredUsers={setfilteredUsers} />
             <DeleteUsers users={users} filteredUsers={filteredUsers} setForm={setForm} setfetchDataUsers={setfetchDataUsers} />
             <div className='wrapper'>
@@ -110,7 +110,7 @@ export const ManageUsers = ({ users, setUsers, setfetchDataUsers }) => {
                     </label>
                     <label>
                         <span>Email:</span>
-                        <input value={email} name='email' type='mail' onChange={handleChange} className='' />
+                        <input value={email} name='email' type='email' onChange={handleChange} className='' />
                     </label>
                     <label>
                         <span>Password:</span>

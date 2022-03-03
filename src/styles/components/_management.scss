@@ -4,26 +4,25 @@
         justify-content: center;
         .buttonSelector{
             font-size: 1.5rem;
-            background-color:$yellow-transparent;
-            color: white;
-            border:1px solid #ccc;
+            background-color:white;
+            color: #ccc;
+            border:none;
             border-radius: 5px;
             height: 30px;
-            margin: 15px 5px 15px 5px;
-         
-            // box-shadow: 1px -1px $purple-semitransparent ;
+            margin: 15px 5px 15px 15px;
             transition: all 0.4s;
             &:hover{
-                background-color: $yellow-semitransparent;
-                color: black;
+                color: $yellow;
+                font-size: 1.7rem;
             }
         }
 
         .buttonSelected{
-            background-color:$yellow;
-            color: black;
+            font-size: 1.7rem;
+            background-color:white;
+            color: $yellow;
             box-shadow: none ;
-            border:1px solid $purple;
+            border: none;
         }
     }
 }
