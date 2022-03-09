@@ -1,5 +1,4 @@
 import React from 'react'
-import house from '../../icons/house.png'
 import phone from '../../icons/phone.png'
 import mobile from '../../icons/mobile.png'
 import email from '../../icons/email.png'
@@ -10,7 +9,6 @@ import tweeter from '../../icons/tweeter.png'
 export const Footer = () => {
     return (
         <footer className='footer__main'>
-            {/* <hr /> */}
             <div className='wrap'>
                 <nav className='footer_menu'>
 
@@ -38,12 +36,7 @@ export const Footer = () => {
                             <h3><span className='title'>Contacta con nosotros</span></h3>
                         </li>
                         <li>
-                            {/* <p>
-                                <img src={house} height="15px" alt='adress' />
-                                <span>Escuela infantil</span>
-                            </p> */}
                             <p>C/ calle nº1 29010 Málaga</p>
-                            {/* <p>29010 Málaga</p> */}
                         </li>
                         <li>
                             <img src={phone} height="15px" alt='phone' />
@@ -83,7 +76,6 @@ export const Footer = () => {
             <div className='rights'>
                 <span>&copy; 2022 - All rights reserved</span>
             </div>
-
         </footer>
     )
 }

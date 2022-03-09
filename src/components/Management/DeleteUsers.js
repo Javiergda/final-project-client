@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { URL_CRUD } from '../../settings';
 import { useContext } from 'react'
 import { AuthContext } from '../../auth/authContext'
 import { useFetch } from '../Hooks/useFetch'
@@ -13,7 +12,7 @@ export const DeleteUsers = ({ filteredUsers, setForm, users, setfetchDataUsers }
 
     // Actualizamos datos en componente principal cuando borramos
     useEffect(() => {
-        if (deleteUser.result == 'ok') {
+        if (deleteUser.result === 'ok') {
             setfetchDataUsers({
                 endPoint: `user`,
                 options: {

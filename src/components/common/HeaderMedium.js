@@ -1,13 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { NavLink } from 'react-router-dom'
 import logo from '../../images/logo.jpg'
 
 export const HeaderMedium = ({ context, hover, setHover }) => {
 
     const { email, user_type, logged } = context;
-
-    // const [hover, setHover] = useState(email); // cambiar texto login en hover
-
 
     return (
         <nav className='nav_medium'>

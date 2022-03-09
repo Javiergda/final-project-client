@@ -22,7 +22,7 @@ export const ManageStudents = ({ users, students, setStudents, setfetchDataStude
 
     // Actualizamos datos en componente principal cuando insertamos
     useEffect(() => {
-        if (modifyStudent.result == 'ok') {
+        if (modifyStudent.result === 'ok') {
             setfetchDataStudents({
                 endPoint: `student`,
                 options: {

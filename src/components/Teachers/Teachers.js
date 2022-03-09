@@ -4,7 +4,6 @@ import { useContext } from 'react/cjs/react.development'
 import { AuthContext } from '../../auth/authContext'
 import { Course } from './Course'
 import { StudentsList } from './StudentsList'
-import { URL_CRUD } from '../../settings';
 import { useFilterStudents } from '../Hooks/useFilterStudents'
 import { useFetch } from '../Hooks/useFetch'
 

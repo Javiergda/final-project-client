@@ -53,9 +53,6 @@ export const Methods = () => {
                     mollis pretium. Suspendisse sodales massa erat, vitae sollicitudin augue consectetur sed.
                     Nam blandit dui sed rutrum cursus. Sed at nisl ut felis maximus scelerisque dictum luctus purus.
                 </p>
-
-
-
             </div>
         </div>
     )

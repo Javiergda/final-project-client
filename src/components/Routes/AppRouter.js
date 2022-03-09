@@ -12,9 +12,6 @@ import { AuthContext } from '../../auth/authContext'
 import { Navigate } from 'react-router-dom'
 import { Contact } from '../Contact/Contact';
 
-// Teachers: ususario logeado y nivel 2
-// Management: ususario logeado y nivel 2
-
 export const AppRouter = () => {
 
     const context = useContext(AuthContext);
@@ -22,7 +19,6 @@ export const AppRouter = () => {
     return (
         <BrowserRouter>
             <Header />
-
             <Routes>
                 <Route path="homepage" element={<HomePage />} />
                 <Route path="alumno" element={context.logged ? <Students /> : <Navigate to='/login' />} />
@@ -32,7 +28,6 @@ export const AppRouter = () => {
                 <Route path="login" element={<Login />} />
                 <Route path="*" element={<HomePage />} />
             </Routes>
-
             <Footer />
         </BrowserRouter>
     )

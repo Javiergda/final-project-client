@@ -1,5 +1,5 @@
 
-const URL_CRUD = 'http://localhost/final-project-server/public/index.php/api';
+const URL_CRUD = 'http://192.168.1.138/final-project-server/public/index.php/api';
 
 export {
     URL_CRUD

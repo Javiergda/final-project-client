@@ -31,7 +31,6 @@ export const Contact = () => {
             </div>
 
             <div className='wrap2'>
-                {/* <h2>Informacion de contacto</h2> */}
                 <ul>
                     <li>
                         <img src={house} alt='adress' />
@@ -45,7 +44,6 @@ export const Contact = () => {
                         <img src={email} alt='email' />
                         <span> bambi@ba.com</span>
                     </li>
-
                 </ul>
             </div>
 

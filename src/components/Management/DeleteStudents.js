@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { URL_CRUD } from '../../settings';
 import { useContext } from 'react'
 import { AuthContext } from '../../auth/authContext'
 import { useFetch } from '../Hooks/useFetch'
@@ -13,7 +12,7 @@ export const DeleteStudents = ({ filteredStudents, setForm, users, setfetchDataS
 
     // Actualizamos datos en componente principal cuando borramos
     useEffect(() => {
-        if (deleteStudent.result == 'ok') {
+        if (deleteStudent.result === 'ok') {
             setfetchDataStudents({
                 endPoint: `student`,
                 options: {
@@ -67,30 +66,10 @@ export const DeleteStudents = ({ filteredStudents, setForm, users, setfetchDataS
                 },
             },
         });
-
-
-        // const endPointUser = `student/${e.target.value}`;
-        // const options = {
-        //     method: "DELETE",
-        //     headers: {
-        //         "Content-Type": "application/json",
-        //         "Authorization": "Bearer " + context.token
-        //     },
-        // }
-        // fetch(`${URL_CRUD}/${endPointUser}`, options)
-        //     .then(response => response.json())
-        //     .then(data => {
-        //         console.log(data);
-        //         // setUsers(data);
-        //     });
     }
 
     return (
         <div className='delete_main'>
-            {/* <div className='title'>
-                <h3><span>Eliminar alumno</span></h3>
-            </div> */}
-
             <div className='wrapper'>
                 <div className='wrapper2 title'>
                     <div className='name'><span >Nombre</span></div>

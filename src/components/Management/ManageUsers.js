@@ -4,7 +4,6 @@ import { FilterUsers } from './FilterUsers';
 import { DeleteUsers } from './DeleteUsers';
 import { AuthContext } from '../../auth/authContext';
 import { useContext } from 'react';
-import { URL_CRUD } from '../../settings';
 import { useFetch } from '../Hooks/useFetch'
 
 export const ManageUsers = ({ users, setUsers, setfetchDataUsers }) => {
@@ -22,7 +21,7 @@ export const ManageUsers = ({ users, setUsers, setfetchDataUsers }) => {
 
     // Actualizamos datos en componente principal cuando insertamos
     useEffect(() => {
-        if (modifyUser.result == 'ok') {
+        if (modifyUser.result === 'ok') {
             setfetchDataUsers({
                 endPoint: `user`,
                 options: {
