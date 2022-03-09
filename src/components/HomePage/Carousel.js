@@ -24,14 +24,14 @@ export const Carousel = () => {
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setImg(previmg => previmg == 3 ? 1 : previmg + 1);
+            setImg(previmg => previmg == title.length - 1 ? 1 : previmg + 1);
         }, 3000);
         return () => clearInterval(interval);
     }, []);
 
     return (
         <div className='carousel_main'>
-            <div className={`carousel${img}`} >
+            <div className={`carousel${img}` + ' carousel'} >
                 <p>
                     <span className='title1'>{title[0]}</span>
                     <img src={title[img].logo} height="50px" alt='phone' color='white' />
@@ -41,4 +41,3 @@ export const Carousel = () => {
         </div>
     )
 }
-

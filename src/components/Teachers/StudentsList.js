@@ -17,7 +17,6 @@ export const StudentsList = ({ filterStudents, setfetchData }) => {
 
     // Actualizamos datos en componente principal
     useEffect(() => {
-        console.log(modifyDaily);
         if (modifyDaily.result === 'ok') {
             setfetchData({
                 endPoint: `student/current/${dateToday}`,
